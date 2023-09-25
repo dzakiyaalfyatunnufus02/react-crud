@@ -21,3 +21,6 @@ function App() {
 }
 
 export default App;
+
+
+// Router ini nama asli nya oky ini juga untuk membuat router
