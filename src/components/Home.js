@@ -84,16 +84,17 @@ function Home() {
                       ? item
                       : item.Name.toLocaleLowerCase().includes(search);
                   }) */}
-                   {Employees && Employees.length > 0
-              ? Employees
-                  .filter((item) => {
-                    // Gunakan filter pencarian jika input pencarian tidak kosong
-                    if (search !== "") {
-                      return item.Name.toLocaleLowerCase().includes(search.toLowerCase());
-                    } else {
-                      return true; // Tampilkan semua data jika input pencarian kosong
-                    }
-                  })
+            {Employees && Employees.length > 0
+              ? Employees.filter((item) => {
+                  // Gunakan filter pencarian jika input pencarian tidak kosong
+                  if (search !== "") {
+                    return item.Name.toLocaleLowerCase().includes(
+                      search.toLowerCase()
+                    );
+                  } else {
+                    return true; // Tampilkan semua data jika input pencarian kosong
+                  }
+                })
                   .slice(firstIndex, lastIndex)
                   .map((item) => {
                     return (
@@ -130,7 +131,10 @@ function Home() {
                 Prev
               </a>
             </li>
-            {Array.from({ length: Math.ceil(Employees.length / recordsPerPage) }, (_, i) => i + 1).map((n, i) => (
+            {Array.from(
+              { length: Math.ceil(Employees.length / recordsPerPage) },
+              (_, i) => i + 1
+            ).map((n, i) => (
               <li
                 className={`page-item ${currentPage === n ? "active" : ""}`}
                 key={i}
