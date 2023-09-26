@@ -24,7 +24,7 @@ function Edit(){
         a.Age = age;
       
     
-        history("/");
+        history("/table");
       }
 
       useEffect(() => {

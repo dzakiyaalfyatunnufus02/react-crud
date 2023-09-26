@@ -33,12 +33,12 @@ const Employees = [
   {
     id: "7",
     Name: "Alfiah",
-    Age: "15",
+    Age: "16",
   },
   {
     id: "8",
     Name: "Syifa",
-    Age: "15",
+    Age: "13",
   },
   {
     id: "9",
@@ -53,22 +53,22 @@ const Employees = [
   {
     id: "11",
     Name: "Sohibah",
-    Age: "15",
+    Age: "17",
   },
   {
     id: "12",
     Name: "Zeti",
-    Age: "15",
+    Age: "16",
   },
   {
     id: "13",
     Name: "Habibah",
-    Age: "15",
+    Age: "14",
   },
   {
     id: "14",
     Name: "Layla",
-    Age: "15",
+    Age: "17",
   },
   {
     id: "15",
@@ -83,7 +83,7 @@ const Employees = [
   {
     id: "17",
     Name: "Eksita",
-    Age: "15",
+    Age: "16",
   },
   {
     id: "18",

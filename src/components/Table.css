@@ -1,0 +1,39 @@
+.btn-edt{
+    background-color: aqua;
+    gap: 50px;
+    border-radius: 10px;
+}
+.btn-dlt{
+    border-radius: 10px;
+    background-color: red;
+}
+.div-frgmnt{
+    /* padding-top: 10rem; */
+    /* display: flex; */
+}
+.edt-dlt{
+    gap: 50px;
+    border-radius: 10px;
+}
+.form{
+    display: flex;
+    padding-top: 10rem;
+}
+.frm-cntrl{
+    background-color:  rgb(60, 107, 247);
+    /* color: rgba(0, 0, 0, 0.836); */
+}
+.inpt{
+    width: 500px;
+    /* color: black; */
+    /* background-color: ; */
+}
+.div{
+    width: 150px;
+}
+.select{
+    width: 100px;
+    height: 37px;
+    border-radius: 8px;
+    background-color: rgb(60, 107, 247);
+}

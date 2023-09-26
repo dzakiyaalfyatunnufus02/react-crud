@@ -1,19 +1,54 @@
-import logo from './logo.svg';
-import './App.css';
-import Home from './components/Home';
-import Add from './components/Add';
-import Edit from './components/Edit';
-import {BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-
+import logo from "./logo.svg";
+import "./App.css";
+import Table from "./components/Table";
+import Add from "./components/Add";
+import Edit from "./components/Edit";
+import Register from "./components/Register";
+import Login from "./components/Login";
+// import Home from './components/Table';
+import Home from "./components/Home";
+import PrivateRoute from "./routes/PrivatRoute";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
       <Router>
         <Routes>
-          <Route path='/' element={<Home/>} />
-          <Route path='/create' element={<Add/>}/>
-          <Route path='/edit' element={<Edit/>}/>
+          <Route
+            path="/table"
+            element={
+              <PrivateRoute>
+                <Table />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/create"
+            element={
+              <PrivateRoute>
+                <Add />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/edit"
+            element={
+              <PrivateRoute>
+                <Edit />
+              </PrivateRoute>
+            }
+          />
+          <Route path="/register" element={<Register />} />
+          <Route path="/" element={<Login />} />
+          <Route
+            path="/home"
+            element={
+              <PrivateRoute>
+                <Home />
+              </PrivateRoute>
+            }
+          />
         </Routes>
       </Router>
     </div>
@@ -21,6 +56,5 @@ function App() {
 }
 
 export default App;
-
 
 // Router ini nama asli nya oky ini juga untuk membuat router
