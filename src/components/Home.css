@@ -1,16 +1,6 @@
-.btn-edt{
-    background-color: aqua;
-    gap: 50px;
-    border-radius: 10px;
-}
-.btn-dlt{
-    border-radius: 10px;
-    background-color: red;
-}
-.div-frgmnt{
-    padding-top: 10rem;
-}
-.edt-dlt{
-    gap: 50px;
-    border-radius: 10px;
+#id{
+  width: 360px;
+  margin-left: 300px;
+  background-color: aqua;
+  margin-bottom: 200px;
 }

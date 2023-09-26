@@ -1,0 +1,287 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Raleway", sans-serif;
+}
+:root {
+  --fz: 14px;
+  --lf: 0px;
+}
+.body {
+  width: 33.3vw;
+}
+.mainContainer {
+  width: 100%;
+  height: 100vh;
+  background: #ee0979;
+  background: -webkit-linear-gradient(to left, #ff6a00, #ee0979);
+  background: linear-gradient(to left, #ff6a00, #ee0979);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.box {
+  position: relative;
+  width: 350px;
+  height: 450px;
+  background-color: #fff;
+  /* padding: 30px 35px 70px 35px; */
+  border-radius: 10px;
+  box-shadow: 5px 5px 18px #38383890;
+  overflow: hidden;
+}
+
+.title-box {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: fit-content;
+  /* margin: auto; */
+  box-shadow: 0 0 20px 9px #ff61241f;
+  border-radius: 100px;
+}
+
+.title-box::before {
+  content: "";
+  position: absolute;
+  width: 110px;
+  height: 100%;
+  background: linear-gradient(to right, #ff105f, #ffad06);
+  border-radius: 100px;
+  left: var(--lf);
+  transition: 0.5s;
+  /* right: 0; */
+}
+.title-box button {
+  position: relative;
+  width: 110px;
+  font-size: 1rem;
+  font-weight: 600;
+  /* padding: 10px 15px; */
+  border-radius: 100px;
+  outline: none;
+  user-select: none;
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+  /* text-align: center; */
+}
+.icon {
+  display: flex;
+  justify-content: space-evenly;
+  width: 150px;
+  /* margin: 25px auto; */
+}
+.icon img {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.input-field {
+  width: 80%;
+  margin: auto;
+  position: absolute;
+}
+.input-field label {
+  font-size: var(--fz);
+  margin-bottom: 10px;
+  user-select: none;
+  font-weight: 600;
+}
+.input-field #log-checkbox,
+.input-field #regi-checkbox {
+  margin: 0 10px 30px 0;
+}
+.input-field .input-text {
+  /* padding: 10px 15px 10px 0; */
+  border: 0;
+  outline: none;
+  border-bottom: 2px solid #eaeaea;
+  font-size: var(--fz);
+  margin-bottom: 20px;
+  width: 100%;
+  background-color: transparent;
+}
+
+.input-field button {
+  display: block;
+  width: 90%;
+  /* margin: auto; */
+  font-size: 16px;
+  font-weight: 600;
+  /* padding: 10px 15px; */
+  border-radius: 100px;
+  outline: none;
+  user-select: none;
+  border: 0;
+  background: linear-gradient(to right, #ff105f, #ffad06);
+  cursor: pointer;
+}
+.register {
+  color: black;
+  /* padding: 0 50px; */
+}
+#login {
+  transition: 0.5s;
+}
+#register {
+  transition: 0.5s;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Raleway", sans-serif;
+}
+:root {
+  --fz: 14px;
+  --lf: 0px;
+}
+
+.mainContainer {
+  width: 300%;
+  height: 100vh;
+  background: #ee0979;
+  background: -webkit-linear-gradient(to left, #ff6a00, #ee0979);
+  background: linear-gradient(to left, #ff6a00, #ee0979);
+  display: flex;
+  justify-content: center;
+  /* margin-left: 0%; */
+}
+.box {
+  position: relative;
+  width: 350px;
+  height: 450px;
+  background-color: #fff;
+  padding: 30px 35px 70px 35px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 18px #38383890;
+  overflow: hidden;
+}
+
+.title-box {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: fit-content;
+  margin: auto;
+  box-shadow: 0 0 20px 9px #ff61241f;
+  border-radius: 100px;
+}
+
+.title-box::before {
+  content: "";
+  position: absolute;
+  width: 110px;
+  height: 100%;
+  background: linear-gradient(to right, #ff105f, #ffad06);
+  border-radius: 100px;
+  left: var(--lf);
+  transition: 0.5s;
+  /* right: 0; */
+}
+.title-box button {
+  position: relative;
+  width: 110px;
+  font-size: 1rem;
+  font-weight: 600;
+  /* padding: 10px 15px; */
+  border-radius: 100px;
+  outline: none;
+  user-select: none;
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+  text-align: center;
+}
+.icon {
+  display: flex;
+  justify-content: space-evenly;
+  width: 150px;
+  /* margin: 25px auto; */
+}
+.icon img {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.input-field {
+  /* width: 80%; */
+  margin: auto;
+  position: absolute;
+}
+.input-field label {
+  font-size: var(--fz);
+  margin-bottom: 10px;
+  user-select: none;
+  font-weight: 600;
+}
+.input-field #log-checkbox,
+.input-field #regi-checkbox {
+  margin: 0 10px 30px 0;
+}
+.input-field .input-text {
+  padding: 10px 0;
+  border: 0;
+  outline: none;
+  border-bottom: 2px solid #eaeaea;
+  font-size: var(--fz);
+  margin-bottom: 20px;
+  width: 100%;
+  background-color: transparent;
+}
+
+.input-field button {
+  display: block;
+  width: 90%;
+  margin: auto;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 10px 15px;
+  border-radius: 100px;
+  outline: none;
+  user-select: none;
+  border: 0;
+  background: linear-gradient(to right, #ff105f, #ffad06);
+  cursor: pointer;
+}
+.register {
+  color: black;
+  /* padding: 0 50px; */
+}
+#login {
+  transition: 0.5s;
+}
+#register {
+  /* left: 50px; */
+  transition: 0.5s;
+  /* }
+  .register {
+    background-color: #ff105f;
+    border-radius: 25px;
+    margin: 5px;
+    width: 100px;
+    padding: 10px;
+    height: 40px;
+  }
+  .login {
+    padding: 10px;
+    width: 100px;
+    height: 30px; */
+}
+.p {
+  /* display: block; */
+  /* text-align: center; */
+  padding: 0px;
+  margin: 0px;
+  /* text-decoration: underline; */
+}
+
+#p {
+  text-decoration: underline;
+}

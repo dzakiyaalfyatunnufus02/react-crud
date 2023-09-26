@@ -6,36 +6,35 @@ import { v4 as uuid } from "uuid";
 import { Link, useNavigate } from "react-router-dom";
 import "./Add.css";
 
-function Edit(){
-    const [name, satName] = useState("");
-    const [age, satAge] = useState("");
-    const [id, satId] = useState("");
+function Edit() {
+  const [name, satName] = useState("");
+  const [age, satAge] = useState("");
+  const [id, satId] = useState("");
 
-    let history = useNavigate();
+  let history = useNavigate();
 
-    var index = Employees.map(function(e) {
-        return e.id
-    }).indexOf(id);
+  var index = Employees.map(function (e) {
+    return e.id;
+  }).indexOf(id);
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        let a = Employees[index];
-        a.Name = name;
-        a.Age = age;
-      
-    
-        history("/");
-      }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    let a = Employees[index];
+    a.Name = name;
+    a.Age = age;
 
-      useEffect(() => {
-        satName(localStorage.getItem('Name'))
-        satAge(localStorage.getItem('Age'))
-        satId(localStorage.getItem('Id'))
-      },[]);
+    history("/table");
+  };
 
-    return(
-        <div className="div-form">
-            <Form className="d-grid gap-2" style={{ margin: "0.5rem" }}>
+  useEffect(() => {
+    satName(localStorage.getItem("Name"));
+    satAge(localStorage.getItem("Age"));
+    satId(localStorage.getItem("Id"));
+  }, []);
+
+  return (
+    <div className="div-form">
+      <Form className="d-grid gap-2" style={{ margin: "0.5rem" }}>
         <Form.Group className="mb-3" controlId="formName">
           <Form.Control
             type="text"
@@ -60,7 +59,7 @@ function Edit(){
           Update
         </Button>
       </Form>
-        </div>
-    )
+    </div>
+  );
 }
 export default Edit;
