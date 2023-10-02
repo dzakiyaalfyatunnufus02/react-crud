@@ -15,7 +15,7 @@ function Add() {
     name: "",
     phone: "",
     payMethod: "",
-  });
+  }); 
   const options = [
     { value: "Cash", label: "Cash" },
     { value: "Kredit", label: "Kredit" },

@@ -1,47 +1,64 @@
 import React, { Fragment, useState } from "react";
 import Container from "react-bootstrap/Container";
 import Swal from "sweetalert2";
+import Order from "./database/Order";
 import { Button, Form, InputGroup, Pagination, Table } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import Costumers from "./database/Costumers";
-import EditCostumer from "./EditCostumers";
-import AddCostumers from "./AddCostumers";
 
-function TableCostumers() {
+function TableOrder() {
   let history = useNavigate("");
+  const navigate = useNavigate();
   const [currentPage, setCurrentPage] = useState(1);
-  const [recordsPerPage, setRecordsPerPage] = useState(5);
-  const npage = Math.ceil(Costumers.length / recordsPerPage);
+  const [recordsPerPage, setRecordsPerPage] = useState(3);
+  const npage = Math.ceil(Order.length / recordsPerPage);
   const numbers = [...Array(npage + 1).keys()].slice(1);
   const [search, setSearch] = useState("");
   const firstIndex = (currentPage - 1) * recordsPerPage;
   const lastIndex = currentPage * recordsPerPage;
   const [id, setId] = useState("");
+ 
+ const [disabledItem, setDisalbedItem]= useState({});
 
-  const handleEdit = (id, name, phone, payMethod) => {
-    localStorage.setItem("name", name);
-    localStorage.setItem("phone", phone);
-    localStorage.setItem("payMethod", payMethod);
+  
+
+  const [formData, setFormData] = useState({
+    room: "",
+    capacity: "",
+    snack: "",
+    lunch: "",
+    extratime: "",
+    booking: "",
+  });
+
+    // const onClick = () => console.log("onClick");
+    // const onClick2 = debounce(onClick, 300) 
+ 
+
+  const handleApprov = (
+    id,
+    room,
+    capacity,
+    snack,
+    lunch,
+    extratime,
+    booking
+  ) => {
+    localStorage.setItem("room", room);
+    localStorage.setItem("capacity", capacity);
+    localStorage.setItem("snack", snack);
+    localStorage.setItem("lunch", lunch);
+    localStorage.setItem("extratime", extratime);
+    localStorage.setItem("booking", booking);
     localStorage.setItem("id", id);
   };
 
-  const filterCostumers = Costumers.filter(
-    (employee) =>
-      employee.name.toLowerCase().includes(search.toLowerCase()) 
+  const filterOrder = Order.filter((employee) =>
+    employee.room.toLowerCase().includes(search.toLowerCase())
   );
-  const records = filterCostumers.slice(firstIndex, lastIndex);
-
-  const handleDelete = (id) => {
-    var index = Costumers.findIndex((e) => e.id === id);
-
-    if (index !== -1) {
-      Costumers.splice(index, 1);
-      history("/tableCostumer");
-    }
-  };
+  const records = filterOrder.slice(firstIndex, lastIndex);
 
   function prePage() {
     if (currentPage > 1) {
@@ -58,6 +75,54 @@ function TableCostumers() {
       setCurrentPage(currentPage + 1);
     }
   }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (
+      formData.room !== "" &&
+      formData.capacity !== "" &&
+      formData.snack !== "" &&
+      formData.lunch !== "" &&
+      formData.extratime !== "" &&
+      formData.booking !== ""
+    ) {
+      const storedAccounts = JSON.parse(localStorage.getItem("accounts")) || [];
+
+      const existingOrder = Order.find(
+        (order) =>
+          order.room === formData.room &&
+          order.capacity === formData.capacity &&
+          order.snack === formData.snack &&
+          order.lunch === formData.lunch &&
+          order.extratime === formData.extratime &&
+          order.booking === formData.booking
+      );
+      if (existingOrder) {
+        // alert("Login berhasil!");
+        Swal.fire({
+          position: "top-center",
+          icon: "success",
+          title: "approve berhasil",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        localStorage.setItem("UserRole", existingOrder.role);
+        // console.log(storedAccounts);
+        navigate("/Home");
+      } 
+    }
+  };
+
+ const disabledButton = (index) =>{
+    setDisalbedItem((prev) => ({...prev, [index]: true}))
+    Swal.fire({
+        position: "top-center",
+        icon: "success",
+        title: "approve success",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+  }
 
   const handleLogout = () => {
     localStorage.clear();
@@ -69,6 +134,13 @@ function TableCostumers() {
       title: "LOGOUT Berhasil!!",
       showConfirmButton: false,
       timer: 2500,
+    });
+  };
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
     });
   };
 
@@ -137,9 +209,9 @@ function TableCostumers() {
                   marginRight: "10px",
                 }}
               >
-                <option value={5}>5</option>
+                <option value={3}>3</option>
+                <option value={6}>6</option>
                 <option value={10}>10</option>
-                <option value={15}>15</option>
               </select>
             </span>
           </div>
@@ -148,42 +220,47 @@ function TableCostumers() {
           <Table striped bordered hover size="sm">
             <thead>
               <tr>
-                <th>Name</th>
-                <th>Phone</th>
-                <th>PayMethod</th>
+                <th>Room</th>
+                <th>Capacity</th>
+                <th>Snack</th>
+                <th>Lunch</th>
+                <th>Extra Time</th>
+                <th>Booking</th>
                 <th>Actions</th>
               </tr>
             </thead>
             <tbody>
-              {filterCostumers && filterCostumers.length > 0 ? (
+              {filterOrder && filterOrder.length > 0 ? (
                 records.map((item, index) => (
                   <tr key={index}>
-                    <td>{item.name}</td>
-                    <td>{item.phone}</td>
-                    <td>{item.payMethod}</td>
+                    <td>{item.room}</td>
+                    <td>{item.capacity}</td>
+                    <td>{item.snack === true ? "ada" : "tidak ada"}</td>
+                    <td>{item.lunch === true ? "ada" : "tidak ada"}</td>
+                    <td>{item.extratime === true ? "ada" : "tidak ada"}</td>
+                    <td>{item.booking}</td>
                     <td>
-                      <Link to={"/editCostumer"}>
+                      <form action="" onSubmit={handleSubmit}>
                         <button
+                        
+                          type="submit"
+                          id="Btn"
                           className="btn-edt"
-                          onClick={() =>
-                            handleEdit(
-                              item.id,
-                              item.name,
-                              item.phone,
-                              item.payMethod,
-                            )
-                          }
+                          disabled={disabledItem[index]}
+                          onClick={() => disabledButton(index)}
+                          
+                        
+                          
+                          
                         >
-                          EDIT
+                          approve
                         </button>
-                      </Link>
+
+                        <div id="r">
+                          <center></center>
+                        </div>
+                      </form>
                       &nbsp;
-                      <button
-                        className="btn-dlt"
-                        onClick={() => handleDelete(item.id)}
-                      >
-                        DELETE
-                      </button>
                     </td>
                   </tr>
                 ))
@@ -207,14 +284,10 @@ function TableCostumers() {
             ))}
             <Pagination.Next onClick={nextPage} />
           </Pagination>
-
-          <Link className="d-grid gap-2" to={"/addCostumer"}>
-            <Button size="lg">Create</Button>
-
-          </Link>
         </div>
       </Fragment>
     </>
   );
 }
-export default TableCostumers;
+
+export default TableOrder;

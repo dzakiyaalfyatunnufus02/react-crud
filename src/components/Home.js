@@ -34,7 +34,8 @@ const Home = () => {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
               <Nav.Link href="/home">Home</Nav.Link>
-              <Nav.Link href="/tableCostumer">Costumers</Nav.Link>
+              <Nav.Link href="/tableOrder">Tabele Order</Nav.Link>
+              <Nav.Link href="/tableCostumer">Costumer</Nav.Link>
               <Nav.Link href="/table">Table</Nav.Link>
               <NavDropdown title="Dropdown" id="basic-nav-dropdown">
                 <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>

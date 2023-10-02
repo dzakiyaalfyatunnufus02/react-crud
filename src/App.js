@@ -8,6 +8,7 @@ import Login from "./components/Login";
 import Costumer from "./components/TableCostumer";
 import EditCostumer from "./components/EditCostumers";
 import TableCostumers from "./components/TableCostumer";
+import TableOrder from "./components/TableOrder"
 import AddCostumers from "./components/AddCostumers";
 // import Home from './components/Table';
 import Home from "./components/Home";
@@ -62,7 +63,7 @@ function App() {
             }
             />
            <Route
-            path="/editCostumers"
+            path="/editCostumer"
             element={
               <PrivateRoute>
                 <EditCostumer />
@@ -82,6 +83,14 @@ function App() {
             element={
               <PrivateRoute>
                 <AddCostumers />
+              </PrivateRoute>
+            }
+            />
+           <Route
+            path="/tableOrder"
+            element={
+              <PrivateRoute>
+                <TableOrder />
               </PrivateRoute>
             }
             />
