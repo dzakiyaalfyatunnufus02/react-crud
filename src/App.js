@@ -5,6 +5,10 @@ import Add from "./components/Add";
 import Edit from "./components/Edit";
 import Register from "./components/Register";
 import Login from "./components/Login";
+import Costumer from "./components/TableCostumer";
+import EditCostumer from "./components/EditCostumers";
+import TableCostumers from "./components/TableCostumer";
+import AddCostumers from "./components/AddCostumers";
 // import Home from './components/Table';
 import Home from "./components/Home";
 import PrivateRoute from "./routes/PrivatRoute";
@@ -49,6 +53,38 @@ function App() {
               </PrivateRoute>
             }
           />
+           <Route
+            path="/costumer"
+            element={
+              <PrivateRoute>
+                <Costumer />
+              </PrivateRoute>
+            }
+            />
+           <Route
+            path="/editCostumers"
+            element={
+              <PrivateRoute>
+                <EditCostumer />
+              </PrivateRoute>
+            }
+            />
+           <Route
+            path="/tableCostumer"
+            element={
+              <PrivateRoute>
+                <TableCostumers />
+              </PrivateRoute>
+            }
+            />
+           <Route
+            path="/addCostumer"
+            element={
+              <PrivateRoute>
+                <AddCostumers />
+              </PrivateRoute>
+            }
+            />
         </Routes>
       </Router>
     </div>

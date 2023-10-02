@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import './Login.css'
+import Accounts from "./database/Accounts";
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -26,7 +27,7 @@ const Login = () => {
     if (formData.username !== "" && formData.password !== "") {
       const storedAccounts = JSON.parse(localStorage.getItem("accounts")) || [];
 
-      const existingAccount = storedAccounts.find(
+      const existingAccount = Accounts.find(
         (account) =>
           account.username === formData.username &&
           account.password === formData.password
