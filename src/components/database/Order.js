@@ -3,9 +3,9 @@ const Order = [
         id:"1",
         room: "1",
         capacity: "single bed",
-        snack: true,
-        lunch: false,
-        extratime: false,
+        snack: "true",
+        lunch: "false",
+        extratime: "false",
         booking: "2 day"
 
     },
@@ -13,9 +13,9 @@ const Order = [
         id:"2",
         room: "2",
         capacity: "doble bed",
-        snack: false,
-        lunch: false,
-        extratime: false,
+        snack: "false",
+        lunch: "false",
+        extratime: "false",
         booking: "3 day"
 
     },
@@ -23,9 +23,9 @@ const Order = [
         id:"3",
         room: "3",
         capacity: "doble bed",
-        snack: false,
-        lunch: false,
-        extratime: false,
+        snack: "false",
+        lunch: "false",
+        extratime: "false",
         booking: "3 day"
 
     },
@@ -33,9 +33,9 @@ const Order = [
         id:"4",
         room: "4",
         capacity: "single bed",
-        snack: true,
-        lunch: false,
-        extratime: false,
+        snack: "true",
+        lunch: "false",
+        extratime: "false",
         booking: "2 day"
 
     },
@@ -43,9 +43,9 @@ const Order = [
         id:"5",
         room: "5",
         capacity: "doble bed",
-        snack: false,
-        lunch: true,
-        extratime: false,
+        snack: "false",
+        lunch: "true",
+        extratime: "false",
         booking: "3 day"
 
     },
@@ -53,9 +53,9 @@ const Order = [
         id:"6",
         room: "6",
         capacity: "single bed",
-        snack: true,
-        lunch: false,
-        extratime: true,
+        snack: "true",
+        lunch: "false",
+        extratime: "true",
         booking: "2 day"
 
     },
@@ -63,9 +63,9 @@ const Order = [
         id:"7",
         room: "7",
         capacity: "doble bed",
-        snack: false,
-        lunch: false,
-        extratime: true,
+        snack: "false",
+        lunch: "false",
+        extratime: "true",
         booking: "2 day"
 
     },
@@ -73,9 +73,9 @@ const Order = [
         id:"8",
         room: "8",
         capacity: "single bed",
-        snack: false,
-        lunch: false,
-        extratime: false,
+        snack: "false",
+        lunch: "false",
+        extratime: "false",
         booking: "3 day"
 
     },
@@ -83,9 +83,9 @@ const Order = [
         id:"9",
         room: "9",
         capacity: "doble bed",
-        snack: false,
-        lunch: true,
-        extratime: false,
+        snack: "false",
+        lunch: "true",
+        extratime: "false",
         booking: "3 day"
 
     },
@@ -93,9 +93,9 @@ const Order = [
         id:"10",
         room: "10",
         capacity: "single bed",
-        snack: true,
-        lunch: false,
-        extratime: true,
+        snack: "false",
+        lunch: "false",
+        extratime: "true",
         booking: "2 day"
 
     },

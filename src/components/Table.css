@@ -35,5 +35,7 @@
     width: 100px;
     height: 37px;
     border-radius: 8px;
-    background-color: rgb(60, 107, 247);
+    background-color: rgb(93, 131, 244);
+}.home{
+    height: 1000px;
 }

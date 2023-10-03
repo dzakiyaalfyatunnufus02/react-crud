@@ -7,6 +7,7 @@ import Register from "./components/Register";
 import Login from "./components/Login";
 import Costumer from "./components/TableCostumer";
 import EditCostumer from "./components/EditCostumers";
+import AddOrder from"./components/AddOrder";
 import TableCostumers from "./components/TableCostumer";
 import TableOrder from "./components/TableOrder"
 import AddCostumers from "./components/AddCostumers";
@@ -14,6 +15,7 @@ import AddCostumers from "./components/AddCostumers";
 import Home from "./components/Home";
 import PrivateRoute from "./routes/PrivatRoute";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import EditOrder from "./components/EditOrder";
 
 function App() {
   return (
@@ -91,6 +93,22 @@ function App() {
             element={
               <PrivateRoute>
                 <TableOrder />
+              </PrivateRoute>
+            }
+            />
+           <Route
+            path="/editOrder"
+            element={
+              <PrivateRoute>
+                <EditOrder />
+              </PrivateRoute>
+            }
+            />
+           <Route
+            path="/addOrder"
+            element={
+              <PrivateRoute>
+                <AddOrder />
               </PrivateRoute>
             }
             />

@@ -1,6 +1,10 @@
 #id{
   width: 360px;
   margin-left: 300px;
-  background-color: aqua;
+  background-color: rgba(141, 115, 150, 0.911);
   margin-bottom: 200px;
+}
+div{
+  background-color: lavender;
+  
 }

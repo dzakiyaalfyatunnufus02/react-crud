@@ -146,7 +146,7 @@ function Tabel() {
               <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto">
                   <Nav.Link href="/home">Home</Nav.Link>
-                  <Nav.Link href="/tableOrder">Table Order</Nav.Link>
+                  <Nav.Link href="/tableOrder">Table Oreder</Nav.Link>
                   <Nav.Link href="/tableCostumer">Costumers</Nav.Link>
                   <Nav.Link href="/table">Table</Nav.Link>
                   <NavDropdown title="Dropdown" id="basic-nav-dropdown">
@@ -292,6 +292,7 @@ function Tabel() {
               <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto">
                   <Nav.Link href="/home">Home</Nav.Link>
+                  <Nav.Link href="/tableOrder">Table Order</Nav.Link>
                   <Nav.Link href="/costumer">costumer</Nav.Link>
                   <Nav.Link href="/table">Table</Nav.Link>
                   <NavDropdown title="Dropdown" id="basic-nav-dropdown">
