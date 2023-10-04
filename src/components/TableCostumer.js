@@ -7,6 +7,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Costumers from "./database/Costumers";
+import TableOrder from "./TableOrder";
 import EditCostumer from "./EditCostumers";
 import AddCostumers from "./AddCostumers";
 

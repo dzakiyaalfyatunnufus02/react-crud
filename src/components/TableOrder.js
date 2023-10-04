@@ -2,6 +2,7 @@ import React, { Fragment, useState } from "react";
 import Container from "react-bootstrap/Container";
 import Swal from "sweetalert2";
 import Order from "./database/Order";
+import AddOrder from "./AddOrder"
 import "./AddOrder.css"
 import EditOrder from "./EditOrder";
 import { Button, Form, InputGroup, Pagination, Table } from "react-bootstrap";
@@ -9,6 +10,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
+import RuangTunggu from "./RuangTunggu"
 
 function TableOrder() {
   let history = useNavigate("");
@@ -263,6 +265,7 @@ function TableOrder() {
                         <td>{item.booking}</td>
                         <td>
                           <form action="" onSubmit={handleSubmit}>
+                            {/* <Link  className="d-grid gap-2" to={"addOrder"}> */}
                             <button
                               type="submit"
                               id="Btn"
@@ -272,7 +275,7 @@ function TableOrder() {
                             >
                               approve
                             </button>
-
+                            {/* </Link> */}
                             <div id="r">
                               <center></center>
                             </div>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Challenge</title>
+  </head>
+  <body>
+    <script>
+      function turnOnOff() {
+        var image = document.getElementById('image');
+        if (image.src.match("ONbulb")) {
+          image.src =
+            "https://media.geeksforgeeks.org/wp-content/uploads/OFFbulb.jpg";
+        } else {
+            image.src =
+            "https://media.geeksforgeeks.org/wp-content/uploads/ONbulb.jpg";
+        }
+         
+      }
+    </script>
+
+    <img
+      id="image"
+     onclick="turnOnOff()"
+      src="https://media.geeksforgeeks.org/wp-content/uploads/OFFbulb.jpg"
+    />
+
+    <p>Click on the bulb to turn it ON and OFF</p>
+  </body>
+</html>

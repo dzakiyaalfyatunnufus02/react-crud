@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Button, Form } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Order from "./database/Order";
+import TableCostumers from "./TableCostumer";
+import RuangTunggu from "./RuangTunggu"
 import "./AddOrder.css"
 import { v4 as uuid } from "uuid";
 import { Link, useNavigate } from "react-router-dom";
@@ -51,7 +53,7 @@ function Add() {
       extratime: l,
     });
     console.log(Order);
-    history("/tableOrder");
+    history("/ruangTunggu");
 
     //  function for operator And
   };
@@ -134,9 +136,9 @@ function Add() {
           <option value={false}> False</option>
       </select>
       <br/>
-          <Link to="/tableOrder">
+          <Link to="/tableCostumer">
             <Button onClick={(e) => Submit(e)} type="submit">
-              Update
+              Create
             </Button>
           </Link>
         </Form>

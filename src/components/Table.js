@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { Button, Form, InputGroup, Pagination, Table } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Accounts from "./database/Accounts";
@@ -10,6 +10,7 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Swal from "sweetalert2";
 import Rooms from "./database/Rooms";
+import axios from "axios";
 
 function Tabel() {
   let history = useNavigate();
@@ -24,7 +25,7 @@ function Tabel() {
   const firstIndex = (currentPage - 1) * recordsPerPage;
   const lastIndex = currentPage * recordsPerPage;
   const [id, setId] = useState("");
-
+  const [accounts, setAccounts] = useState([]);
 
   const handleEdit = (id, username, email, password) => {
     localStorage.setItem("username", username);
@@ -32,13 +33,28 @@ function Tabel() {
     localStorage.setItem("password", password);
     localStorage.setItem("Id", id);
   };
+  const getAccounts = async () => {
+    try {
+      const respon = await axios.get("http://localhost:2222/accounts");
+      const allAccounts = respon.data;
+  
+      // Apply search filter only for supervisor role
+      const filteredAccounts = userRole === "supervisor"
+        ? allAccounts.filter(
+          (employee) =>
+            employee.username.toLowerCase().includes(search.toLowerCase()) &&
+            employee.role !== "supervisor"
+        )
+        : allAccounts;
+  
+      setAccounts(filteredAccounts);
+      console.log(filteredAccounts);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
-  const filterAccounts = Accounts.filter(
-    (employee) =>
-      employee.username.toLowerCase().includes(search.toLowerCase()) &&
-      employee.role !== "supervisor"
-  );
-  const records = filterAccounts.slice(firstIndex, lastIndex);
+  // const records = filterAccounts.slice(firstIndex, lastIndex);
 
   const handleDelete = (id) => {
     var index = Accounts.findIndex((e) => e.id === id);
@@ -78,7 +94,7 @@ function Tabel() {
     });
   };
   // function for supervisor END
-  
+
   // function for operator Start
   const [currentRoom, setCurrentRoom] = useState(1);
   const [recordsPERPAGE, setRecordsPERPAGE] = useState(5);
@@ -88,16 +104,13 @@ function Tabel() {
   const firstRoom = (currentRoom - 1) * recordsPERPAGE;
   const lastRoom = currentRoom * recordsPERPAGE;
 
-  const Edit = (Id, lantai, ruang,) => {
+  const Edit = (Id, lantai, ruang) => {
     localStorage.setItem("id", Id);
     localStorage.setItem("lantai", lantai);
     localStorage.setItem("ruang", ruang);
-   
   };
-  const filterRooms = Rooms.filter(
-    (employee) =>
-      employee.lantai.toLowerCase().includes(Search.toLowerCase()) 
-   
+  const filterRooms = Rooms.filter((employee) =>
+    employee.lantai.toLowerCase().includes(Search.toLowerCase())
   );
   const Records = filterRooms.slice(firstRoom, lastRoom);
 
@@ -134,7 +147,9 @@ function Tabel() {
     });
   };
   // function operator And
-
+  useEffect(() => {
+    getAccounts();
+  }, [search]);
   return (
     <div className="home">
       {userRole === "supervisor" ? (
@@ -223,8 +238,8 @@ function Tabel() {
                 </tr>
               </thead>
               <tbody>
-                {filterAccounts && filterAccounts.length > 0 ? (
-                  records.map((item, index) => (
+                {accounts && accounts.length > 0 ? (
+                  accounts.map((item, index) => (
                     <tr key={index}>
                       <td>{item.username}</td>
                       <td>{item.email}</td>
@@ -372,18 +387,13 @@ function Tabel() {
                     <tr key={index}>
                       <td>{item.lantai}</td>
                       <td>{item.ruang}</td>
-                     
-                      
+
                       <td>
                         <Link to={"/edit"}>
                           <button
                             className="btn-edt"
                             onClick={() =>
-                              Edit(
-                                item.id,
-                               item.lantai,
-                               item.ruang,
-                              )
+                              Edit(item.id, item.lantai, item.ruang)
                             }
                           >
                             EDIT
