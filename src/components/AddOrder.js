@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Button, Form } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Order from "./database/Order";
 import TableCostumers from "./TableCostumer";
 import RuangTunggu from "./RuangTunggu"
 import "./AddOrder.css"
 import { v4 as uuid } from "uuid";
 import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function Add() {
   let history = useNavigate();
@@ -30,30 +30,31 @@ function Add() {
     { value: "false", label: "false" },
   
   ];
-  const Submit = (e) => {
+  const Submit = async(e) => {
     e.preventDefault();
 
     const ids = uuid();
-    let Uniqed = ids.slice(0, 8);
+    let uniqed = ids.slice(0, 8);
 
-    let d = snack,
-      g = capacity,
-      f = lunch,
-      k = room,
-      s = booking,
-      l = extratime;
+    const request = {
+    id: uniqed,
+    snack: snack,
+    capacity: capacity,
+    lunch: lunch,
+    room: room,
+    booking: booking,
+    extratime: extratime
+    }
 
-    Order.push({
-      id: Uniqed,
-      snack: d,
-      capacity: g,
-      lunch: f,
-      room: k,
-      booking: s,
-      extratime: l,
-    });
-    console.log(Order);
-    history("/ruangTunggu");
+    try {
+      const respon = await axios.post(" http://localhost:2222/order", request)
+      console.log(respon);
+      console.log("ordered");
+    } catch (error) {
+      
+    }
+
+   history("/ruangTunggu");
 
     //  function for operator And
   };

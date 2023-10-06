@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Button, Form } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Accounts from "./database/Accounts";
 import { v4 as uuid } from "uuid";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import "./Add.css";
-import Rooms from "./database/Rooms";
+import axios from "axios";
 
 function Edit() {
   // function for supervisor
@@ -16,19 +15,32 @@ function Edit() {
   const [password, satPassword] = useState("");
   const [role, satRole] = useState("");
   const userRole = localStorage.getItem("UserRole");
-
   let history = useNavigate();
 
-  var index = Accounts.map(function (e) {
-    return e.id;
-  }).indexOf(id);
+  const param = useParams();
 
-  const handleSubmit = (e) => {
+ 
+
+  const handleSubmit = async(e) => {
     e.preventDefault();
-    let a = Accounts[index];
-    a.username = username;
-    a.email = email;
-    a.password = password;
+      
+    const request = {
+      username: username,
+      email: email,
+      password: password,
+      role: "operator"
+
+    }
+
+    try {
+      const respon = await axios.put(`http://localhost:2222/accounts/${param.id}`, request)
+      console.log(respon.data);
+      console.log("updated");
+    } catch (error) {
+      console.log(error);
+      
+    }
+
 
     history("/table");
   };
@@ -46,15 +58,22 @@ function Edit() {
   const [lantai, setLantai] = useState("");
   const [Ruang, setRuang] = useState("");
 
-  var INDEX = Rooms.map(function (e) {
-    return e.id;
-  }).indexOf(Id);
 
-  const Submit = (e) => {
+
+  const Submit = async(e) => {
     e.preventDefault();
-    let b = Rooms[INDEX];
-    b.lantai = lantai;
-    b.ruang = Ruang;
+     const Request = {
+      lantai: lantai,
+      ruang: Ruang
+     }
+
+     try {
+      const Respon = await axios.put(`http://localhost:2222/rooms/${param.id}`, Request)
+      console.log(Respon.data);
+      console.log("updated");
+     } catch (error) {
+      console.log(error);
+     }
 
     history("/table");
   };
@@ -103,7 +122,7 @@ function Edit() {
               ></Form.Control>
             </Form.Group>
             <Button onClick={(e) => handleSubmit(e)} type="submit">
-              Update
+              Edit
             </Button>
           </Form>
         </div>
@@ -131,7 +150,7 @@ function Edit() {
               ></Form.Control>
             </Form.Group>
             <Button onClick={(e) => Submit(e)} type="submit">
-              Update
+              Edit
             </Button>
           </Form>
         </div>

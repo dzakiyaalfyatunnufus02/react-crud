@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Button, Form } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Costumers from "./database/Costumers";
 import { v4 as uuid } from "uuid";
 import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function Add() {
   let history = useNavigate();
@@ -21,23 +21,27 @@ function Add() {
     { value: "Kredit", label: "Kredit" },
     { value: "Debit", label: "Debit" },
   ];
-  const Submit = (e) => {
+  const Submit =  async(e) => {
     e.preventDefault();
 
     const ids = uuid();
     let Uniqed = ids.slice(0, 8);
 
-    let d = name,
-      g = phone,
-      f = payMethod;
+  const request = {
+    id: Uniqed,
+  name: name,
+  phone: phone,
+  payMethod: payMethod
+  }
 
-    Costumers.push({
-      id: Uniqed,
-      name: d,
-      phone: g,
-      payMethod: f,
-    });
-    console.log(Costumers);
+  try {
+    const respon = await axios.post("http://localhost:2222/costumers", request)
+    console.log(respon);
+    console.log("costumered");
+  } catch (error) {
+    console.log(error);
+    
+  }
     history("/tableCostumer");
 
     //  function for operator And

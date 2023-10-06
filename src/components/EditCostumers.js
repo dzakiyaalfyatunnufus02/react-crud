@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Button, Form } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Costumers from "./database/Costumers";
 import { v4 as uuid } from "uuid";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import axios from "axios";
 
 function EditCostumer() {
   let history = useNavigate();
@@ -11,26 +11,31 @@ function EditCostumer() {
   const [phone, setPhone] = useState("");
   const [payMethod, setPayMethod] = useState("");
   const [id, setid] = useState("");
- 
+  const param = useParams(); 
   const options = [
     { value: "Cash", label: "Cash" },
     { value: "Kredit", label: "Kredit" },
     { value: "Debit", label: "Debit" },
   ];
  
-  var INDEX = Costumers.map(function (e) {
-    return e.id;
-  }).indexOf(id);
-  const Submit = (e) => {
+  
+  const Submit = async(e) => {
     e.preventDefault();
-    let b = Costumers[INDEX];
-    b.name = name;
-    b.phone = phone;
-    b.payMethod = payMethod;
+  
+    const request = {
+      name: name,
+      phone: phone,
+      payMethod: payMethod
+    }
 
-    localStorage.setItem("name", name);
-    localStorage.setItem("phone", phone);
-    localStorage.setItem("payMethod", payMethod);
+    try {
+      const respon = await axios.put(`http://localhost:2222/costumers/${param.id}`, request)
+      console.log(respon);
+      console.log("update");
+    } catch (error) {
+      console.log(error);
+      
+    }
 
 
   
@@ -89,8 +94,7 @@ function EditCostumer() {
       <br/>
       <Link to="/tableCostumer">
         <Button onClick={(e) => Submit(e)} type="submit">
-          
-          Update
+          Edit
         </Button>
         </Link>
       </Form>

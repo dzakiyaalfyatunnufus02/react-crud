@@ -1,67 +1,11 @@
 {
   "accounts": [
     {
-      "id": "1",
-      "username": "alfy",
-      "email": "alfyatun@gmail.com",
-      "password": "alfy",
-      "role": "supervisor"
-    },
-    {
-      "id": "2",
-      "username": "aly",
-      "email": "aly@gmail.com",
-      "password": "aly",
-      "role": "operator"
-    },
-    {
-      "id": "3",
-      "username": "afy",
-      "email": "afygmail.com",
-      "password": "afy",
-      "role": "operator"
-    },
-    {
-      "id": "4",
-      "username": "al",
-      "email": "al@gmail.com",
-      "password": "al",
-      "role": "operator"
-    },
-    {
       "id": "5",
       "username": "usma",
       "email": "usma@gmail.com",
       "password": "usma",
       "role": "supervisor"
-    },
-    {
-      "id": "6",
-      "username": "ahmad",
-      "email": "ahmad@gmail.com",
-      "password": "alfy",
-      "role": "operator"
-    },
-    {
-      "id": "7",
-      "username": "karina",
-      "email": "karina@gmail.com",
-      "password": "karina",
-      "role": "operator"
-    },
-    {
-      "id": "8",
-      "username": "dita",
-      "email": "dita@gmail.com",
-      "password": "dita",
-      "role": "operator"
-    },
-    {
-      "id": "9",
-      "username": "mawar",
-      "email": "mawar@gmail.com",
-      "password": "mawar",
-      "role": "operator"
     },
     {
       "id": "10",
@@ -139,15 +83,56 @@
       "email": "bejo@gmail.com",
       "password": "bejo",
       "role": "operator"
+    },
+    {
+      "username": "wertyono",
+      "email": "pita@gmail.com",
+      "password": "df",
+      "role": "operator",
+      "id": "23908393"
+    },
+    {
+      "id": "05255185",
+      "username": "layla",
+      "email": "layla@gmail.com",
+      "password": "12345",
+      "role": "operator"
+    },
+    {
+      "id": "d45cdbca",
+      "email": "waret@gmail.com",
+      "username": "waret",
+      "password": "waret",
+      "role": "supervisor"
+    },
+    {
+      "id": "093e56f1",
+      "email": "waret@gmail.com",
+      "username": "waret",
+      "password": "waret",
+      "role": "supervisor"
+    },
+    {
+      "id": "726a6fa3",
+      "email": "waret@gmail.com",
+      "username": "waret",
+      "password": "waret",
+      "role": "supervisor"
+    },
+    {
+      "id": "41ac6f27",
+      "email": "mail@gmail.com",
+      "username": "mail",
+      "password": "mail",
+      "role": "supervisor"
     }
-
   ],
   "costumers": [
     {
-      "id": "1",
-      "name": "alfy",
+      "name": "alfyn",
       "phone": "081258612687",
-      "payMethod": "Cash"
+      "payMethod": "Cash",
+      "id": "1"
     },
     {
       "id": "2",
@@ -164,12 +149,6 @@
     {
       "id": "4",
       "name": "aly",
-      "phone": "081258612687",
-      "payMethod": "Cash"
-    },
-    {
-      "id": "5",
-      "name": "fy",
       "phone": "081258612687",
       "payMethod": "Cash"
     },
@@ -204,40 +183,13 @@
       "payMethod": "Cash"
     },
     {
-      "id": "11",
-      "name": "jono",
+      "name": "jonon",
       "phone": "081258612687",
-      "payMethod": "Cash"
+      "payMethod": "Cash",
+      "id": "11"
     }
   ],
   "order": [
-    {
-      "id": "1",
-      "room": "1",
-      "capacity": "single bed",
-      "snack": "true",
-      "lunch": "false",
-      "extratime": "false",
-      "booking": "2 day"
-    },
-    {
-      "id": "2",
-      "room": "2",
-      "capacity": "doble bed",
-      "snack": "false",
-      "lunch": "false",
-      "extratime": "false",
-      "booking": "3 day"
-    },
-    {
-      "id": "3",
-      "room": "3",
-      "capacity": "doble bed",
-      "snack": "false",
-      "lunch": "false",
-      "extratime": "false",
-      "booking": "3 day"
-    },
     {
       "id": "4",
       "room": "4",
@@ -307,11 +259,6 @@
       "id": "1",
       "lantai": "1",
       "ruang": "1"
-    },
-    {
-      "id": "2",
-      "lantai": "1",
-      "ruang": "2"
     },
     {
       "id": "3",

@@ -1,31 +1,53 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import Container from "react-bootstrap/Container";
 import Swal from "sweetalert2";
-import Order from "./database/Order";
-import AddOrder from "./AddOrder"
-import "./AddOrder.css"
+import AddOrder from "./AddOrder";
+import "./AddOrder.css";
 import EditOrder from "./EditOrder";
 import { Button, Form, InputGroup, Pagination, Table } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import Nav from "react-bootstrap/Nav";
+import axios from "axios";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import RuangTunggu from "./RuangTunggu"
+import RuangTunggu from "./RuangTunggu";
 
 function TableOrder() {
   let history = useNavigate("");
   const navigate = useNavigate();
   const [currentPage, setCurrentPage] = useState(1);
   const [recordsPerPage, setRecordsPerPage] = useState(3);
-  const npage = Math.ceil(Order.length / recordsPerPage);
+  const [order, setOrder] = useState([]);
+  const npage = Math.ceil(order.length / recordsPerPage);
   const numbers = [...Array(npage + 1).keys()].slice(1);
   const [search, setSearch] = useState("");
   const firstIndex = (currentPage - 1) * recordsPerPage;
   const lastIndex = currentPage * recordsPerPage;
   const [id, setId] = useState("");
-  const userRole = localStorage.getItem("UserRole");
 
+  const userRole = localStorage.getItem("UserRole");
   const [disabledItem, setDisalbedItem] = useState({});
+
+  const RECORDS = order.slice(firstIndex, lastIndex);
+
+  const getOrder = async () => {
+    try {
+      const respon = await axios.get("http://localhost:2222/order");
+      const allOrder = respon.data;
+
+      // Apply search filter only for supervisor role
+      const filterOrder = allOrder.filter(
+        (employee) =>
+          employee.room?.toLowerCase().includes(search?.toLowerCase()) &&
+          employee.role !== "supervisor"
+      );
+
+      setOrder(filterOrder);
+      console.log(filterOrder);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const [formData, setFormData] = useState({
     room: "",
@@ -57,10 +79,36 @@ function TableOrder() {
     localStorage.setItem("id", id);
   };
 
-  const filterOrder = Order.filter((employee) =>
+  const filterOrder = order.filter((employee) =>
     employee.room.toLowerCase().includes(search.toLowerCase())
   );
+  const [currentRoom, setCurrentRoom] = useState(1);
+  const [recordsPERPAGE, setRecordsPERPAGE] = useState(5);
   const records = filterOrder.slice(firstIndex, lastIndex);
+  const [orders, setOrders] = useState([]);
+  const npageE = Math.ceil(orders.length / recordsPERPAGE);
+  const number = [...Array(npageE + 1).keys()].slice(1);
+  const [Search, setSEARCH] = useState("");
+  const firstRoom = (currentRoom - 1) * recordsPERPAGE;
+  const lastRoom = currentRoom * recordsPERPAGE;
+   const Records = orders.slice(firstIndex, lastIndex);
+
+  const getOperator = async () => {
+    try {
+      const Respon = await axios.get("http://localhost:2222/order");
+      const allOrder = Respon.data;
+
+      // Apply search filter only for operator role
+      const filterOrder = allOrder.filter((order) =>
+        order.room?.toLowerCase().includes(Search?.toLowerCase())
+      );
+
+      setOrders(filterOrder);
+      console.log(filterOrder);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   function prePage() {
     if (currentPage > 1) {
@@ -90,7 +138,7 @@ function TableOrder() {
     ) {
       const storedAccounts = JSON.parse(localStorage.getItem("accounts")) || [];
 
-      const existingOrder = Order.find(
+      const existingOrder = orders.find(
         (order) =>
           order.room === formData.room &&
           order.capacity === formData.capacity &&
@@ -153,15 +201,20 @@ function TableOrder() {
     localStorage.setItem("extratime", extratime);
     localStorage.setItem("booking", booking);
     localStorage.setItem("id", id);
-    history("/editOrder");
   };
-  const handleDelete = (id) => {
-    var index = Order.findIndex((e) => e.id === id);
-    if (index !== -1) {
-      Order.splice(index, 1);
+  const handleDelete = async(id) => {
+  const RESPON = await axios.delete(` http://localhost:2222/order/${id}`)
+  console.log(RESPON);
+  console.log("deleted");
+  getOperator();
       history("/tableOrder");
     }
-  };
+  
+
+  useEffect(() => {
+    getOrder();
+    getOperator();
+  }, [search, Search]);
 
   return (
     <>
@@ -175,8 +228,7 @@ function TableOrder() {
                 <Navbar.Collapse id="basic-navbar-nav">
                   <Nav className="me-auto">
                     <Nav.Link href="/home">Home</Nav.Link>
-                    <Nav.Link href="/tableOrder">Table Order</Nav.Link>
-                    <Nav.Link href="/tableCostumer">Costumer</Nav.Link>
+                    <Nav.Link href="/tableOrder">Approve List</Nav.Link>
                     <Nav.Link href="/table">Table</Nav.Link>
                     <NavDropdown title="Dropdown" id="basic-nav-dropdown">
                       <NavDropdown.Item href="#action/3.1">
@@ -255,7 +307,7 @@ function TableOrder() {
                 </thead>
                 <tbody>
                   {filterOrder && filterOrder.length > 0 ? (
-                    records.map((item, index) => (
+                    RECORDS.map((item, index) => (
                       <tr key={index}>
                         <td>{item.room}</td>
                         <td>{item.capacity}</td>
@@ -315,7 +367,7 @@ function TableOrder() {
                 <Navbar.Collapse id="basic-navbar-nav">
                   <Nav className="me-auto">
                     <Nav.Link href="/home">Home</Nav.Link>
-                    <Nav.Link href="/tableOrder">Table Order</Nav.Link>
+                    <Nav.Link href="/tableOrder">Approve List</Nav.Link>
                     <Nav.Link href="/tableCostumer">Costumer</Nav.Link>
                     <Nav.Link href="/table">Table</Nav.Link>
                     <NavDropdown title="Dropdown" id="basic-nav-dropdown">
@@ -348,8 +400,8 @@ function TableOrder() {
                 <input
                   type="text"
                   placeholder="search"
-                  value={search}
-                  onChange={(e) => setSearch(e.target.value)}
+                  value={Search}
+                  onChange={(e) => setSEARCH(e.target.value)}
                   style={{
                     width: "400px",
                     height: "40px",
@@ -394,8 +446,8 @@ function TableOrder() {
                   </tr>
                 </thead>
                 <tbody>
-                  {filterOrder && filterOrder.length > 0 ? (
-                    records.map((item, index) => (
+                  {orders && orders.length > 0 ? (
+                    Records.map((item, index) => (
                       <tr key={index}>
                         <td>{item.room}</td>
                         <td>{item.capacity}</td>
@@ -404,22 +456,24 @@ function TableOrder() {
                         <td>{item.extratime}</td>
                         <td>{item.booking}</td>
                         <td>
-                          <button
-                            className="btn-edt"
-                            onClick={() =>
-                              handleEdit(
-                                item.id,
-                                item.room,
-                                item.capacity,
-                                item.snack,
-                                item.lunch,
-                                item.extratime,
-                                item.booking
-                              )
-                            }
-                          >
-                            EDIT
-                          </button>
+                          <Link to={`/editOrder/${item.id}`}>
+                            <button
+                              className="btn-edt"
+                              onClick={() =>
+                                handleEdit(
+                                  item.id,
+                                  item.room,
+                                  item.capacity,
+                                  item.snack,
+                                  item.lunch,
+                                  item.extratime,
+                                  item.booking
+                                )
+                              }
+                            >
+                              EDIT
+                            </button>
+                          </Link>
                           &nbsp;
                           <button
                             className="btn-dlt"
@@ -452,7 +506,9 @@ function TableOrder() {
                 <Pagination.Next onClick={nextPage} />
               </Pagination>
               <Link className="d-grid gap-2" to={"/addOrder"}>
-                <Button className="btn" size="lg">Create</Button>
+                <Button className="btn" size="lg">
+                  Create
+                </Button>
               </Link>
             </div>
           </Fragment>

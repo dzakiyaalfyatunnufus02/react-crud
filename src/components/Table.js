@@ -1,7 +1,6 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { Button, Form, InputGroup, Pagination, Table } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Accounts from "./database/Accounts";
 import "./Table.css";
 import { Link, useNavigate } from "react-router-dom";
 import Container from "react-bootstrap/Container";
@@ -9,7 +8,6 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Swal from "sweetalert2";
-import Rooms from "./database/Rooms";
 import axios from "axios";
 
 function Tabel() {
@@ -19,14 +17,16 @@ function Tabel() {
   // function for supervisor START
   const [currentPage, setCurrentPage] = useState(1);
   const [recordsPerPage, setRecordsPerPage] = useState(5);
-  const npage = Math.ceil(Accounts.length / recordsPerPage);
-  const numbers = [...Array(npage + 1).keys()].slice(1);
-  const [search, setSearch] = useState("");
+   const [search, setSearch] = useState("");
   const firstIndex = (currentPage - 1) * recordsPerPage;
   const lastIndex = currentPage * recordsPerPage;
   const [id, setId] = useState("");
   const [accounts, setAccounts] = useState([]);
+  const npage = Math.ceil(accounts.length / recordsPerPage);
+  const numbers = [...Array(npage + 1).keys()].slice(1);
+  const [rooms, setRooms] = useState([]);
 
+  const records = accounts.slice(firstIndex, lastIndex);
   const handleEdit = (id, username, email, password) => {
     localStorage.setItem("username", username);
     localStorage.setItem("email", email);
@@ -37,16 +37,14 @@ function Tabel() {
     try {
       const respon = await axios.get("http://localhost:2222/accounts");
       const allAccounts = respon.data;
-  
+
       // Apply search filter only for supervisor role
-      const filteredAccounts = userRole === "supervisor"
-        ? allAccounts.filter(
-          (employee) =>
-            employee.username.toLowerCase().includes(search.toLowerCase()) &&
-            employee.role !== "supervisor"
-        )
-        : allAccounts;
-  
+      const filteredAccounts = allAccounts.filter(
+        (employee) =>
+          employee.username?.toLowerCase().includes(search?.toLowerCase()) &&
+          employee.role !== "supervisor"
+      );
+
       setAccounts(filteredAccounts);
       console.log(filteredAccounts);
     } catch (error) {
@@ -56,14 +54,18 @@ function Tabel() {
 
   // const records = filterAccounts.slice(firstIndex, lastIndex);
 
-  const handleDelete = (id) => {
-    var index = Accounts.findIndex((e) => e.id === id);
-
-    if (index !== -1) {
-      Accounts.splice(index, 1);
-      history("/table");
+  const handleDelete = async(id) => {
+    try {
+      const respon = await axios.delete(`http://localhost:2222/accounts/${id}`);
+      console.log(respon.data);
+      console.log("deleted");
+      getAccounts();
+    } catch (error) {
+      console.log(error);
     }
-  };
+      history("/table");
+    };
+  
 
   function prePage() {
     if (currentPage > 1) {
@@ -97,29 +99,47 @@ function Tabel() {
 
   // function for operator Start
   const [currentRoom, setCurrentRoom] = useState(1);
-  const [recordsPERPAGE, setRecordsPERPAGE] = useState(5);
-  const npageE = Math.ceil(Rooms.length / recordsPERPAGE);
+  const [recordsPERPAGE, setRecordsPERPAGE] = useState(3);
+  const npageE = Math.ceil(rooms.length / recordsPERPAGE);
   const number = [...Array(npageE + 1).keys()].slice(1);
   const [Search, setSEARCH] = useState("");
   const firstRoom = (currentRoom - 1) * recordsPERPAGE;
   const lastRoom = currentRoom * recordsPERPAGE;
+  const RECORDS = rooms.slice(firstRoom, lastRoom);
+  const getOperator = async () => {
+    try {
+      const Respon = await axios.get("http://localhost:2222/rooms");
+      const allRooms = Respon.data;
+  
+      // Apply search filter only for operator role
+      const filterRooms = allRooms.filter(
+        (room) =>
+          room.lantai?.toLowerCase().includes(Search?.toLowerCase())
+      );
+  
+      setRooms(filterRooms);
+      console.log(filterRooms);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const Edit = (Id, lantai, ruang) => {
     localStorage.setItem("id", Id);
     localStorage.setItem("lantai", lantai);
     localStorage.setItem("ruang", ruang);
   };
-  const filterRooms = Rooms.filter((employee) =>
-    employee.lantai.toLowerCase().includes(Search.toLowerCase())
-  );
-  const Records = filterRooms.slice(firstRoom, lastRoom);
+  
 
-  const delet = (Id) => {
-    var idx = Rooms.findIndex((e) => e.id === Id);
-    if (idx !== 1) {
-      Rooms.splice(idx, 1);
-      history("/table");
-    }
+  const delet = async(Id) => {
+   try {
+    const Respon = await axios.delete(`http://localhost:2222/rooms/${Id}`);
+    console.log(Respon.data);
+    console.log("deleted");
+    getOperator();
+   } catch (error) {
+    console.log(error);
+   }
   };
   function prePAGE() {
     if (currentRoom > 1) {
@@ -147,9 +167,39 @@ function Tabel() {
     });
   };
   // function operator And
+
+
   useEffect(() => {
     getAccounts();
-  }, [search]);
+    getOperator();
+  }, [search, Search]);
+
+  
+  // useEffect(() => {
+  //   const getOperatorData = async () => {
+  //     try {
+  //       const Respon = await axios.get("http://localhost:2222/rooms");
+  //       const allRooms = Respon.data;
+  
+  //       // Apply search filter only for operator role
+  //       const filterRooms = allRooms.filter(
+  //         (room) =>
+  //           room.lantai?.toLowerCase().includes(Search?.toLowerCase()) &&
+  //           room.role === "operator"
+  //       );
+  
+  //       setRooms(filterRooms);
+  //       setCurrentRoom(1); // Reset to first page after search
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   };
+  
+  //   getOperatorData();
+  // }, [Search]);
+ 
+ 
+ 
   return (
     <div className="home">
       {userRole === "supervisor" ? (
@@ -161,8 +211,7 @@ function Tabel() {
               <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto">
                   <Nav.Link href="/home">Home</Nav.Link>
-                  <Nav.Link href="/tableOrder">Table Oreder</Nav.Link>
-                  <Nav.Link href="/tableCostumer">Costumers</Nav.Link>
+                  <Nav.Link href="/tableOrder">Approve List</Nav.Link>
                   <Nav.Link href="/table">Table</Nav.Link>
                   <NavDropdown title="Dropdown" id="basic-nav-dropdown">
                     <NavDropdown.Item href="#action/3.1">
@@ -239,14 +288,14 @@ function Tabel() {
               </thead>
               <tbody>
                 {accounts && accounts.length > 0 ? (
-                  accounts.map((item, index) => (
+                  records.map((item, index) => (
                     <tr key={index}>
                       <td>{item.username}</td>
                       <td>{item.email}</td>
                       <td>{item.password}</td>
                       <td>{item.role}</td>
                       <td>
-                        <Link to={"/edit"}>
+                        <Link to={`/edit/${item.id}`}>
                           <button
                             className="btn-edt"
                             onClick={() =>
@@ -307,7 +356,7 @@ function Tabel() {
               <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto">
                   <Nav.Link href="/home">Home</Nav.Link>
-                  <Nav.Link href="/tableOrder">Table Order</Nav.Link>
+                  <Nav.Link href="/tableOrder">Approve List</Nav.Link>
                   <Nav.Link href="/costumer">costumer</Nav.Link>
                   <Nav.Link href="/table">Table</Nav.Link>
                   <NavDropdown title="Dropdown" id="basic-nav-dropdown">
@@ -365,9 +414,8 @@ function Tabel() {
                     marginRight: "10px",
                   }}
                 >
-                  <option value={5}>5</option>
-                  <option value={10}>10</option>
-                  <option value={15}>15</option>
+                  <option value={3}>3</option>
+                  <option value={6}>6</option>
                 </select>
               </span>
             </div>
@@ -382,14 +430,14 @@ function Tabel() {
                 </tr>
               </thead>
               <tbody>
-                {filterRooms && filterRooms.length > 0 ? (
-                  Records.map((item, index) => (
+                {rooms && rooms.length > 0 ? (
+                  RECORDS.map((item, index) => (
                     <tr key={index}>
                       <td>{item.lantai}</td>
                       <td>{item.ruang}</td>
 
                       <td>
-                        <Link to={"/edit"}>
+                        <Link to={`/edit/:${item.id}`}>
                           <button
                             className="btn-edt"
                             onClick={() =>
@@ -402,7 +450,7 @@ function Tabel() {
                         &nbsp;
                         <button
                           className="btn-dlt"
-                          onClick={() => delet(item.idd)}
+                          onClick={() => delet(item.id)}
                         >
                           DELETE
                         </button>

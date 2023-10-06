@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Accounts from "./database/Accounts";
 import { v4 as uuid } from "uuid";
-import { Link, useNavigate } from "react-router-dom";
+import { Await, Link, useNavigate } from "react-router-dom";
 import "./Add.css";
-import Rooms from "./database/Rooms";
+import axios from "axios";
 
 function Add() {
   // function for Supervisor Start
@@ -16,23 +15,27 @@ function Add() {
 
   let history = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit =  async(e) => {
     e.preventDefault();
-
+    
     const ids = uuid();
     let uniqued = ids.slice(0, 8);
 
-    let a = username,
-      b = email,
-      c = password;
-
-    Accounts.push({
+    const request = {
       id: uniqued,
-      username: a,
-      email: b,
-      password: c,
-      role: "operator",
-    });
+      username: username,
+      email: email,
+      password: password,
+      role:"operator"
+    }
+
+    try {
+      const respon = await axios.post("http://localhost:2222/accounts", request)
+      console.log(respon);
+      console.log("added");
+    } catch (error) {
+      console.log(error);
+    }
 
     history("/table");
     // function for supervisor end
@@ -41,21 +44,26 @@ function Add() {
   const [lantai, setLantai] = useState("");
   const [ruang, setRuang] = useState("");
   
-  const Submit = (e) => {
+  const Submit = async(e) => {
     e.preventDefault();
 
     const ids = uuid();
     let Uniqed = ids.slice(0, 8);
 
-    let d = lantai,
-        g = ruang;
+    const Request = {
+      id: Uniqed,
+      lantai: lantai,
+      ruang: ruang
 
-        Rooms.push({
-          id: Uniqed,
-          lantai: d,
-          ruang: g,
-        
-        });
+    }
+    try {
+      const Respon = await axios.post("http://localhost:2222/rooms", Request)
+      console.log(Respon);
+      console.log("added");
+    } catch (error) {
+      console.log(error);
+      
+    }
         history("/table");
 
     //  function for operator And

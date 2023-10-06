@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-import './Login.css'
-import Accounts from "./database/Accounts";
+import "./Login.css";
 import axios from "axios";
 
 const Login = () => {
@@ -10,31 +9,39 @@ const Login = () => {
     username: "",
     password: "",
   });
+  const [baru, setBaru] = useState([]);
 
   const navigate = useNavigate();
+  const getAccounts = async () => {
+    try {
+      const Respon = await axios.get("http://localhost:2222/accounts");
+      const allAccounts = Respon.data;
 
-  const [accounts, setAccounts] = useState([
-    {
-      id: 0,
-      username: "yourname",
-      password: "k",
-      role: "supervisor",
-    },
-  ]);
+      const filteredAccounts = allAccounts.filter(
+        (account) =>
+          account.username?.toLowerCase().includes() &&
+          account.role !== "supervisor"
+      );
+      setBaru(filteredAccounts);
+      console.log(filteredAccounts);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const data = await axios.post("http://localhost:2222/accounts");
+      const data = await axios.get("http://localhost:2222/accounts");
       if (formData.username !== "" && formData.password !== "") {
-        const storedData = JSON.parse(localStorage.getItem("data")) || [];
-  
-        const existingData = data.find(
+        const obj = data.data;
+        const existingData = obj.find(
           (data) =>
             data.username === formData.username &&
             data.password === formData.password
         );
-  
+
         if (existingData) {
           // alert("Login berhasil!");
           Swal.fire({
@@ -67,52 +74,8 @@ const Login = () => {
           timer: 1500,
         });
       }
-    
-
     } catch (error) {
-      console.log(error)
-    }
-
-    if (formData.username !== "" && formData.password !== "") {
-      const storedAccounts = JSON.parse(localStorage.getItem("accounts")) || [];
-
-      const existingAccount = Accounts.find(
-        (account) =>
-          account.username === formData.username &&
-          account.password === formData.password
-      );
-
-      if (existingAccount) {
-        // alert("Login berhasil!");
-        Swal.fire({
-          position: "top-center",
-          icon: "success",
-          title: "login berhasil",
-          showConfirmButton: false,
-          timer: 1500,
-        });
-        localStorage.setItem("UserRole", existingAccount.role);
-        // console.log(storedAccounts);
-        navigate("/Home");
-      } else {
-        // alert("Username atau password salah!");
-        Swal.fire({
-          position: "top-center",
-          icon: "error",
-          title: "user name atau pasword salah",
-          showConfirmButton: false,
-          timer: 1500,
-        });
-      }
-    } else {
-      // alert("Harap isi semua kolom!");
-      Swal.fire({
-        position: "top-center",
-        icon: "info",
-        title: "harap isi semua kolom",
-        showConfirmButton: false,
-        timer: 1500,
-      });
+      console.log(error);
     }
   };
 
@@ -123,7 +86,9 @@ const Login = () => {
       [name]: value,
     });
   };
-
+  useEffect(() => {
+    getAccounts();
+  }, []);
   return (
     <div className="body">
       <div className="mainContainer">

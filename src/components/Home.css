@@ -4,7 +4,16 @@
   background-color: rgba(141, 115, 150, 0.911);
   margin-bottom: 200px;
 }
-div{
+.vid{
   background-color: lavender;
   
+}
+/* #navbar{
+  background-color: rgb(153, 161, 169);
+} */
+.home{
+  background-color: lavender;
+}
+h1{
+ font-family: monospace;
 }

@@ -2,9 +2,9 @@
 import React, { useState, useEffect } from "react";
 import { Button, Form } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Order from "./database/Order";
 import { v4 as uuid } from "uuid";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import axios from "axios";
 
 function EditOrder() {
   let history = useNavigate();
@@ -15,30 +15,27 @@ function EditOrder() {
   const [booking, setBooking] = useState("");
   const [extratime, setExtratime] = useState("");
   const [id, setid] = useState("");
+ const param = useParams();
  
-  var INDEX = Order.map(function (e) {
-    return e.id;
-  }).indexOf(id);
 
-  const Submit = (e) => {
+  const Submit = async(e) => {
     e.preventDefault();
-    let b = Order[INDEX];
-    b.room = room;
-    b.snack = snack;
-    b.capacity = capacity;
-    b.lunch = lunch;
-    b.extratime = extratime;
-    b.booking = booking;
-
-    localStorage.setItem("room", room);
-    localStorage.setItem("snack", snack);
-    localStorage.setItem("capacity", capacity);
-    localStorage.setItem("lunch", lunch);
-    localStorage.setItem("extratime", extratime);
-    localStorage.setItem("booking", booking);
-
-    console.log(b);
-
+   
+    const request = {
+      snack: snack,
+      capacity: capacity,
+      lunch: lunch,
+      room: room,
+      booking: booking,
+      extratime: extratime
+    }   
+    try {
+      const respon = await axios.put(` http://localhost:2222/order/${param.id}`, request)
+      console.log(respon);
+      console.log("update");
+    } catch (error) {
+      console.log(error);
+    }
 
   
     history("/tableOrder");
@@ -131,7 +128,7 @@ function EditOrder() {
       <Link to="/tableOrder">
         <Button onClick={(e) => Submit(e)} type="submit">
           
-          Update
+          Edit
         </Button>
         </Link>
       </Form>
