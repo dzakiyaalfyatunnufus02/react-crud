@@ -125,6 +125,27 @@
       "username": "mail",
       "password": "mail",
       "role": "supervisor"
+    },
+    {
+      "id": "ce19d37d",
+      "email": "ina@gmail.com",
+      "username": "ina",
+      "password": "ina",
+      "role": "supervisor"
+    },
+    {
+      "id": "e4176392",
+      "email": "usma@gmail.com",
+      "username": "usma",
+      "password": "usma",
+      "role": "supervisor"
+    },
+    {
+      "id": "856bb3f9",
+      "username": "izah",
+      "email": "izah@gmail.com",
+      "password": "izah",
+      "role": "operator"
     }
   ],
   "costumers": [
@@ -191,22 +212,24 @@
   ],
   "order": [
     {
-      "id": "4",
       "room": "4",
       "capacity": "single bed",
       "snack": "Ada",
       "lunch": "false",
       "extratime": "false",
-      "booking": "2 day"
+      "booking": "2 day",
+      "approve": true,
+      "id": "4"
     },
     {
-      "id": "5",
       "room": "5",
       "capacity": "doble bed",
       "snack": "false",
       "lunch": "Ada",
       "extratime": "false",
-      "booking": "3 day"
+      "booking": "3 day",
+      "approve": true,
+      "id": "5"
     },
     {
       "id": "6",
@@ -215,7 +238,8 @@
       "snack": "Ada",
       "lunch": "false",
       "extratime": "Ada",
-      "booking": "2 day"
+      "booking": "2 day",
+      "approve": false
     },
     {
       "id": "7",
@@ -224,7 +248,8 @@
       "snack": "false",
       "lunch": "false",
       "extratime": "Ada",
-      "booking": "2 day"
+      "booking": "2 day",
+      "approve": false
     },
     {
       "id": "8",
@@ -233,7 +258,8 @@
       "snack": "false",
       "lunch": "false",
       "extratime": "false",
-      "booking": "3 day"
+      "booking": "3 day",
+      "approve": false
     },
     {
       "id": "9",
@@ -242,7 +268,8 @@
       "snack": "false",
       "lunch": "Ada",
       "extratime": "false",
-      "booking": "3 day"
+      "booking": "3 day",
+      "approve": false
     },
     {
       "id": "10",
@@ -251,7 +278,8 @@
       "snack": "false",
       "lunch": "false",
       "extratime": "true",
-      "booking": "2 day"
+      "booking": "2 day",
+      "approve": false
     }
   ],
   "rooms": [

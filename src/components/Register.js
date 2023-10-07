@@ -108,8 +108,7 @@ const Register = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 name="password"
-              />
-              
+              />           
              
               <div id="r">
                 <center>

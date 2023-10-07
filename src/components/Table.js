@@ -174,32 +174,6 @@ function Tabel() {
     getOperator();
   }, [search, Search]);
 
-  
-  // useEffect(() => {
-  //   const getOperatorData = async () => {
-  //     try {
-  //       const Respon = await axios.get("http://localhost:2222/rooms");
-  //       const allRooms = Respon.data;
-  
-  //       // Apply search filter only for operator role
-  //       const filterRooms = allRooms.filter(
-  //         (room) =>
-  //           room.lantai?.toLowerCase().includes(Search?.toLowerCase()) &&
-  //           room.role === "operator"
-  //       );
-  
-  //       setRooms(filterRooms);
-  //       setCurrentRoom(1); // Reset to first page after search
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   };
-  
-  //   getOperatorData();
-  // }, [Search]);
- 
- 
- 
   return (
     <div className="home">
       {userRole === "supervisor" ? (

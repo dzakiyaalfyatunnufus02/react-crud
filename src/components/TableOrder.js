@@ -1,16 +1,13 @@
 import React, { Fragment, useEffect, useState } from "react";
 import Container from "react-bootstrap/Container";
 import Swal from "sweetalert2";
-import AddOrder from "./AddOrder";
 import "./AddOrder.css";
-import EditOrder from "./EditOrder";
 import { Button, Form, InputGroup, Pagination, Table } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import Nav from "react-bootstrap/Nav";
 import axios from "axios";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import RuangTunggu from "./RuangTunggu";
 
 function TableOrder() {
   let history = useNavigate("");
@@ -23,10 +20,7 @@ function TableOrder() {
   const [search, setSearch] = useState("");
   const firstIndex = (currentPage - 1) * recordsPerPage;
   const lastIndex = currentPage * recordsPerPage;
-  const [id, setId] = useState("");
-
   const userRole = localStorage.getItem("UserRole");
-  const [disabledItem, setDisalbedItem] = useState({});
 
   const RECORDS = order.slice(firstIndex, lastIndex);
 
@@ -34,7 +28,7 @@ function TableOrder() {
     try {
       const respon = await axios.get("http://localhost:2222/order");
       const allOrder = respon.data;
-
+      
       // Apply search filter only for supervisor role
       const filterOrder = allOrder.filter(
         (employee) =>
@@ -49,49 +43,12 @@ function TableOrder() {
     }
   };
 
-  const [formData, setFormData] = useState({
-    room: "",
-    capacity: "",
-    snack: "",
-    lunch: "",
-    extratime: "",
-    booking: "",
-  });
-
-  // const onClick = () => console.log("onClick");
-  // const onClick2 = debounce(onClick, 300)
-
-  const handleApprov = (
-    id,
-    room,
-    capacity,
-    snack,
-    lunch,
-    extratime,
-    booking
-  ) => {
-    localStorage.setItem("room", room);
-    localStorage.setItem("capacity", capacity);
-    localStorage.setItem("snack", snack);
-    localStorage.setItem("lunch", lunch);
-    localStorage.setItem("extratime", extratime);
-    localStorage.setItem("booking", booking);
-    localStorage.setItem("id", id);
-  };
-
   const filterOrder = order.filter((employee) =>
     employee.room.toLowerCase().includes(search.toLowerCase())
   );
-  const [currentRoom, setCurrentRoom] = useState(1);
-  const [recordsPERPAGE, setRecordsPERPAGE] = useState(5);
-  const records = filterOrder.slice(firstIndex, lastIndex);
   const [orders, setOrders] = useState([]);
-  const npageE = Math.ceil(orders.length / recordsPERPAGE);
-  const number = [...Array(npageE + 1).keys()].slice(1);
   const [Search, setSEARCH] = useState("");
-  const firstRoom = (currentRoom - 1) * recordsPERPAGE;
-  const lastRoom = currentRoom * recordsPERPAGE;
-   const Records = orders.slice(firstIndex, lastIndex);
+  const Records = orders.slice(firstIndex, lastIndex);
 
   const getOperator = async () => {
     try {
@@ -127,27 +84,8 @@ function TableOrder() {
   }
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    if (
-      formData.room !== "" &&
-      formData.capacity !== "" &&
-      formData.snack !== "" &&
-      formData.lunch !== "" &&
-      formData.extratime !== "" &&
-      formData.booking !== ""
-    ) {
-      const storedAccounts = JSON.parse(localStorage.getItem("accounts")) || [];
-
-      const existingOrder = orders.find(
-        (order) =>
-          order.room === formData.room &&
-          order.capacity === formData.capacity &&
-          order.snack === formData.snack &&
-          order.lunch === formData.lunch &&
-          order.extratime === formData.extratime &&
-          order.booking === formData.booking
-      );
-      if (existingOrder) {
+ 
+    
         // alert("Login berhasil!");
         Swal.fire({
           position: "top-center",
@@ -156,22 +94,37 @@ function TableOrder() {
           showConfirmButton: false,
           timer: 1500,
         });
-        localStorage.setItem("UserRole", existingOrder.role);
         // console.log(storedAccounts);
         navigate("/Home");
       }
-    }
-  };
+    
 
-  const disabledButton = (index) => {
-    setDisalbedItem((prev) => ({ ...prev, [index]: true }));
-    Swal.fire({
-      position: "top-center",
-      icon: "success",
-      title: "approve success",
-      showConfirmButton: false,
-      timer: 1500,
-    });
+  const disabledButton = async(e, id, room, capacity, snack, lunch, extratime, booking)  => {
+    e.preventDefault();
+    const request = {
+      room: room,
+      capacity: capacity,
+      snack: snack,
+      lunch: lunch,
+      extratime: extratime,
+      booking: booking,
+      approve: true
+    }
+    try {
+      const respon = await axios.put(`http://localhost:2222/order/${id}`, request)
+      console.log(respon.data);
+      getOrder();
+      Swal.fire({
+        position: "top-center",
+        icon: "success",
+        title: "approve success",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+    
   };
 
   const handleLogout = () => {
@@ -185,22 +138,6 @@ function TableOrder() {
       showConfirmButton: false,
       timer: 2500,
     });
-  };
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-  };
-  const handleEdit = (id, room, capacity, snack, lunch, extratime, booking) => {
-    localStorage.setItem("room", room);
-    localStorage.setItem("capacity", capacity);
-    localStorage.setItem("snack", snack);
-    localStorage.setItem("lunch", lunch);
-    localStorage.setItem("extratime", extratime);
-    localStorage.setItem("booking", booking);
-    localStorage.setItem("id", id);
   };
   const handleDelete = async(id) => {
   const RESPON = await axios.delete(` http://localhost:2222/order/${id}`)
@@ -322,8 +259,8 @@ function TableOrder() {
                               type="submit"
                               id="Btn"
                               className="btn-edt"
-                              disabled={disabledItem[index]}
-                              onClick={() => disabledButton(index)}
+                              disabled={item.approve ? true : false}
+                              onClick={(e) => disabledButton(e,item.id,item.room,item.capacity,item.snack,item.lunch,item.extratime,item.booking)}
                             >
                               approve
                             </button>
@@ -459,18 +396,7 @@ function TableOrder() {
                           <Link to={`/editOrder/${item.id}`}>
                             <button
                               className="btn-edt"
-                              onClick={() =>
-                                handleEdit(
-                                  item.id,
-                                  item.room,
-                                  item.capacity,
-                                  item.snack,
-                                  item.lunch,
-                                  item.extratime,
-                                  item.booking
-                                )
-                              }
-                            >
+                              >
                               EDIT
                             </button>
                           </Link>

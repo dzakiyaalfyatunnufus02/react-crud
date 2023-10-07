@@ -1,15 +1,12 @@
 import React, { Fragment, useState, useEffect } from "react";
 import Container from "react-bootstrap/Container";
 import Swal from "sweetalert2";
-import { Button, Form, InputGroup, Pagination, Table } from "react-bootstrap";
+import { Button, Pagination, Table } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import axios from "axios";
-import TableOrder from "./TableOrder";
-import EditCostumer from "./EditCostumers";
-import AddCostumers from "./AddCostumers";
 
 function TableCostumers() {
   let history = useNavigate("");
