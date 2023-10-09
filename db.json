@@ -212,74 +212,13 @@
   ],
   "order": [
     {
-      "room": "4",
-      "capacity": "single bed",
-      "snack": "Ada",
+      "snack": "",
+      "capacity": "",
       "lunch": "false",
-      "extratime": "false",
-      "booking": "2 day",
-      "approve": true,
-      "id": "4"
-    },
-    {
-      "room": "5",
-      "capacity": "doble bed",
-      "snack": "false",
-      "lunch": "Ada",
-      "extratime": "false",
-      "booking": "3 day",
-      "approve": true,
-      "id": "5"
-    },
-    {
-      "id": "6",
-      "room": "6",
-      "capacity": "single bed",
-      "snack": "Ada",
-      "lunch": "false",
-      "extratime": "Ada",
-      "booking": "2 day",
-      "approve": false
-    },
-    {
-      "id": "7",
-      "room": "7",
-      "capacity": "doble bed",
-      "snack": "false",
-      "lunch": "false",
-      "extratime": "Ada",
-      "booking": "2 day",
-      "approve": false
-    },
-    {
-      "id": "8",
-      "room": "8",
-      "capacity": "single bed",
-      "snack": "false",
-      "lunch": "false",
-      "extratime": "false",
-      "booking": "3 day",
-      "approve": false
-    },
-    {
-      "id": "9",
-      "room": "9",
-      "capacity": "doble bed",
-      "snack": "false",
-      "lunch": "Ada",
-      "extratime": "false",
-      "booking": "3 day",
-      "approve": false
-    },
-    {
-      "id": "10",
-      "room": "10",
-      "capacity": "single bed",
-      "snack": "false",
-      "lunch": "false",
-      "extratime": "true",
-      "booking": "2 day",
-      "approve": false
+      "room": "",
+      "booking": "",
+      "extratime": "",
+      "id": "79456a19"
     }
   ],
   "rooms": [
@@ -307,6 +246,152 @@
       "id": "6",
       "lantai": "2",
       "ruang": "3"
+    }
+  ],
+  "reportSewa": [
+    {
+      "snack": "kadida",
+      "kapasitas": "doble bed",
+      "ruang": "3",
+      "datetime": "08/05/2023 03:05:15 PM",
+      "booking": "12",
+      "extratime": "false",
+      "id": "1"
+    },
+    {
+      "id": "2",
+      "datetime": "08/09/2023 03:03:21 AM",
+      "ruang": "2",
+      "kapasitas": "doble bed",
+      "snack": "Ada",
+      "extratime": "false",
+      "booking": "12"
+    },
+    {
+      "snack": "Tidak Ada",
+      "kapasitas": "single bed",
+      "ruang": "3",
+      "datetime": "08/09/2023 03:03:21 AM",
+      "booking": "5",
+      "extratime": "false",
+      "id": "3"
+    },
+    {
+      "id": "4",
+      "datetime": "08/09/2023 03:03:21 AM",
+      "ruang": "2",
+      "kapasitas": "doble bed",
+      "snack": "Ada",
+      "extratime": "false",
+      "booking": "12"
+    },
+    {
+      "id": "5",
+      "datetime": "08/09/2023 03:03:21 AM",
+      "ruang": "2",
+      "kapasitas": "doble bed",
+      "snack": "Ada",
+      "extratime": "false",
+      "booking": "12"
+    },
+    {
+      "id": "6",
+      "datetime": "08/09/2023 03:03:21 AM",
+      "ruang": "2",
+      "kapasitas": "doble bed",
+      "snack": "Ada",
+      "extratime": "false",
+      "booking": "12"
+    },
+    {
+      "id": "7",
+      "datetime": "08/09/2023 03:03:21 AM",
+      "ruang": "2",
+      "kapasitas": "doble bed",
+      "snack": "Ada",
+      "extratime": "false",
+      "booking": "12"
+    },
+    {
+      "id": "8",
+      "datetime": "08/09/2023 03:03:21 AM",
+      "ruang": "2",
+      "kapasitas": "doble bed",
+      "snack": "Ada",
+      "extratime": "false",
+      "booking": "12"
+    },
+    {
+      "id": "9",
+      "datetime": "08/09/2023 03:03:21 AM",
+      "ruang": "2",
+      "kapasitas": "doble bed",
+      "snack": "Ada",
+      "extratime": "false",
+      "booking": "12"
+    },
+    {
+      "id": "5a63e339",
+      "datetime": "09/08/2027 09:30:60 AM",
+      "ruang": "7",
+      "kapasitas": "8",
+      "snack": "ada",
+      "extratime": "false",
+      "booking": "4 day"
+    },
+    {
+      "snack": "ada",
+      "kapasitas": "2",
+      "ruang": "7",
+      "datetime": "02/02/2222 02:22:20 AM",
+      "booking": "1 weekend",
+      "extratime": "true",
+      "id": "6829f4b7"
+    },
+    {
+      "snack": "ada",
+      "kapasitas": "3",
+      "ruang": "3",
+      "datetime": "09/08/2027 09:30:60 AM",
+      "booking": "4 day",
+      "extratime": "false",
+      "id": "1519f792"
+    },
+    {
+      "id": "0f4cc883",
+      "datetime": "02/02/2222 02:22:20 AM",
+      "ruang": "3",
+      "kapasitas": "3",
+      "snack": "ada",
+      "extratime": "False",
+      "booking": "7 day"
+    },
+    {
+      "id": "c3abd827",
+      "datetime": "02/02/2222 02:22:20 AM",
+      "ruang": "3",
+      "kapasitas": "3",
+      "snack": "kadida",
+      "extratime": "false",
+      "booking": "7 day"
+    },
+    {
+      "id": "9202cfc6",
+      "datetime": "09/08/2027 09:30:60 AM",
+      "ruang": "1",
+      "kapasitas": "1",
+      "snack": "ada",
+      "extratime": "",
+      "booking": "3 day"
+    },
+    {
+      "snack": "ada",
+      "kapasitas": "3",
+      "ruang": "3",
+      "datetime": "07/07/2007 03:00 PM",
+      "booking": "4 day",
+      "extratime": "true",
+      "id": "79b46478"
     }
   ]
 }

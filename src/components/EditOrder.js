@@ -14,25 +14,40 @@ function EditOrder() {
   const [room, setRoom] = useState("");
   const [booking, setBooking] = useState("");
   const [extratime, setExtratime] = useState("");
-  const [id, setid] = useState("");
  const param = useParams();
  
+ const getById = async () => {
+  try {
+    const respon = await axios.get(
+      `http://localhost:2222/order/${param.id}`
+    );
+  const resdata = respon.data;
+  setRoom(resdata.getItem("room"));
+      setSnack(resdata.getItem("snack" === "true"));
+      setCapacity(resdata.getItem("capacity"));
+      setLunch(resdata.getItem("lunch" === "true"));
+      setExtratime(resdata.getItem("extratime"=== "true"));
+      setBooking(resdata.getItem("booking"))
+  } catch (error) {
+    console.log(error);
+  }
+};
 
   const Submit = async(e) => {
     e.preventDefault();
    
     const request = {
-      snack: snack,
+      snack: snack.toString(),
       capacity: capacity,
-      lunch: lunch,
+      lunch: lunch.toString(),
       room: room,
       booking: booking,
-      extratime: extratime
+      extratime: extratime.toString()
     }   
     try {
       const respon = await axios.put(` http://localhost:2222/order/${param.id}`, request)
-      console.log(respon);
-      console.log("update");
+console.log(respon);     
+console.log("addorder");     
     } catch (error) {
       console.log(error);
     }
@@ -41,13 +56,7 @@ function EditOrder() {
     history("/tableOrder");
   };
   useEffect(() => {
-    setRoom(localStorage.getItem("room"));
-    setSnack(localStorage.getItem("snack"));
-    setCapacity(localStorage.getItem("capacity"));
-    setLunch(localStorage.getItem("lunch"));
-    setExtratime(localStorage.getItem("extratime"));
-    setBooking(localStorage.getItem("booking"));
-    setid(localStorage.getItem("id"));
+    getById();
   }, []);
 
   return (
@@ -103,7 +112,7 @@ function EditOrder() {
           <option value={false}>False</option>
       </select>
       <br></br>
-      <label htmlFor="Snack">  <div>Lunch :</div></label>
+      <label htmlFor="lunch">  <div>Lunch :</div></label>
         <select
           name="lunch"
           id="lunch"
@@ -114,7 +123,7 @@ function EditOrder() {
           <option value={false}> False</option>
       </select>
       <br></br>
-      <label htmlFor="Snack">  <div>Extra Time :</div></label>
+      <label htmlFor="extratime">  <div>Extra Time :</div></label>
         <select
           name="extratime"
           id="extratime"

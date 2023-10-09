@@ -9,8 +9,11 @@ function RuangTunggu() {
 
 
   return <>
-  
-  
+  <Link to={"/tableOrder"}>
+  <Button type="submit">
+    klick mee
+  </Button>
+  </Link>
   </>;
 }
 export default RuangTunggu;

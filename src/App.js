@@ -17,7 +17,9 @@ import Home from "./components/Home";
 import PrivateRoute from "./routes/PrivatRoute";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import EditOrder from "./components/EditOrder";
-
+import ReportSewa from "./components/ReportSewa";
+import EditReportSewaa from "./components/EditReportSewaa"
+import AddReportSewa from "./components/AddReportSewa";
 function App() {
   return (
     <div className="App">
@@ -118,6 +120,30 @@ function App() {
             element={
               <PrivateRoute>
                 <RuangTunggu />
+              </PrivateRoute>
+            }
+            />
+           <Route
+            path="/reportSewa"
+            element={
+              <PrivateRoute>
+                <ReportSewa />
+              </PrivateRoute>
+            }
+            />
+           <Route
+            path="/editReportSewaa/:id"
+            element={
+              <PrivateRoute>
+                <EditReportSewaa />
+              </PrivateRoute>
+            }
+            />
+           <Route
+            path="/addReportSewaa"
+            element={
+              <PrivateRoute>
+                <AddReportSewa />
               </PrivateRoute>
             }
             />

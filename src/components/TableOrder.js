@@ -67,7 +67,7 @@ function TableOrder() {
     }
   };
 
-  function prePage() {
+function prePage() {
     if (currentPage > 1) {
       setCurrentPage(currentPage - 1);
     }
@@ -75,7 +75,7 @@ function TableOrder() {
 
   function changeCPage(id) {
     setCurrentPage(id);
-  }
+  }  
 
   function nextPage() {
     if (currentPage < npage) {
@@ -85,7 +85,6 @@ function TableOrder() {
   const handleSubmit = (e) => {
     e.preventDefault();
  
-    
         // alert("Login berhasil!");
         Swal.fire({
           position: "top-center",
@@ -157,7 +156,7 @@ function TableOrder() {
     <>
       <div className="home">
         {userRole === "supervisor" ? (
-          <Fragment>
+          <>
             <Navbar bg="light" expand="lg" className="bg-body-tertiary">
               <Container>
                 <Navbar.Brand href="/home">Sewa ruang</Navbar.Brand>
@@ -294,9 +293,9 @@ function TableOrder() {
                 <Pagination.Next onClick={nextPage} />
               </Pagination>
             </div>
-          </Fragment>
+          </>
         ) : (
-          <Fragment>
+          <>
             <Navbar bg="light" expand="lg" className="bg-body-tertiary">
               <Container>
                 <Navbar.Brand href="/home">Sewa ruang</Navbar.Brand>
@@ -306,6 +305,7 @@ function TableOrder() {
                     <Nav.Link href="/home">Home</Nav.Link>
                     <Nav.Link href="/tableOrder">Approve List</Nav.Link>
                     <Nav.Link href="/tableCostumer">Costumer</Nav.Link>
+                    <Nav.Link href="/reportSewa">Report Sewa</Nav.Link>
                     <Nav.Link href="/table">Table</Nav.Link>
                     <NavDropdown title="Dropdown" id="basic-nav-dropdown">
                       <NavDropdown.Item href="#action/3.1">
@@ -424,20 +424,20 @@ function TableOrder() {
                   <Pagination.Item
                     key={i}
                     active={currentPage === n}
-                    onClick={() => changeCPage(n)}
+                    onClick={() => setCurrentPage(n)}
                   >
                     {n}
                   </Pagination.Item>
                 ))}
                 <Pagination.Next onClick={nextPage} />
               </Pagination>
-              <Link className="d-grid gap-2" to={"/addOrder"}>
+              <Link className="d-grid gap-2" to="/addOrder">
                 <Button className="btn" size="lg">
                   Create
                 </Button>
               </Link>
             </div>
-          </Fragment>
+          </>
         )}
       </div>
     </>
