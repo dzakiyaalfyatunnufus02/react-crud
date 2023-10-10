@@ -10,6 +10,7 @@ import axios from "axios";
 
 function TableCostumers() {
   let history = useNavigate("");
+  const navigate = useNavigate();
   const [currentPage, setCurrentPage] = useState(1);
   const [recordsPerPage, setRecordsPerPage] = useState(5);
   const firstIndex = (currentPage - 1) * recordsPerPage;
@@ -92,6 +93,10 @@ const handleLogout = () => {
     timer: 2500,
   });
 }
+const handleProfile = () => {
+  // Ganti urutan perintah agar navigasi terjadi sebelum clear local storage
+  navigate("/profile");
+  };
   useEffect(() => {
     getCostumer();
   }, [Search]);
@@ -132,6 +137,11 @@ const handleLogout = () => {
                     LOGOUT
                   </button>
                 </Nav>
+                <Nav>
+      <button onClick={handleProfile} className="btn btn-danger">
+        PROFILE
+      </button>
+    </Nav>
               </Navbar.Collapse>
             </Container>
           </Navbar>

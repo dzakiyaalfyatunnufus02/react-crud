@@ -77,17 +77,6 @@ function AddReportSewa() {
           <Form.Group className="mb-3" controlId="formName">
             <Form.Control
               type="text"
-              placeholder="Snack"
-              name="snack"
-              required
-              onChange={(e) => setSnack(e.target.value)}
-            ></Form.Control>
-          </Form.Group>
-        </Form>
-        <Form className="d-grid gap-2" style={{ margin: "0.5rem" }}>
-          <Form.Group className="mb-3" controlId="formName">
-            <Form.Control
-              type="text"
               placeholder="Your Booking"
               name="booking"
               required
@@ -106,6 +95,20 @@ function AddReportSewa() {
 
           <label htmlFor="Snack">
             {" "}
+            <div>Snack :</div>
+          </label>
+          <select
+            name="snack"
+            id="snack"
+            value={snack}
+            onChange={(e) => setSnack(e.target.value === "true")}
+          >
+           <option value={false}> Ada</option>
+            <option value={true}> Tidak Ada</option>
+          </select>
+
+          <label htmlFor="Snack">
+            {" "}
             <div>Extra Time :</div>
           </label>
           <select
@@ -114,11 +117,8 @@ function AddReportSewa() {
             value={extratime}
             onChange={(e) => setExtratime(e.target.value === "true")}
           >
-            {options.map((option) => (
-              <option key={option.value} value={option.value.toString()}>
-                {option.label}
-              </option>
-            ))}
+           <option value={false}> Ada</option>
+            <option value={true}> Tidak Ada</option>
           </select>
           <br />
           <Link to="/reportSewa">

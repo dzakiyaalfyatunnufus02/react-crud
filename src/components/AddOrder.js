@@ -1,25 +1,39 @@
 import React, { useState, useEffect } from "react";
 import { Button, Form } from "react-bootstrap";
-import "bootstrap/dist/css/bootstrap.min.css";
-import TableCostumers from "./TableCostumer";
-import RuangTunggu from "./RuangTunggu";
-import "./AddOrder.css";
 import { v4 as uuid } from "uuid";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
 function Add() {
   let history = useNavigate();
-  const [snack, setSnack] = useState("");
+  const [snack, setSnack] = useState(false);
   const [capacity, setCapacity] = useState("");
-  const [lunch, setLunch] = useState("");
+  const [lunch, setLunch] = useState(false);
   const [room, setRoom] = useState("");
   const [booking, setBooking] = useState("");
-  const [extratime, setExtratime] = useState("");
+  const [extratime, setExtratime] = useState(false);
+  const param = useParams();
+
   const options = [
     { value: true, label: "true" },
     { value: false, label: "false" },
   ];
+
+  const getById = async () => {
+    try {
+      const respon = await axios.get(`http://localhost:2222/order/${param.id}`);
+      const resdata = respon.data;
+      setRoom(resdata.room);
+      setSnack(resdata.snack);
+      setCapacity(resdata.capacity);
+      setLunch(resdata.lunch);
+      setExtratime(resdata.extratime);
+      setBooking(resdata.booking);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const Submit = async (e) => {
     e.preventDefault();
 
@@ -28,27 +42,33 @@ function Add() {
 
     const request = {
       id: uniqed,
-      snack: snack.toString ,
+      snack: snack.toString(),
       capacity: capacity,
-      lunch: lunch.toString() ,
+      lunch: lunch.toString(),
       room: room,
       booking: booking,
-      extratime: extratime.toString() ,
+      extratime: extratime.toString(),
     };
 
     try {
-      const respon = await axios.post(" http://localhost:2222/order", request);
+      const respon = await axios.post("http://localhost:2222/order", request);
       console.log(respon);
-      console.log("ordered");
+      const resdata = respon.data;
+      setRoom(resdata.room);
+      setSnack(resdata.snack);
+      setCapacity(resdata.capacity);
+      setLunch(resdata.lunch);
+      setExtratime(resdata.extratime);
+      setBooking(resdata.booking);
     } catch (error) {
       console.log(error);
     }
 
     history("/ruangTunggu");
-
-    //  function for operator And
   };
- 
+  useEffect(() => {
+    getById();
+  }, []);
 
   return (
     <>
@@ -58,6 +78,7 @@ function Add() {
             <Form.Control
               type="text"
               placeholder="Your Room"
+              value={room}
               name="room"
               required
               onChange={(e) => setRoom(e.target.value)}
@@ -68,83 +89,85 @@ function Add() {
           <Form.Group className="mb-3" controlId="formName">
             <Form.Control
               type="text"
-              placeholder="Your Booking"
-              name="booking"
-              required
-              onChange={(e) => setBooking(e.target.value)}
-            ></Form.Control>
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="formName">
-            <Form.Control
-              type="text"
               placeholder="Your Capacity"
+              value={capacity}
               name="capacity"
               required
               onChange={(e) => setCapacity(e.target.value)}
             ></Form.Control>
           </Form.Group>
-
-          <label htmlFor="Snack">
-            {" "}
-            <div>Snack :</div>
-          </label>
-        {/* ... */}
-<select
-  name="snack"
-  id="snack"
-  onChange={(e) => setSnack(e.target.value)}
->
-  {options.map((option) => (
-    <option key={option.value} value={option.value}>
-      {option.label}
-    </option>
-  ))}
-</select>
-<br></br>
-{/* ... */}
-<label htmlFor="lunch">
-            {" "}
-            <div>Lunch :</div>
-          </label>
-<select
-  name="lunch"
-  id="lunch"
-  onChange={(e) => setLunch(e.target.value)}
->
-  {options.map((option) => (
-    <option key={option.value} value={option.value}>
-      {option.label}
-    </option>
-  ))}
-</select>
-<br></br>
-{/* ... */}
-<label htmlFor="extratime">
-            {" "}
-            <div>Extratime :</div>
-          </label>
-<select
-  name="extratime"
-  id="extratime"
-  onChange={(e) => setExtratime(e.target.value)}
->
-  {options.map((option) => (
-    <option key={option.value} value={option.value}>
-      {option.label}
-    </option>
-  ))}
-</select>
-{/* ... */}
-
-          <br />
-          <Link to="/tableCostumer">
-            <Button onClick={(e) => Submit(e)} type="submit">
-              Create
-            </Button>
-          </Link>
         </Form>
+        <Form className="d-grid gap-2" style={{ margin: "0.5rem" }}>
+          <Form.Group className="mb-3" controlId="formName">
+            <Form.Control
+              type="text"
+              placeholder="Your Booking"
+              value={booking}
+              name="booking"
+              required
+              onChange={(e) => setBooking(e.target.value)}
+            ></Form.Control>
+          </Form.Group>
+        </Form>
+
+        <label htmlFor="Snack">
+          <div>Snack :</div>
+        </label>
+        <select
+          name="snack"
+          id="snack"
+          value={snack}
+          onChange={(e) => setSnack(e.target.value)}
+        >
+          {options.map((option) => (
+            <option key={option.value} value={option.value}>
+              {option.label}
+            </option>
+          ))}
+        </select>
+        <br></br>
+
+        <label htmlFor="lunch">
+          <div>Lunch :</div>
+        </label>
+        <select
+          name="lunch"
+          id="lunch"
+          value={lunch}
+          onChange={(e) => setLunch(e.target.value)}
+        >
+          {options.map((option) => (
+            <option key={option.value} value={option.value}>
+              {option.label}
+            </option>
+          ))}
+        </select>
+        <br></br>
+
+        <label htmlFor="extratime">
+          <div>Extratime :</div>
+        </label>
+        <select
+          name="extratime"
+          id="extratime"
+          value={extratime}
+          onChange={(e) => setExtratime(e.target.value)}
+        >
+          {options.map((option) => (
+            <option key={option.value} value={option.value}>
+              {option.label}
+            </option>
+          ))}
+        </select>
+
+        <br />
+        <Link to="/tableCostumer">
+          <Button onClick={(e) => Submit(e)}>Create</Button>
+        </Link>
+        {/* ... (Closing tags) */}
       </div>
     </>
   );
 }
+
 export default Add;

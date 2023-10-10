@@ -138,6 +138,10 @@ function prePage() {
       timer: 2500,
     });
   };
+   const handleProfile = () => {
+      // Ganti urutan perintah agar navigasi terjadi sebelum clear local storage
+      navigate("/profile");
+      };
   const handleDelete = async(id) => {
   const RESPON = await axios.delete(` http://localhost:2222/order/${id}`)
   console.log(RESPON);
@@ -145,6 +149,7 @@ function prePage() {
   getOperator();
       history("/tableOrder");
     }
+   
   
 
   useEffect(() => {
@@ -165,6 +170,7 @@ function prePage() {
                   <Nav className="me-auto">
                     <Nav.Link href="/home">Home</Nav.Link>
                     <Nav.Link href="/tableOrder">Approve List</Nav.Link>
+                    <Nav.Link href="/reportSewa">Report Sewa</Nav.Link>
                     <Nav.Link href="/table">Table</Nav.Link>
                     <NavDropdown title="Dropdown" id="basic-nav-dropdown">
                       <NavDropdown.Item href="#action/3.1">
@@ -187,6 +193,11 @@ function prePage() {
                       LOGOUT
                     </button>
                   </Nav>
+                  <Nav>
+      <button onClick={handleProfile} className="btn btn-danger">
+        PROFILE
+      </button>
+    </Nav>
                 </Navbar.Collapse>
               </Container>
             </Navbar>
@@ -328,6 +339,11 @@ function prePage() {
                       LOGOUT
                     </button>
                   </Nav>
+                  <Nav>
+      <button onClick={handleProfile} className="btn btn-danger">
+        PROFILE
+      </button>
+    </Nav>
                 </Navbar.Collapse>
               </Container>
             </Navbar>
@@ -388,9 +404,9 @@ function prePage() {
                       <tr key={index}>
                         <td>{item.room}</td>
                         <td>{item.capacity}</td>
-                        <td>{item.snack}</td>
-                        <td>{item.lunch}</td>
-                        <td>{item.extratime}</td>
+                        <td>{item.snack == "true" ? "Ada" : "Tidak Ada"}</td>
+                        <td>{item.lunch  == "true" ? "Ada" : "Tidak Ada"}</td>
+                        <td>{item.extratime == "true" ? "Ada" : "Tidak Ada"}</td>
                         <td>{item.booking}</td>
                         <td>
                           <Link to={`/editOrder/${item.id}`}>

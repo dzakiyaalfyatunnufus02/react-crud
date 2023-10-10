@@ -20,6 +20,7 @@ import EditOrder from "./components/EditOrder";
 import ReportSewa from "./components/ReportSewa";
 import EditReportSewaa from "./components/EditReportSewaa"
 import AddReportSewa from "./components/AddReportSewa";
+import Profile from "./components/Profile";
 function App() {
   return (
     <div className="App">
@@ -144,6 +145,14 @@ function App() {
             element={
               <PrivateRoute>
                 <AddReportSewa />
+              </PrivateRoute>
+            }
+            />
+           <Route
+            path="/profile"
+            element={
+              <PrivateRoute>
+                <Profile />
               </PrivateRoute>
             }
             />

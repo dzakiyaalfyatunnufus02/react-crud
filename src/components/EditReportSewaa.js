@@ -92,18 +92,6 @@ function EditREportSewa() {
           <Form.Group className="mb-3" controlId="formName">
             <Form.Control
               type="text"
-              placeholder="Snack"
-              value={snack}
-              name="snack"
-              required
-              onChange={(e) => setSnack(e.target.value)}
-            ></Form.Control>
-          </Form.Group>
-        </Form>
-        <Form className="d-grid gap-2" style={{ margin: "0.5rem" }}>
-          <Form.Group className="mb-3" controlId="formName">
-            <Form.Control
-              type="text"
               placeholder="Your Booking"
               value={booking}
               name="booking"
@@ -113,6 +101,22 @@ function EditREportSewa() {
           </Form.Group>
         </Form>
         <Form>
+        <label htmlFor="extratime">
+            {" "}
+            <div>Snack :</div>
+          </label>
+          <select
+            name="snack"
+            id="snack"
+            value={snack}
+            onChange={(e) => setSnack(e.target.value)}
+          >
+            <option value={false}> Tidak Ada</option>
+            <option value={true}> Ada</option>
+
+          </select>
+          <br></br>
+          <br></br>
           <label htmlFor="extratime">
             {" "}
             <div>Extra Time :</div>
@@ -123,8 +127,9 @@ function EditREportSewa() {
             value={extratime}
             onChange={(e) => setExtratime(e.target.value)}
           >
-            <option value={true}> True</option>
-            <option value={false}> False</option>
+            <option value={false}> Tidak Ada</option>
+            <option value={true}> Ada</option>
+
           </select>
           <br />
           <Link to="/reportSewa">

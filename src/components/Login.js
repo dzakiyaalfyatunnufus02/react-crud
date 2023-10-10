@@ -52,6 +52,7 @@ const Login = () => {
             timer: 1500,
           });
           localStorage.setItem("UserRole", existingData.role);
+          localStorage.setItem("id", existingData.id);
           // console.log(storedAccounts);
           navigate("/Home");
         } else {

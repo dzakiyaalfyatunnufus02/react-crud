@@ -10,6 +10,7 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 
 function ReportSewa() {
   let history = useNavigate("");
+  const navigate = useNavigate(); 
   const [search, setSearch] = useState("");
   const [reportSewa, setReportSewa] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -74,6 +75,10 @@ function ReportSewa() {
     getOrder();
     history("/reportSewa");
   };
+  const handleProfile = () => {
+    // Ganti urutan perintah agar navigasi terjadi sebelum clear local storage
+    navigate("/profile");
+    };
   useEffect(() => {
     getOrder();
   }, [search]);
@@ -90,11 +95,12 @@ function ReportSewa() {
                 <Nav.Link href="/home">Home</Nav.Link>
                 <Nav.Link href="/tableOrder">Approve List</Nav.Link>
                 <Nav.Link href="/tableCostumer">Costumer</Nav.Link>
+                <Nav.Link href="/reportSewa">Report Sewa</Nav.Link>
                 <Nav.Link href="/table">Table</Nav.Link>
                 <NavDropdown title="Dropdown" id="basic-nav-dropdown">
                   <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                   <NavDropdown.Item href="#action/3.2">
-                    ~ Another action
+                    Another action
                   </NavDropdown.Item>
                   <NavDropdown.Item href="#action/3.3">
                     Something
@@ -110,6 +116,11 @@ function ReportSewa() {
                   LOGOUT
                 </button>
               </Nav>
+              <Nav>
+      <button onClick={handleProfile} className="btn btn-danger">
+        PROFILE
+      </button>
+    </Nav>
             </Navbar.Collapse>
           </Container>
         </Navbar>
@@ -171,7 +182,7 @@ function ReportSewa() {
                     <td>{item.ruang}</td>
                     <td>{item.kapasitas}</td>
                     <td>{item.snack}</td>
-                    <td>{item.extratime}</td>
+                    <td>{item.extratime  == "true" ? "Ada" : "Tidak Ada"}</td>
                     <td>{item.booking}</td>
                     <td>
                       <Link to={`/editReportSewaa/${item.id}`}>

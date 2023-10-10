@@ -1,8 +1,8 @@
 import React from "react";
 import "./Home.css";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-
+import Profile from "./Profile";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -11,7 +11,6 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 const Home = () => {
   const navigate = useNavigate(); // Tambahkan useNavigate
   const userRole = localStorage.getItem("UserRole");
-
   const handleLogout = () => {
     localStorage.clear();
     navigate("/table");
@@ -24,6 +23,11 @@ const Home = () => {
       timer: 2500,
     });
   };
+  const handleProfile = () => {
+    // Ganti urutan perintah agar navigasi terjadi sebelum clear local storage
+    navigate("/profile");
+    };
+  
 
   return (
     <div className="vid">
@@ -62,6 +66,13 @@ const Home = () => {
         LOGOUT
       </button>
     </Nav>
+    <Link to={"/profile"}>
+    <Nav>
+      <button onClick={handleProfile} className="btn btn-danger">
+        PROFILE
+      </button>
+    </Nav>
+    </Link>
   </Navbar.Collapse>
 </Container>
 </Navbar>
@@ -98,6 +109,12 @@ const Home = () => {
     <Nav>
       <button onClick={handleLogout} className="btn btn-danger">
         LOGOUT
+      </button>
+    </Nav>
+    <Nav>
+      <button onClick={handleProfile} className="btn btn-danger">
+      PROFILE
+
       </button>
     </Nav>
   </Navbar.Collapse>

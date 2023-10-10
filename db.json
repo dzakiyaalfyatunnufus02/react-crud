@@ -5,20 +5,22 @@
       "username": "usma",
       "email": "usma@gmail.com",
       "password": "usma",
+      "avatarUrl": "https://scontent.fcgk29-1.fna.fbcdn.net/v/t39.30808-6/293055985_547436953829463_6601347277633412431_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=1b51e3&_nc_ohc=JFqtQIaqoqcAX821NBm&_nc_ht=scontent.fcgk29-1.fna&oh=00_AfCs026AubLh7pMvZWovIVDOkvo2PNEtzQpErHeWTH_lGQ&oe=6529FD87",
       "role": "supervisor"
     },
     {
-      "id": "10",
       "username": "ulfa",
       "email": "ulfa@gmail.com",
-      "password": "ulfa",
-      "role": "operator"
+      "role": "operator",
+      "avatarUrl": "https://scontent.fcgk29-1.fna.fbcdn.net/v/t39.30808-6/293055985_547436953829463_6601347277633412431_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=1b51e3&_nc_ohc=JFqtQIaqoqcAX821NBm&_nc_ht=scontent.fcgk29-1.fna&oh=00_AfCs026AubLh7pMvZWovIVDOkvo2PNEtzQpErHeWTH_lGQ&oe=6529FD87",
+      "id": "10"
     },
     {
       "id": "11",
       "username": "piti",
       "email": "piti@gmail.com",
       "password": "piti",
+      "avatarUrl": "https://scontent.fcgk29-1.fna.fbcdn.net/v/t39.30808-6/293055985_547436953829463_6601347277633412431_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=1b51e3&_nc_ohc=JFqtQIaqoqcAX821NBm&_nc_ht=scontent.fcgk29-1.fna&oh=00_AfCs026AubLh7pMvZWovIVDOkvo2PNEtzQpErHeWTH_lGQ&oe=6529FD87",
       "role": "operator"
     },
     {
@@ -26,6 +28,7 @@
       "username": "siska",
       "email": "siska@gmail.com",
       "password": "siska",
+      "avatarUrl": "https://scontent.fcgk29-1.fna.fbcdn.net/v/t39.30808-6/293055985_547436953829463_6601347277633412431_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=1b51e3&_nc_ohc=JFqtQIaqoqcAX821NBm&_nc_ht=scontent.fcgk29-1.fna&oh=00_AfCs026AubLh7pMvZWovIVDOkvo2PNEtzQpErHeWTH_lGQ&oe=6529FD87",
       "role": "operator"
     },
     {
@@ -33,6 +36,7 @@
       "username": "tofa",
       "email": "tofa@gmail.com",
       "password": "tofa",
+      "avatarUrl": "https://scontent.fcgk29-1.fna.fbcdn.net/v/t39.30808-6/293055985_547436953829463_6601347277633412431_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=1b51e3&_nc_ohc=JFqtQIaqoqcAX821NBm&_nc_ht=scontent.fcgk29-1.fna&oh=00_AfCs026AubLh7pMvZWovIVDOkvo2PNEtzQpErHeWTH_lGQ&oe=6529FD87",
       "role": "operator"
     },
     {
@@ -40,6 +44,7 @@
       "username": "facri",
       "email": "fachrialfajar@gmail.com",
       "password": "fachri",
+      "avatarUrl": "https://scontent.fcgk29-1.fna.fbcdn.net/v/t39.30808-6/293055985_547436953829463_6601347277633412431_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=1b51e3&_nc_ohc=JFqtQIaqoqcAX821NBm&_nc_ht=scontent.fcgk29-1.fna&oh=00_AfCs026AubLh7pMvZWovIVDOkvo2PNEtzQpErHeWTH_lGQ&oe=6529FD87",
       "role": "operator"
     },
     {
@@ -47,6 +52,7 @@
       "username": "sri",
       "email": "sri@gmail.com",
       "password": "sri",
+      "avatarUrl": "https://scontent.fcgk29-1.fna.fbcdn.net/v/t39.30808-6/293055985_547436953829463_6601347277633412431_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=1b51e3&_nc_ohc=JFqtQIaqoqcAX821NBm&_nc_ht=scontent.fcgk29-1.fna&oh=00_AfCs026AubLh7pMvZWovIVDOkvo2PNEtzQpErHeWTH_lGQ&oe=6529FD87",
       "role": "operator"
     },
     {
@@ -54,6 +60,7 @@
       "username": "susi",
       "email": "susi@gmail.com",
       "password": "susi",
+      "avatarUrl": "https://scontent.fcgk29-1.fna.fbcdn.net/v/t39.30808-6/293055985_547436953829463_6601347277633412431_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=1b51e3&_nc_ohc=JFqtQIaqoqcAX821NBm&_nc_ht=scontent.fcgk29-1.fna&oh=00_AfCs026AubLh7pMvZWovIVDOkvo2PNEtzQpErHeWTH_lGQ&oe=6529FD87",
       "role": "operator"
     },
     {
@@ -61,6 +68,7 @@
       "username": "muna",
       "email": "muna@gmail.com",
       "password": "muna",
+      "avatarUrl": "https://scontent.fcgk29-1.fna.fbcdn.net/v/t39.30808-6/293055985_547436953829463_6601347277633412431_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=1b51e3&_nc_ohc=JFqtQIaqoqcAX821NBm&_nc_ht=scontent.fcgk29-1.fna&oh=00_AfCs026AubLh7pMvZWovIVDOkvo2PNEtzQpErHeWTH_lGQ&oe=6529FD87",
       "role": "operator"
     },
     {
@@ -68,6 +76,7 @@
       "username": "kyky",
       "email": "kyky@gmail.com",
       "password": "kyky",
+      "avatarUrl": "https://scontent.fcgk29-1.fna.fbcdn.net/v/t39.30808-6/293055985_547436953829463_6601347277633412431_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=1b51e3&_nc_ohc=JFqtQIaqoqcAX821NBm&_nc_ht=scontent.fcgk29-1.fna&oh=00_AfCs026AubLh7pMvZWovIVDOkvo2PNEtzQpErHeWTH_lGQ&oe=6529FD87",
       "role": "operator"
     },
     {
@@ -75,6 +84,7 @@
       "username": "yanto",
       "email": "yanto@gmail.com",
       "password": "yanto",
+      "avatarUrl": "https://scontent.fcgk29-1.fna.fbcdn.net/v/t39.30808-6/293055985_547436953829463_6601347277633412431_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=1b51e3&_nc_ohc=JFqtQIaqoqcAX821NBm&_nc_ht=scontent.fcgk29-1.fna&oh=00_AfCs026AubLh7pMvZWovIVDOkvo2PNEtzQpErHeWTH_lGQ&oe=6529FD87",
       "role": "operator"
     },
     {
@@ -82,12 +92,14 @@
       "username": "bejo",
       "email": "bejo@gmail.com",
       "password": "bejo",
+      "avatarUrl": "https://scontent.fcgk29-1.fna.fbcdn.net/v/t39.30808-6/293055985_547436953829463_6601347277633412431_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=1b51e3&_nc_ohc=JFqtQIaqoqcAX821NBm&_nc_ht=scontent.fcgk29-1.fna&oh=00_AfCs026AubLh7pMvZWovIVDOkvo2PNEtzQpErHeWTH_lGQ&oe=6529FD87",
       "role": "operator"
     },
     {
       "username": "wertyono",
       "email": "pita@gmail.com",
       "password": "df",
+      "avatarUrl": "https://scontent.fcgk29-1.fna.fbcdn.net/v/t39.30808-6/293055985_547436953829463_6601347277633412431_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=1b51e3&_nc_ohc=JFqtQIaqoqcAX821NBm&_nc_ht=scontent.fcgk29-1.fna&oh=00_AfCs026AubLh7pMvZWovIVDOkvo2PNEtzQpErHeWTH_lGQ&oe=6529FD87",
       "role": "operator",
       "id": "23908393"
     },
@@ -96,6 +108,7 @@
       "username": "layla",
       "email": "layla@gmail.com",
       "password": "12345",
+      "avatarUrl": "https://scontent.fcgk29-1.fna.fbcdn.net/v/t39.30808-6/293055985_547436953829463_6601347277633412431_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=1b51e3&_nc_ohc=JFqtQIaqoqcAX821NBm&_nc_ht=scontent.fcgk29-1.fna&oh=00_AfCs026AubLh7pMvZWovIVDOkvo2PNEtzQpErHeWTH_lGQ&oe=6529FD87",
       "role": "operator"
     },
     {
@@ -103,6 +116,7 @@
       "email": "waret@gmail.com",
       "username": "waret",
       "password": "waret",
+      "avatarUrl": "https://scontent.fcgk29-1.fna.fbcdn.net/v/t39.30808-6/293055985_547436953829463_6601347277633412431_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=1b51e3&_nc_ohc=JFqtQIaqoqcAX821NBm&_nc_ht=scontent.fcgk29-1.fna&oh=00_AfCs026AubLh7pMvZWovIVDOkvo2PNEtzQpErHeWTH_lGQ&oe=6529FD87",
       "role": "supervisor"
     },
     {
@@ -110,6 +124,7 @@
       "email": "waret@gmail.com",
       "username": "waret",
       "password": "waret",
+      "avatarUrl": "https://scontent.fcgk29-1.fna.fbcdn.net/v/t39.30808-6/293055985_547436953829463_6601347277633412431_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=1b51e3&_nc_ohc=JFqtQIaqoqcAX821NBm&_nc_ht=scontent.fcgk29-1.fna&oh=00_AfCs026AubLh7pMvZWovIVDOkvo2PNEtzQpErHeWTH_lGQ&oe=6529FD87",
       "role": "supervisor"
     },
     {
@@ -117,6 +132,7 @@
       "email": "waret@gmail.com",
       "username": "waret",
       "password": "waret",
+      "avatarUrl": "https://scontent.fcgk29-1.fna.fbcdn.net/v/t39.30808-6/293055985_547436953829463_6601347277633412431_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=1b51e3&_nc_ohc=JFqtQIaqoqcAX821NBm&_nc_ht=scontent.fcgk29-1.fna&oh=00_AfCs026AubLh7pMvZWovIVDOkvo2PNEtzQpErHeWTH_lGQ&oe=6529FD87",
       "role": "supervisor"
     },
     {
@@ -124,6 +140,7 @@
       "email": "mail@gmail.com",
       "username": "mail",
       "password": "mail",
+      "avatarUrl": "https://scontent.fcgk29-1.fna.fbcdn.net/v/t39.30808-6/293055985_547436953829463_6601347277633412431_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=1b51e3&_nc_ohc=JFqtQIaqoqcAX821NBm&_nc_ht=scontent.fcgk29-1.fna&oh=00_AfCs026AubLh7pMvZWovIVDOkvo2PNEtzQpErHeWTH_lGQ&oe=6529FD87",
       "role": "supervisor"
     },
     {
@@ -131,6 +148,7 @@
       "email": "ina@gmail.com",
       "username": "ina",
       "password": "ina",
+      "avatarUrl": "https://scontent.fcgk29-1.fna.fbcdn.net/v/t39.30808-6/293055985_547436953829463_6601347277633412431_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=1b51e3&_nc_ohc=JFqtQIaqoqcAX821NBm&_nc_ht=scontent.fcgk29-1.fna&oh=00_AfCs026AubLh7pMvZWovIVDOkvo2PNEtzQpErHeWTH_lGQ&oe=6529FD87",
       "role": "supervisor"
     },
     {
@@ -138,6 +156,7 @@
       "email": "usma@gmail.com",
       "username": "usma",
       "password": "usma",
+      "avatarUrl": "https://scontent.fcgk29-1.fna.fbcdn.net/v/t39.30808-6/293055985_547436953829463_6601347277633412431_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=1b51e3&_nc_ohc=JFqtQIaqoqcAX821NBm&_nc_ht=scontent.fcgk29-1.fna&oh=00_AfCs026AubLh7pMvZWovIVDOkvo2PNEtzQpErHeWTH_lGQ&oe=6529FD87",
       "role": "supervisor"
     },
     {
@@ -145,6 +164,7 @@
       "username": "izah",
       "email": "izah@gmail.com",
       "password": "izah",
+      "avatarUrl": "https://scontent.fcgk29-1.fna.fbcdn.net/v/t39.30808-6/293055985_547436953829463_6601347277633412431_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=1b51e3&_nc_ohc=JFqtQIaqoqcAX821NBm&_nc_ht=scontent.fcgk29-1.fna&oh=00_AfCs026AubLh7pMvZWovIVDOkvo2PNEtzQpErHeWTH_lGQ&oe=6529FD87",
       "role": "operator"
     }
   ],
@@ -152,7 +172,7 @@
     {
       "name": "alfyn",
       "phone": "081258612687",
-      "payMethod": "Cash",
+      "payMethod": "Kredit",
       "id": "1"
     },
     {
@@ -162,10 +182,10 @@
       "payMethod": "Cash"
     },
     {
-      "id": "3",
       "name": "afy",
       "phone": "081258612687",
-      "payMethod": "Cash"
+      "payMethod": "Debit",
+      "id": "3"
     },
     {
       "id": "4",
@@ -180,10 +200,10 @@
       "payMethod": "Cash"
     },
     {
-      "id": "7",
       "name": "haikal",
       "phone": "081258612687",
-      "payMethod": "Cash"
+      "payMethod": "Kredit",
+      "id": "7"
     },
     {
       "id": "8",
@@ -208,24 +228,84 @@
       "phone": "081258612687",
       "payMethod": "Cash",
       "id": "11"
+    },
+    {
+      "id": "4b6a6c54",
+      "name": "alyaa",
+      "phone": "098765432111",
+      "payMethod": "Kredit"
     }
   ],
   "order": [
     {
-      "snack": "",
-      "capacity": "",
-      "lunch": "false",
-      "room": "",
-      "booking": "",
-      "extratime": "",
+      "snack": "false",
+      "capacity": "single bed",
+      "lunch": "true",
+      "room": "1",
+      "booking": "7 day",
+      "extratime": "false",
       "id": "79456a19"
+    },
+    {
+      "snack": "false",
+      "capacity": "four bad",
+      "lunch": "false",
+      "room": "1",
+      "booking": "3 day",
+      "extratime": "true",
+      "id": "7f5d49ef"
+    },
+    {
+      "snack": "true",
+      "capacity": "qwerty",
+      "lunch": "true",
+      "room": "5",
+      "booking": "7 day",
+      "extratime": "false",
+      "id": "6519b694"
+    },
+    {
+      "snack": "false",
+      "capacity": "single bed",
+      "lunch": "true",
+      "room": "2",
+      "booking": "3 day",
+      "extratime": "false",
+      "id": "f87e918d"
+    },
+    {
+      "id": "6a42f721",
+      "snack": "false",
+      "capacity": "11",
+      "lunch": "false",
+      "room": "12",
+      "booking": "www",
+      "extratime": "true"
+    },
+    {
+      "snack": "true",
+      "capacity": "single bed",
+      "lunch": "true",
+      "room": "1",
+      "booking": "7 day",
+      "extratime": "false",
+      "id": "450ed3fe"
+    },
+    {
+      "id": "d3e750dd",
+      "snack": "false",
+      "capacity": "single bed",
+      "lunch": "true",
+      "room": "1",
+      "booking": "tyu",
+      "extratime": "false"
     }
   ],
   "rooms": [
     {
-      "id": "1",
       "lantai": "1",
-      "ruang": "1"
+      "ruang": "5",
+      "id": "1"
     },
     {
       "id": "3",
@@ -392,6 +472,24 @@
       "booking": "4 day",
       "extratime": "true",
       "id": "79b46478"
+    },
+    {
+      "snack": "ada",
+      "kapasitas": "3",
+      "ruang": "3",
+      "datetime": "07/07/2007 03:00 PM",
+      "booking": "7 day",
+      "extratime": "true",
+      "id": "76af1a01"
+    },
+    {
+      "snack": "ada",
+      "kapasitas": "9",
+      "ruang": "3",
+      "datetime": "07/07/2007 03:00 PM",
+      "booking": "7 day",
+      "extratime": "false",
+      "id": "d4eb68c1"
     }
   ]
 }

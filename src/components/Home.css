@@ -6,6 +6,8 @@
 }
 .vid{
   background-color: lavender;
+  width: auto;
+  height: 600px;
   
 }
 /* #navbar{

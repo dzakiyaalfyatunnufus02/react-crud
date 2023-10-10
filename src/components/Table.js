@@ -12,8 +12,8 @@ import axios from "axios";
 
 function Tabel() {
   let history = useNavigate();
+  const navigate = useNavigate(); 
   const userRole = localStorage.getItem("UserRole");
-
   // function for supervisor START
   const [currentPage, setCurrentPage] = useState(1);
   const [recordsPerPage, setRecordsPerPage] = useState(5);
@@ -166,6 +166,10 @@ function Tabel() {
       timer: 2500,
     });
   };
+  const handleProfile = () => {
+    // Ganti urutan perintah agar navigasi terjadi sebelum clear local storage
+    navigate("/profile");
+    };
   // function operator And
 
 
@@ -209,6 +213,11 @@ function Tabel() {
                     LOGOUT
                   </button>
                 </Nav>
+                <Nav>
+      <button onClick={handleProfile} className="btn btn-danger">
+        PROFILE
+      </button>
+    </Nav>
               </Navbar.Collapse>
             </Container>
           </Navbar>
@@ -356,6 +365,11 @@ function Tabel() {
                     LOGOUT
                   </button>
                 </Nav>
+                <Nav>
+      <button onClick={handleProfile} className="btn btn-danger">
+        PROFILE
+      </button>
+    </Nav>
               </Navbar.Collapse>
             </Container>
           </Navbar>
@@ -413,7 +427,7 @@ function Tabel() {
                       <td>{item.ruang}</td>
 
                       <td>
-                        <Link to={`/edit/:${item.id}`}>
+                        <Link to={`/edit/${item.id}`}>
                           <button
                             className="btn-edt"
                             onClick={() =>
