@@ -28,7 +28,7 @@ function TableOrder() {
     try {
       const respon = await axios.get("http://localhost:2222/order");
       const allOrder = respon.data;
-      
+
       // Apply search filter only for supervisor role
       const filterOrder = allOrder.filter(
         (employee) =>
@@ -67,7 +67,7 @@ function TableOrder() {
     }
   };
 
-function prePage() {
+  function prePage() {
     if (currentPage > 1) {
       setCurrentPage(currentPage - 1);
     }
@@ -75,7 +75,7 @@ function prePage() {
 
   function changeCPage(id) {
     setCurrentPage(id);
-  }  
+  }
 
   function nextPage() {
     if (currentPage < npage) {
@@ -84,21 +84,29 @@ function prePage() {
   }
   const handleSubmit = (e) => {
     e.preventDefault();
- 
-        // alert("Login berhasil!");
-        Swal.fire({
-          position: "top-center",
-          icon: "success",
-          title: "approve berhasil",
-          showConfirmButton: false,
-          timer: 1500,
-        });
-        // console.log(storedAccounts);
-        navigate("/Home");
-      }
-    
 
-  const disabledButton = async(e, id, room, capacity, snack, lunch, extratime, booking)  => {
+    // alert("Login berhasil!");
+    Swal.fire({
+      position: "top-center",
+      icon: "success",
+      title: "approve berhasil",
+      showConfirmButton: false,
+      timer: 1500,
+    });
+    // console.log(storedAccounts);
+    navigate("/Home");
+  };
+
+  const disabledButton = async (
+    e,
+    id,
+    room,
+    capacity,
+    snack,
+    lunch,
+    extratime,
+    booking
+  ) => {
     e.preventDefault();
     const request = {
       room: room,
@@ -107,10 +115,13 @@ function prePage() {
       lunch: lunch,
       extratime: extratime,
       booking: booking,
-      approve: true
-    }
+      approve: true,
+    };
     try {
-      const respon = await axios.put(`http://localhost:2222/order/${id}`, request)
+      const respon = await axios.put(
+        `http://localhost:2222/order/${id}`,
+        request
+      );
       console.log(respon.data);
       getOrder();
       Swal.fire({
@@ -123,7 +134,6 @@ function prePage() {
     } catch (error) {
       console.log(error);
     }
-    
   };
 
   const handleLogout = () => {
@@ -138,19 +148,17 @@ function prePage() {
       timer: 2500,
     });
   };
-   const handleProfile = () => {
-      // Ganti urutan perintah agar navigasi terjadi sebelum clear local storage
-      navigate("/profile");
-      };
-  const handleDelete = async(id) => {
-  const RESPON = await axios.delete(` http://localhost:2222/order/${id}`)
-  console.log(RESPON);
-  console.log("deleted");
-  getOperator();
-      history("/tableOrder");
-    }
-   
-  
+  const handleProfile = () => {
+    // Ganti urutan perintah agar navigasi terjadi sebelum clear local storage
+    navigate("/profile");
+  };
+  const handleDelete = async (id) => {
+    const RESPON = await axios.delete(` http://localhost:2222/order/${id}`);
+    console.log(RESPON);
+    console.log("deleted");
+    getOperator();
+    history("/tableOrder");
+  };
 
   useEffect(() => {
     getOrder();
@@ -194,14 +202,16 @@ function prePage() {
                     </button>
                   </Nav>
                   <Nav>
-      <button onClick={handleProfile} className="btn btn-danger">
-        PROFILE
-      </button>
-    </Nav>
+                    <button onClick={handleProfile} className="btn btn-danger">
+                      PROFILE
+                    </button>
+                  </Nav>
                 </Navbar.Collapse>
               </Container>
             </Navbar>
-
+            <div>
+              <h1> TABLE ORDERS</h1>
+            </div>
             <div className="div-frgmnt" style={{ margin: "10rem" }}>
               <div style={{ display: "flex", alignItems: "center" }}>
                 <input
@@ -270,7 +280,18 @@ function prePage() {
                               id="Btn"
                               className="btn-edt"
                               disabled={item.approve ? true : false}
-                              onClick={(e) => disabledButton(e,item.id,item.room,item.capacity,item.snack,item.lunch,item.extratime,item.booking)}
+                              onClick={(e) =>
+                                disabledButton(
+                                  e,
+                                  item.id,
+                                  item.room,
+                                  item.capacity,
+                                  item.snack,
+                                  item.lunch,
+                                  item.extratime,
+                                  item.booking
+                                )
+                              }
                             >
                               approve
                             </button>
@@ -340,14 +361,16 @@ function prePage() {
                     </button>
                   </Nav>
                   <Nav>
-      <button onClick={handleProfile} className="btn btn-danger">
-        PROFILE
-      </button>
-    </Nav>
+                    <button onClick={handleProfile} className="btn btn-danger">
+                      PROFILE
+                    </button>
+                  </Nav>
                 </Navbar.Collapse>
               </Container>
             </Navbar>
-
+            <div>
+              <h1>TABLE ORDERS</h1>
+            </div>
             <div className="div-frgmnt" style={{ margin: "10rem" }}>
               <div style={{ display: "flex", alignItems: "center" }}>
                 <input
@@ -405,16 +428,14 @@ function prePage() {
                         <td>{item.room}</td>
                         <td>{item.capacity}</td>
                         <td>{item.snack == "true" ? "Ada" : "Tidak Ada"}</td>
-                        <td>{item.lunch  == "true" ? "Ada" : "Tidak Ada"}</td>
-                        <td>{item.extratime == "true" ? "Ada" : "Tidak Ada"}</td>
+                        <td>{item.lunch == "true" ? "Ada" : "Tidak Ada"}</td>
+                        <td>
+                          {item.extratime == "true" ? "Ada" : "Tidak Ada"}
+                        </td>
                         <td>{item.booking}</td>
                         <td>
                           <Link to={`/editOrder/${item.id}`}>
-                            <button
-                              className="btn-edt"
-                              >
-                              EDIT
-                            </button>
+                            <button className="btn-edt">EDIT</button>
                           </Link>
                           &nbsp;
                           <button

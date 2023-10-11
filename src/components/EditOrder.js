@@ -5,6 +5,7 @@ import { Link,useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
 function EditOrder() {
+  const navigate = useNavigate();
   let history = useNavigate();
   const [snack, setSnack] = useState(false); // Ganti default value snack menjadi false
   const [capacity, setCapacity] = useState("");
@@ -61,7 +62,10 @@ function EditOrder() {
 
     history("/tableOrder");
   };
-
+  
+  const handleProfile = () => {
+    navigate(-1);
+  };
   useEffect(() => {
     getById();
   }, []);
@@ -69,6 +73,9 @@ function EditOrder() {
   return (
     <>
       <div className="div-form">
+      <div>
+            <h1>EDIT ORDERS</h1>
+          </div>
         <Form className="d-grid gap-2" style={{ margin: "0.5rem" }}>
           <Form.Group className="mb-3" controlId="formName">
             <Form.Control
@@ -149,10 +156,15 @@ function EditOrder() {
           </select>
           <br />
           <Link to="/tableOrder">
-        <Button onClick={(e) => Submit(e)} type="submit">
-          
-          Edit
-        </Button>
+          <div id="edt-prfl">
+              {" "}
+              <Button onClick={(e) => Submit(e)} type="submit">
+                EDIT
+              </Button>
+              <Button variant="secondary" onClick={handleProfile}>
+                KEMBALI
+              </Button>
+            </div>
         </Link>
         </Form>
       </div>

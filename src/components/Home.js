@@ -112,7 +112,7 @@ const Home = () => {
       </button>
     </Nav>
     <Nav>
-      <button onClick={handleProfile} className="btn btn-danger">
+      <button id="btn-profil" onClick={handleProfile} className="btn btn-danger">
       PROFILE
 
       </button>

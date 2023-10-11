@@ -12,12 +12,12 @@ import axios from "axios";
 
 function Tabel() {
   let history = useNavigate();
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
   const userRole = localStorage.getItem("UserRole");
   // function for supervisor START
   const [currentPage, setCurrentPage] = useState(1);
   const [recordsPerPage, setRecordsPerPage] = useState(5);
-   const [search, setSearch] = useState("");
+  const [search, setSearch] = useState("");
   const firstIndex = (currentPage - 1) * recordsPerPage;
   const lastIndex = currentPage * recordsPerPage;
   const [id, setId] = useState("");
@@ -54,7 +54,7 @@ function Tabel() {
 
   // const records = filterAccounts.slice(firstIndex, lastIndex);
 
-  const handleDelete = async(id) => {
+  const handleDelete = async (id) => {
     try {
       const respon = await axios.delete(`http://localhost:2222/accounts/${id}`);
       console.log(respon.data);
@@ -63,9 +63,8 @@ function Tabel() {
     } catch (error) {
       console.log(error);
     }
-      history("/table");
-    };
-  
+    history("/table");
+  };
 
   function prePage() {
     if (currentPage > 1) {
@@ -110,13 +109,12 @@ function Tabel() {
     try {
       const Respon = await axios.get("http://localhost:2222/rooms");
       const allRooms = Respon.data;
-  
+
       // Apply search filter only for operator role
-      const filterRooms = allRooms.filter(
-        (room) =>
-          room.lantai?.toLowerCase().includes(Search?.toLowerCase())
+      const filterRooms = allRooms.filter((room) =>
+        room.lantai?.toLowerCase().includes(Search?.toLowerCase())
       );
-  
+
       setRooms(filterRooms);
       console.log(filterRooms);
     } catch (error) {
@@ -129,17 +127,16 @@ function Tabel() {
     localStorage.setItem("lantai", lantai);
     localStorage.setItem("ruang", ruang);
   };
-  
 
-  const delet = async(Id) => {
-   try {
-    const Respon = await axios.delete(`http://localhost:2222/rooms/${Id}`);
-    console.log(Respon.data);
-    console.log("deleted");
-    getOperator();
-   } catch (error) {
-    console.log(error);
-   }
+  const delet = async (Id) => {
+    try {
+      const Respon = await axios.delete(`http://localhost:2222/rooms/${Id}`);
+      console.log(Respon.data);
+      console.log("deleted");
+      getOperator();
+    } catch (error) {
+      console.log(error);
+    }
   };
   function prePAGE() {
     if (currentRoom > 1) {
@@ -169,9 +166,8 @@ function Tabel() {
   const handleProfile = () => {
     // Ganti urutan perintah agar navigasi terjadi sebelum clear local storage
     navigate("/profile");
-    };
+  };
   // function operator And
-
 
   useEffect(() => {
     getAccounts();
@@ -209,19 +205,25 @@ function Tabel() {
                   </NavDropdown>
                 </Nav>
                 <Nav>
-                  <button onClick={handleLogout} className="btn btn-danger">
+                  <button
+                    id="btn-profil"
+                    onClick={handleLogout}
+                    className="btn btn-danger"
+                  >
                     LOGOUT
                   </button>
                 </Nav>
                 <Nav>
-      <button onClick={handleProfile} className="btn btn-danger">
-        PROFILE
-      </button>
-    </Nav>
+                  <button onClick={handleProfile} className="btn btn-danger">
+                    PROFILE
+                  </button>
+                </Nav>
               </Navbar.Collapse>
             </Container>
           </Navbar>
-
+          <div>
+            <h1>TABLE ROOMS</h1>
+          </div>
           <div className="div-frgmnt" style={{ margin: "10rem" }}>
             <div style={{ display: "flex", alignItems: "center" }}>
               <input
@@ -366,14 +368,16 @@ function Tabel() {
                   </button>
                 </Nav>
                 <Nav>
-      <button onClick={handleProfile} className="btn btn-danger">
-        PROFILE
-      </button>
-    </Nav>
+                  <button onClick={handleProfile} className="btn btn-danger">
+                    PROFILE
+                  </button>
+                </Nav>
               </Navbar.Collapse>
             </Container>
           </Navbar>
-
+          <div>
+            <h1>ROOMS</h1>
+          </div>
           <div className="div-frgmnt" style={{ margin: "10rem" }}>
             <div style={{ display: "flex", alignItems: "center" }}>
               <input

@@ -138,14 +138,16 @@ const handleProfile = () => {
                   </button>
                 </Nav>
                 <Nav>
-      <button onClick={handleProfile} className="btn btn-danger">
+      <button id="btn-profil" onClick={handleProfile} className="btn btn-danger">
         PROFILE
       </button>
     </Nav>
               </Navbar.Collapse>
             </Container>
           </Navbar>
-
+          <div>
+            <h1>TABLE COSTUMERS</h1>
+          </div>
           <div className="div-frgmnt" style={{ margin: "10rem" }}>
             <div style={{ display: "flex", alignItems: "center" }}>
               <input

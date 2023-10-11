@@ -6,6 +6,7 @@ import axios from "axios";
 
 function Add() {
   let history = useNavigate();
+  const navigate = useNavigate();
   const [snack, setSnack] = useState(false);
   const [capacity, setCapacity] = useState("");
   const [lunch, setLunch] = useState(false);
@@ -66,6 +67,9 @@ function Add() {
 
     history("/ruangTunggu");
   };
+  const handleProfile = () => {
+    navigate(-1);
+  };
   useEffect(() => {
     getById();
   }, []);
@@ -73,6 +77,9 @@ function Add() {
   return (
     <>
       <div className="div-form">
+      <div>
+            <h1>CREAT ORDERS</h1>
+          </div>
         <Form className="d-grid gap-2" style={{ margin: "0.5rem" }}>
           <Form.Group className="mb-3" controlId="formName">
             <Form.Control
@@ -161,9 +168,16 @@ function Add() {
         </select>
 
         <br />
-        <Link to="/tableCostumer">
+        <div id="edt-prfl">
+              {" "}
+              <Link to="/tableCostumer">
           <Button onClick={(e) => Submit(e)}>Create</Button>
         </Link>
+              <Button variant="secondary" onClick={handleProfile}>
+                KEMBALI
+              </Button>
+            </div>
+        
         {/* ... (Closing tags) */}
       </div>
     </>

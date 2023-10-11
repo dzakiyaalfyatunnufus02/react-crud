@@ -8,10 +8,11 @@ import axios from "axios";
 
 function Edit() {
   // function for supervisor
+  const navigate = useNavigate();
   const [username, satusername] = useState("");
   const [email, satEmail] = useState("");
   const [id, satId] = useState("");
-  const [ Id, setId] = useState("");
+  const [Id, setId] = useState("");
   const [password, satPassword] = useState("");
   const [role, satRole] = useState("");
   const userRole = localStorage.getItem("UserRole");
@@ -19,28 +20,26 @@ function Edit() {
 
   const param = useParams();
 
- 
-
-  const handleSubmit = async(e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-      
+
     const request = {
       username: username,
       email: email,
       password: password,
-      role: "operator"
-
-    }
+      role: "operator",
+    };
 
     try {
-      const respon = await axios.put(`http://localhost:2222/accounts/${param.id}`, request)
+      const respon = await axios.put(
+        `http://localhost:2222/accounts/${param.id}`,
+        request
+      );
       console.log(respon.data);
       console.log("updated");
     } catch (error) {
       console.log(error);
-      
     }
-
 
     history("/table");
   };
@@ -58,29 +57,33 @@ function Edit() {
   const [lantai, setLantai] = useState("");
   const [Ruang, setRuang] = useState("");
 
-
-
-  const Submit = async(e) => {
+  const Submit = async (e) => {
     e.preventDefault();
-     const Request = {
+    const Request = {
       lantai: lantai,
-      ruang: Ruang
-     }
+      ruang: Ruang,
+    };
 
-     try {
-      const Respon = await axios.put(`http://localhost:2222/rooms/${param.id}`, Request)
+    try {
+      const Respon = await axios.put(
+        `http://localhost:2222/rooms/${param.id}`,
+        Request
+      );
       console.log(Respon.data);
       console.log("updated");
-     } catch (error) {
+    } catch (error) {
       console.log(error);
-     }
+    }
 
     history("/table");
+  };
+  const handleProfile = () => {
+    navigate(-1);
   };
   useEffect(() => {
     setLantai(localStorage.getItem("lantai"));
     setRuang(localStorage.getItem("ruang"));
-    setId(localStorage.getItem ("id"));
+    setId(localStorage.getItem("id"));
   }, []);
 
   // functoin for operator end
@@ -89,7 +92,10 @@ function Edit() {
     <>
       {userRole === "supervisor" ? (
         <div className="div-form">
-          <Form className="d-grid gap-2" style={{ margin: "0.5rem" }}>
+          <div>
+            <h1>EDIT ROOMS</h1>
+          </div>
+                    <Form className="d-grid gap-2" style={{ margin: "0.5rem" }}>
             <Form.Group className="mb-3" controlId="formName">
               <Form.Control
                 type="text"
@@ -121,13 +127,22 @@ function Edit() {
                 onChange={(e) => satPassword(e.target.value)}
               ></Form.Control>
             </Form.Group>
-            <Button onClick={(e) => handleSubmit(e)} type="submit">
-              Edit
-            </Button>
+            <div id="edt-prfl">
+              {" "}
+              <Button onClick={(e) => Submit(e)} type="submit">
+                EDIT
+              </Button>
+              <Button variant="secondary" onClick={handleProfile}>
+                KEMBALI
+              </Button>
+            </div>
           </Form>
         </div>
       ) : (
         <div className="div-form">
+            <div>
+            <h1>EDIT ROOMS</h1>
+          </div>
           <Form className="d-grid gap-2" style={{ margin: "0.5rem" }}>
             <Form.Group className="mb-3" controlId="formName">
               <Form.Control
@@ -149,9 +164,15 @@ function Edit() {
                 onChange={(e) => setRuang(e.target.value)}
               ></Form.Control>
             </Form.Group>
-            <Button onClick={(e) => Submit(e)} type="submit">
-              Edit
-            </Button>
+            <div id="edt-prfl">
+              {" "}
+              <Button onClick={(e) => Submit(e)} type="submit">
+                EDIT
+              </Button>
+              <Button variant="secondary" onClick={handleProfile}>
+                KEMBALI
+              </Button>
+            </div>
           </Form>
         </div>
       )}

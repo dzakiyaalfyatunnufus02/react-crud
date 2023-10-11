@@ -2,3 +2,7 @@
     padding-top: 14rem;
     margin: 30px;
 }
+#edt-prfl{
+    display: flex;
+    gap: 10px;
+}

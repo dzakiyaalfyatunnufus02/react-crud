@@ -104,4 +104,6 @@ margin-left: 300px;
     display: flex;
     gap: 10px;
 }
-  
+  button{
+    background-color: lightgray;
+  }

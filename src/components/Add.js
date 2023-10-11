@@ -8,12 +8,13 @@ import axios from "axios";
 
 function Add() {
   // function for Supervisor Start
+  const navigate = useNavigate();
+  let history = useNavigate();
   const [username, satusername] = useState("");
   const [email, satEmail] = useState("");
   const [password, satPassword] = useState("");
   const userRole = localStorage.getItem("UserRole");
 
-  let history = useNavigate();
 
   const handleSubmit =  async(e) => {
     e.preventDefault();
@@ -68,10 +69,16 @@ function Add() {
 
     //  function for operator And
   };
+  const handleProfile = () => {
+    navigate(-1);
+  };
   return (
     <>
       {userRole === "supervisor" ? (
         <div className="div-form">
+          <div>
+            <h1>CREAT ROOMS</h1>
+          </div>
           <Form className="d-grid gap-2" style={{ margin: "0.5rem" }}>
             <Form.Group className="mb-3" controlId="formName">
               <Form.Control
@@ -107,7 +114,11 @@ function Add() {
           </Form>
         </div>
       ) : (
+        
         <div className="div-form">
+          <div>
+            <h1>ROOMS </h1>
+          </div>
           <Form className="d-grid gap-2" style={{ margin: "0.5rem" }}>
             <Form.Group className="mb-3" controlId="formName">
               <Form.Control
@@ -127,9 +138,17 @@ function Add() {
                 onChange={(e) => setRuang(e.target.value)}
               ></Form.Control>
             </Form.Group>
-            <Button onClick={(e) => Submit(e)} type="submit">
+          
+           
+            <div id="edt-prfl">
+              {" "}
+              <Button onClick={(e) => Submit(e)} type="submit">
               Submit
             </Button>
+              <Button variant="secondary" onClick={handleProfile}>
+                KEMBALI
+              </Button>
+            </div>
           </Form>
         </div>
       )}

@@ -1,18 +1,19 @@
 {
   "accounts": [
     {
-      "id": "5",
-      "username": "usma",
-      "email": "usma@gmail.com",
-      "password": "usma",
+      "username": "Azro Malwa Syifa",
+      "email": "Azrasyif05@gmail.com",
+      "role": "supervisor",
       "avatarUrl": "https://scontent.fcgk29-1.fna.fbcdn.net/v/t39.30808-6/293055985_547436953829463_6601347277633412431_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=1b51e3&_nc_ohc=JFqtQIaqoqcAX821NBm&_nc_ht=scontent.fcgk29-1.fna&oh=00_AfCs026AubLh7pMvZWovIVDOkvo2PNEtzQpErHeWTH_lGQ&oe=6529FD87",
-      "role": "supervisor"
+      "password": "usma",
+      "id": "5"
     },
     {
       "username": "ulfa",
       "email": "ulfa@gmail.com",
       "role": "operator",
-      "avatarUrl": "https://scontent.fcgk29-1.fna.fbcdn.net/v/t39.30808-6/293055985_547436953829463_6601347277633412431_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=1b51e3&_nc_ohc=JFqtQIaqoqcAX821NBm&_nc_ht=scontent.fcgk29-1.fna&oh=00_AfCs026AubLh7pMvZWovIVDOkvo2PNEtzQpErHeWTH_lGQ&oe=6529FD87",
+      "avatarUrl": "https://assets.kompasiana.com/items/album/2022/08/07/8-62efcc2e08a8b51f7c330042.jpg?t=o&v=350",
+      "password": "ulfa",
       "id": "10"
     },
     {

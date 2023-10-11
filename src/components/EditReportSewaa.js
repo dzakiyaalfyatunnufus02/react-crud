@@ -57,6 +57,9 @@ function EditREportSewa() {
 
    
   };
+  const handleProfile = () => {
+    navigate(-1);
+  };
   useEffect(() => {
     getById();
   }, []);
@@ -64,6 +67,9 @@ function EditREportSewa() {
   return (
     <>
       <div className="div-form">
+      <div>
+            <h1>EDIT REPORT SEWA</h1>
+          </div>
         <Form className="d-grid gap-2" style={{ margin: "0.5rem" }}>
           <Form.Group className="mb-3" controlId="formName">
             <Form.Control
@@ -133,9 +139,15 @@ function EditREportSewa() {
           </select>
           <br />
           <Link to="/reportSewa">
-            <Button onClick={(e) => Submit(e)} type="submit">
-              Edit
-            </Button>
+          <div id="edt-prfl">
+              {" "}
+              <Button onClick={(e) => Submit(e)} type="submit">
+                EDIT
+              </Button>
+              <Button variant="secondary" onClick={handleProfile}>
+                KEMBALI
+              </Button>
+            </div>
           </Link>
         </Form>
       </div>

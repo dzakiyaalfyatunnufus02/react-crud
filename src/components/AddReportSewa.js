@@ -6,6 +6,7 @@ import axios from "axios";
 
 function AddReportSewa() {
   let history = useNavigate();
+  const navigate = useNavigate();
   const [datetime, setDatetime] = useState("");
   const [ruang, setRuang] = useState("");
   const [kapasitas, setKapasitas] = useState("");
@@ -45,12 +46,18 @@ function AddReportSewa() {
     }
     history("/reportSewa");
   };
+  const handleProfile = () => {
+    navigate(-1);
+  };
 
   
 
   return (
     <>
       <div className="div-form">
+      <div>
+            <h1>CREATE REPORT SEWA</h1>
+          </div>
         <Form className="d-grid gap-2" style={{ margin: "0.5rem" }}>
           <Form.Group className="mb-3" controlId="formName">
             <Form.Control
@@ -121,11 +128,18 @@ function AddReportSewa() {
             <option value={true}> Tidak Ada</option>
           </select>
           <br />
-          <Link to="/reportSewa">
+          <div id="edt-prfl">
+              {" "}
+              <Link to="/reportSewa">
             <Button onClick={(e) => Submit(e)} type="submit">
               Create
             </Button>
           </Link>
+              <Button variant="secondary" onClick={handleProfile}>
+                KEMBALI
+              </Button>
+            </div>
+         
         </Form>
       </div>
     </>

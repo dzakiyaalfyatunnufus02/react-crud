@@ -4,8 +4,10 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { v4 as uuid } from "uuid";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
+import"../components/Add.css"
 
 function EditCostumer() {
+  const navigate = useNavigate();
   let history = useNavigate();
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
@@ -18,7 +20,9 @@ function EditCostumer() {
     { value: "Debit", label: "Debit" },
   ];
  
-  
+  const handleProfile = () => {
+    navigate(-1);
+  };
   const Submit = async(e) => {
     e.preventDefault();
   
@@ -51,6 +55,9 @@ function EditCostumer() {
   return (
     <>
     <div className="div-form">
+    <div>
+            <h1>EDIT COSTUMERS</h1>
+          </div>
       <Form className="d-grid gap-2" style={{ margin: "0.5rem" }}>
         <Form.Group className="mb-3" controlId="formName">
           <Form.Control
@@ -93,9 +100,18 @@ function EditCostumer() {
       </select>
       <br/>
       <Link to="/tableCostumer">
-        <Button onClick={(e) => Submit(e)} type="submit">
+        {/* <Button onClick={(e) => Submit(e)} type="submit">
           Edit
-        </Button>
+        </Button> */}
+          <div id="edt-prfl">
+              {" "}
+              <Button onClick={(e) => Submit(e)} type="submit">
+                EDIT
+              </Button>
+              <Button variant="secondary" onClick={handleProfile}>
+                KEMBALI
+              </Button>
+            </div>
         </Link>
       </Form>
     </div>

@@ -7,6 +7,7 @@ import axios from "axios";
 
 function Add() {
   let history = useNavigate();
+  const navigate = useNavigate();
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [payMethod, setPayMethod] = useState("Cash");
@@ -15,36 +16,41 @@ function Add() {
     name: "",
     phone: "",
     payMethod: "",
-  }); 
+  });
   const options = [
     { value: "Cash", label: "Cash" },
     { value: "Kredit", label: "Kredit" },
     { value: "Debit", label: "Debit" },
   ];
-  const Submit =  async(e) => {
+  const Submit = async (e) => {
     e.preventDefault();
 
     const ids = uuid();
     let Uniqed = ids.slice(0, 8);
 
-  const request = {
-    id: Uniqed,
-  name: name,
-  phone: phone,
-  payMethod: payMethod
-  }
+    const request = {
+      id: Uniqed,
+      name: name,
+      phone: phone,
+      payMethod: payMethod,
+    };
 
-  try {
-    const respon = await axios.post("http://localhost:2222/costumers", request)
-    console.log(respon);
-    console.log("costumered");
-  } catch (error) {
-    console.log(error);
-    
-  }
+    try {
+      const respon = await axios.post(
+        "http://localhost:2222/costumers",
+        request
+      );
+      console.log(respon);
+      console.log("costumered");
+    } catch (error) {
+      console.log(error);
+    }
     history("/tableCostumer");
 
     //  function for operator And
+  };
+  const handleProfile = () => {
+    navigate(-1);
   };
   useEffect(() => {
     setFormData({
@@ -58,6 +64,9 @@ function Add() {
   return (
     <>
       <div className="div-form">
+      <div>
+            <h1>CREAT COSTUMER</h1>
+          </div>
         <Form className="d-grid gap-2" style={{ margin: "0.5rem" }}>
           <Form.Group className="mb-3" controlId="formName">
             <Form.Control
@@ -95,11 +104,17 @@ function Add() {
             ))}
           </select>
           <br />
-          <Link to="/tableCostumer">
-            <Button onClick={(e) => Submit(e)} type="submit">
-              Update
+          <div id="edt-prfl">
+            {" "}
+            <Button variant="secondary" onClick={handleProfile}>
+              KEMBALI
             </Button>
-          </Link>
+            <Link to="/tableCostumer">
+              <Button onClick={(e) => Submit(e)} type="submit">
+                Update
+              </Button>
+            </Link>
+          </div>
         </Form>
       </div>
     </>
