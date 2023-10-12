@@ -86,6 +86,7 @@ function ReportSewa() {
 
   return (
     <>
+    <div className="home">
     {userRole === "supervisor" ? (
       <Fragment>
         <Navbar bg="light" expand="lg" className="bg-body-tertiary">
@@ -96,7 +97,6 @@ function ReportSewa() {
               <Nav className="me-auto">
                 <Nav.Link href="/home">Home</Nav.Link>
                 <Nav.Link href="/tableOrder">Approve List</Nav.Link>
-                <Nav.Link href="/tableCostumer">Costumer</Nav.Link>
                 <Nav.Link href="/reportSewa">Report Sewa</Nav.Link>
                 <Nav.Link href="/table">Table</Nav.Link>
                 <NavDropdown title="Dropdown" id="basic-nav-dropdown">
@@ -113,13 +113,13 @@ function ReportSewa() {
                   </NavDropdown.Item>
                 </NavDropdown>
               </Nav>
-              <Nav>
+              <Nav className="btn">
                 <button onClick={handleLogout} className="btn btn-danger">
                   LOGOUT
                 </button>
               </Nav>
               <Nav>
-                <button onClick={handleProfile} className="btn btn-danger">
+                <button onClick={handleProfile} className="btn btn-secondary" varian="secondary">
                    PROFILE
                 </button>
               </Nav>
@@ -210,19 +210,25 @@ function ReportSewa() {
               )}
             </tbody>
           </Table>
-          <Pagination>
+          <div className="pgntn">
+          <Pagination className="pgntn">
             <Pagination.Prev onClick={prePage} />
             {numbers.map((n, i) => (
               <Pagination.Item
                 key={i}
                 active={currentPage === n}
                 onClick={() => changeCPage(n)}
+                style={{
+                  backgroundColor: "lightgray"
+                }}
               >
                 {n}
               </Pagination.Item>
             ))}
             <Pagination.Next onClick={nextPage} />
           </Pagination>
+          </div>
+          
         </div>
       </Fragment>
     ) : (
@@ -252,14 +258,14 @@ function ReportSewa() {
                   </NavDropdown.Item>
                 </NavDropdown>
               </Nav>
-              <Nav>
+              <Nav className="btn">
                 <button onClick={handleLogout} className="btn btn-danger">
                   LOGOUT
                 </button>
               </Nav>
               <Nav>
-                <button onClick={handleProfile} className="btn btn-danger">
-                  TABLE PROFILE
+                <button onClick={handleProfile} className="btn btn-secondary" variant="secondary">
+                   PROFILE
                 </button>
               </Nav>
             </Navbar.Collapse>
@@ -349,7 +355,7 @@ function ReportSewa() {
               )}
             </tbody>
           </Table>
-          <Pagination>
+          <Pagination className="pgntn">
             <Pagination.Prev onClick={prePage} />
             {numbers.map((n, i) => (
               <Pagination.Item
@@ -361,15 +367,17 @@ function ReportSewa() {
               </Pagination.Item>
             ))}
             <Pagination.Next onClick={nextPage} />
-          </Pagination>
+          </Pagination >
           <Link className="d-grid gap-2" to={"/addReportSewaa"}>
-            <Button className="btn" size="lg">
+            <Button className="btn-lnk" size="lg">
               Create
             </Button>
           </Link>
         </div>
       </Fragment>
     )}
+    </div>
+   
       
     </>
   );

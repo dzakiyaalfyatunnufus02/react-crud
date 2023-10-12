@@ -1,17 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { Button, Modal } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import ButtonGroup from "react-bootstrap/ButtonGroup";
+import Dropdown from "react-bootstrap/Dropdown";
 import Swal from "sweetalert2";
 import axios from "axios";
 import "../components/Profile.css"; // Import file CSS untuk styling
 
 const Profile = () => {
+  const history = useNavigate("");
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [avatarUrl, setAvatarUrl] = useState("");
   const [role, setRole] = useState("");
-  const [password, setPassword] = useState("")
+  const [password, setPassword] = useState("");
   const [Email, setEMAIL] = useState("");
   const [UserName, setUSERNAME] = useState("");
   const [AvatarURL, setAVATARURL] = useState("");
@@ -29,7 +32,7 @@ const Profile = () => {
       setEmail(account.email);
       setRole(account.role);
       setUsername(account.username);
-      setPassword(account.password)
+      setPassword(account.password);
     } catch (error) {
       console.log(error);
     }
@@ -40,8 +43,19 @@ const Profile = () => {
       email: Email,
       role: role,
       avatarUrl: AvatarURL,
-      password: password
-      
+      password: password,
+    };
+    const handeLogout = () => {
+      localStorage.clear();
+      history("/");
+
+      Swal.fire({
+        position: "top-middle",
+        icon: "success",
+        title: "LOGOUT Berhasil!!",
+        showConfirmButton: false,
+        timer: 2500,
+      });
     };
     try {
       const respon = await axios.put(
@@ -55,7 +69,7 @@ const Profile = () => {
       console.log(error);
     }
   };
-  const handleLogout = () => {
+  const logout = () => {
     localStorage.clear();
     navigate("/table");
 
@@ -80,13 +94,25 @@ const Profile = () => {
   return (
     <div className="profile">
       <div className="profile-container">
-        <Button variant="secondary" onClick={handleProfile}>
-          KEMBALI
-        </Button>
+        <Dropdown as={ButtonGroup}>
+          <Button variant="success" className="split">Split Button</Button>
+
+          <Dropdown.Toggle split variant="success" id="dropdown-split-basic" />
+
+          <Dropdown.Menu>
+            <Dropdown.Item onClick={handleProfile} href="#/action-1">
+              Kembali
+            </Dropdown.Item>
+            <Dropdown.Item onClick={logout}>Logout</Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
+        {/* <Button variant="secondary" onClick={handleProfile}>
+          Kembali
+        </Button> */}
       </div>
-      <div>
-            <h1>PROFILE</h1>
-          </div>
+      <div id="id-h1">
+        <h1>TABLE PROFILE</h1>
+      </div>
       <div className="profile-info">
         <img
           src={avatarUrl} // Gantilah dengan path atau URL foto pengguna
@@ -142,6 +168,7 @@ const Profile = () => {
                   width: "400px",
                   height: "60px",
                   borderRadius: "20px",
+                  marginBlock:""
                 }}
                 value={email}
                 type="text"
@@ -179,26 +206,30 @@ const Profile = () => {
           </div>
         </div>
         <div id="nav">
-          <Button variant="primary" onClick={handleShow}>
-EDIT
+          <Button
+            className="nm-nv"
+            variant="success"
+            active
+            onClick={handleShow}
+          >
+            EDIT
           </Button>
-          <button onClick={handleLogout} className="btn btn-danger">
-                  LOGOUT
-                </button>
 
           <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
-              <Modal.Title>Modal heading</Modal.Title>
+              <Modal.Title>Edit Profil</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-              <div class="panel-body">
-                <div class="form-group">
+              <div class="panel-body-EDT">
+                <div class="form-group-edt">
                   <label
-                    id="t"
+                    id="a"
                     className="t"
                     class="col-sm-2 control-label"
                     style={{
                       transform: "translate(-200%, -50%)",
+                      marginBottom: "0px",
+                      paddingBottom: "0",
                     }}
                   >
                     IMAGE:
@@ -218,9 +249,9 @@ EDIT
                     />
                   </div>
                 </div>
-                <div class="form-group">
+                <div class="form-group-edt">
                   <label
-                    id="t"
+                    id="b"
                     className="t"
                     class="col-sm-2 control-label"
                     style={{
@@ -244,9 +275,9 @@ EDIT
                     />
                   </div>
                 </div>
-                <div class="form-group">
+                <div class="form-group-edt">
                   <label
-                    id="f"
+                    id="c"
                     class="col-sm-2 control-label"
                     style={{
                       transform: "translate(-200%, -10%)",

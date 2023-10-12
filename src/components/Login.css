@@ -10,13 +10,14 @@
 }
 .body {
   width: 33.3vw;
+  background-image: url();
 }
 .mainContainer {
   width: 100%;
   height: 100vh;
-  background: #ee0979;
-  background: -webkit-linear-gradient(to left, #ff6a00, #ee0979);
-  background: linear-gradient(to left, #ff6a00, #ee0979);
+  /* background: #ee0979; */
+  /* background: -webkit-linear-gradient(to left, #ff6a00, #ee0979);
+  background: linear-gradient(to left, #ff6a00, #ee0979); */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -48,7 +49,7 @@
   position: absolute;
   width: 110px;
   height: 100%;
-  background: linear-gradient(to right, #ff105f, #ffad06);
+  /* background: linear-gradient(to right, #ff105f, #ffad06); */
   border-radius: 100px;
   left: var(--lf);
   transition: 0.5s;
@@ -117,7 +118,7 @@
   outline: none;
   user-select: none;
   border: 0;
-  background: linear-gradient(to right, #ff105f, #ffad06);
+  /* background: linear-gradient(to right, #ff105f, #ffad06); */
   cursor: pointer;
 }
 .register {
@@ -144,9 +145,12 @@
 .mainContainer {
   width: 300%;
   height: 100vh;
-  background: #ee0979;
+  background-image: url(https://i0.wp.com/backgroundabstract.com/wp-content/uploads/edd/2022/04/vecteezy_abstract-fluid-background-with-green-color_-e1655988564739.jpg?resize=600%2C450&ssl=1);
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* background: #ee0979;
   background: -webkit-linear-gradient(to left, #ff6a00, #ee0979);
-  background: linear-gradient(to left, #ff6a00, #ee0979);
+  background: linear-gradient(to left, #ff6a00, #ee0979); */
   display: flex;
   justify-content: center;
   /* margin-left: 0%; */
@@ -178,7 +182,9 @@
   position: absolute;
   width: 110px;
   height: 100%;
-  background: linear-gradient(to right, #ff105f, #ffad06);
+  /* background: linear-gradient(to right, #ff105f, #ffad06); */
+  /* background-color: lightgreen; */
+  background-color: transparent;
   border-radius: 100px;
   left: var(--lf);
   transition: 0.5s;
@@ -247,7 +253,8 @@
   outline: none;
   user-select: none;
   border: 0;
-  background: linear-gradient(to right, #ff105f, #ffad06);
+  background-color: lightgreen;
+  /* background: linear-gradient(to right, #ff105f, #ffad06); */
   cursor: pointer;
 }
 .register {

@@ -28,7 +28,6 @@ const Login = () => {
       console.log(error);
     }
   };
-  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -54,7 +53,7 @@ const Login = () => {
           localStorage.setItem("UserRole", existingData.role);
           localStorage.setItem("id", existingData.id);
           // console.log(storedAccounts);
-          navigate("/Home");
+          navigate("/home");
         } else {
           // alert("Username atau password salah!");
           Swal.fire({

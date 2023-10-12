@@ -196,13 +196,13 @@ function TableOrder() {
                       </NavDropdown.Item>
                     </NavDropdown>
                   </Nav>
-                  <Nav>
+                  <Nav className="btn">
                     <button onClick={handleLogout} className="btn btn-danger">
                       LOGOUT
                     </button>
                   </Nav>
                   <Nav>
-                    <button onClick={handleProfile} className="btn btn-danger">
+                    <button onClick={handleProfile} className="btn btn-secondary" variant="secondary">
                       PROFILE
                     </button>
                   </Nav>
@@ -311,7 +311,7 @@ function TableOrder() {
                   )}
                 </tbody>
               </Table>
-              <Pagination>
+              <Pagination className="pgntn">
                 <Pagination.Prev onClick={prePage} />
                 {numbers.map((n, i) => (
                   <Pagination.Item
@@ -355,13 +355,13 @@ function TableOrder() {
                       </NavDropdown.Item>
                     </NavDropdown>
                   </Nav>
-                  <Nav>
+                  <Nav className="btn">
                     <button onClick={handleLogout} className="btn btn-danger">
                       LOGOUT
                     </button>
                   </Nav>
                   <Nav>
-                    <button onClick={handleProfile} className="btn btn-danger">
+                    <button onClick={handleProfile} className="btn btn-secondary" variant="secondary">
                       PROFILE
                     </button>
                   </Nav>
@@ -455,7 +455,7 @@ function TableOrder() {
                   )}
                 </tbody>
               </Table>
-              <Pagination>
+              <Pagination className="pgntn">
                 <Pagination.Prev onClick={prePage} />
                 {numbers.map((n, i) => (
                   <Pagination.Item
@@ -469,7 +469,7 @@ function TableOrder() {
                 <Pagination.Next onClick={nextPage} />
               </Pagination>
               <Link className="d-grid gap-2" to="/addOrder">
-                <Button className="btn" size="lg">
+                <Button className="btn-lnk" size="lg">
                   Create
                 </Button>
               </Link>

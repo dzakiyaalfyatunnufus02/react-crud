@@ -12,7 +12,7 @@ function TableCostumers() {
   let history = useNavigate("");
   const navigate = useNavigate();
   const [currentPage, setCurrentPage] = useState(1);
-  const [recordsPerPage, setRecordsPerPage] = useState(5);
+  const [recordsPerPage, setRecordsPerPage] = useState(3);
   const firstIndex = (currentPage - 1) * recordsPerPage;
   const lastIndex = currentPage * recordsPerPage;
   const [Costumers, setCostumers] = useState([]);
@@ -132,8 +132,9 @@ const handleProfile = () => {
                     </NavDropdown.Item>
                   </NavDropdown>
                 </Nav>
-                <Nav>
-                  <button onClick={handleLogout} className="btn btn-danger">
+                <div></div>
+                <Nav className="btn">
+                  <button onClick={handleLogout} className="btn btn-secondary" variant="secondary">
                     LOGOUT
                   </button>
                 </Nav>
@@ -178,8 +179,8 @@ const handleProfile = () => {
                     marginRight: "10px",
                   }}
                 >
-                  <option value={5}>5</option>
-                  <option value={10}>10</option>
+                  <option value={3}>3</option>
+                  <option value={7}>7</option>
                   <option value={15}>15</option>
                 </select>
               </span>
@@ -235,7 +236,7 @@ const handleProfile = () => {
                 )}
               </tbody>
             </Table>
-            <Pagination>
+            <Pagination className="pgntn">
               <Pagination.Prev onClick={prePage} />
               {numbers.map((n, i) => (
                 <Pagination.Item
@@ -250,7 +251,7 @@ const handleProfile = () => {
             </Pagination>
 
             <Link className="d-grid gap-2" to={"/addCostumer"}>
-              <Button size="lg">Create</Button>
+              <Button size="lg" className="btn-lnk">Create</Button>
             </Link>
           </div>
         </Fragment>

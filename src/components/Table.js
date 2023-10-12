@@ -204,7 +204,7 @@ function Tabel() {
                     </NavDropdown.Item>
                   </NavDropdown>
                 </Nav>
-                <Nav>
+                <Nav className="btn">
                   <button
                     id="btn-profil"
                     onClick={handleLogout}
@@ -214,7 +214,7 @@ function Tabel() {
                   </button>
                 </Nav>
                 <Nav>
-                  <button onClick={handleProfile} className="btn btn-danger">
+                  <button onClick={handleProfile} className="btn btn-secondary" variant="secondary">
                     PROFILE
                   </button>
                 </Nav>
@@ -314,7 +314,7 @@ function Tabel() {
                 )}
               </tbody>
             </Table>
-            <Pagination>
+            <Pagination className="pgntn">
               <Pagination.Prev onClick={prePage} />
               {numbers.map((n, i) => (
                 <Pagination.Item
@@ -362,13 +362,13 @@ function Tabel() {
                     </NavDropdown.Item>
                   </NavDropdown>
                 </Nav>
-                <Nav>
+                <Nav className="btn">
                   <button onClick={logout} className="btn btn-danger">
                     LOGOUT
                   </button>
                 </Nav>
                 <Nav>
-                  <button onClick={handleProfile} className="btn btn-danger">
+                  <button onClick={handleProfile} className="btn btn-secondary" variant="secondary">
                     PROFILE
                   </button>
                 </Nav>
@@ -376,7 +376,7 @@ function Tabel() {
             </Container>
           </Navbar>
           <div>
-            <h1>ROOMS</h1>
+            <h1>TABLE ROOMS</h1>
           </div>
           <div className="div-frgmnt" style={{ margin: "10rem" }}>
             <div style={{ display: "flex", alignItems: "center" }}>
@@ -458,7 +458,7 @@ function Tabel() {
                 )}
               </tbody>
             </Table>
-            <Pagination>
+            <Pagination className="pgntn">
               <Pagination.Prev onClick={prePAGE} />
               {number.map((n, i) => (
                 <Pagination.Item
@@ -473,7 +473,7 @@ function Tabel() {
             </Pagination>
 
             <Link className="d-grid gap-2" to="/create">
-              <Button size="lg">Create</Button>
+              <Button className="btn-lnk" size="lg">Create</Button>
             </Link>
           </div>
         </Fragment>

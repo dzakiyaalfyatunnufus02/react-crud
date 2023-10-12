@@ -1,109 +1,145 @@
 .profile-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  .avatar {
-    width: 100px; 
-    height: 100px;
-    border-radius: 50%;
-    object-fit: cover; 
-  }
-  /* Profile.css */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+/* Profile.css */
 
 .profile {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  /* .profile-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* .profile-container {
     margin-bottom: 20px;
   } */
-  
-  .profile-info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .form-group {
-    width: 100%;
-    max-width: 600px; /* Sesuaikan dengan lebar maksimum yang diinginkan */
-    margin-bottom: 15px;
-  }
-  
-  .control-label {
-    display: block;
-    margin-bottom: 5px;
-  }
-  
-  .form-control {
-    width: 100%;
-    height: 40px; /* Sesuaikan dengan tinggi yang diinginkan */
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-  }
-  .profile-container {
-    padding-left: 0px;
-    margin-right: 1170px;
-    margin-bottom: 25px;
-  }
- /* Profile.css */
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-group {
+  width: 100%;
+  max-width: 600px; /* Sesuaikan dengan lebar maksimum yang diinginkan */
+  margin-bottom: 15px;
+}
+
+.control-label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-control {
+  width: 100%;
+  height: 40px; /* Sesuaikan dengan tinggi yang diinginkan */
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+.profile-container {
+  padding-left: 0px;
+  margin-right: 1170px;
+  margin-bottom: 25px;
+}
+/* Profile.css */
 
 .profile {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-   .profile-info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .form-group {
-    width: 100%;
-    max-width: 600px;
-    margin-bottom: 15px;
-    text-align: center; /* Tengahkan teks */
-  }
-  
-  .control-label {
-    margin-bottom: 5px;
-    display: block;
-  }
-  
-  .form-control {
-    width: 100%;
-    height: 40px;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-  }
-  
-  .panel-body {
-    width: 100%;
-  }
- 
-#t{
-    margin-left: 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url(https://c4.wallpaperflare.com/wallpaper/534/925/154/abstraction-green-vector-wallpaper-preview.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
-#f{
-    margin-left: 300px;
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-#y{
-margin-left: 300px;
+
+.form-group {
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 15px;
+  text-align: center; /* Tengahkan teks */
 }
-#nav{
-    display: flex;
-    gap: 10px;
+
+.control-label {
+  margin-bottom: 5px;
+  display: block;
 }
-  button{
-    background-color: lightgray;
-  }
+
+.form-control {
+  width: 100%;
+  height: 40px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.panel-body {
+  width: 100%;
+}
+
+#t {
+  margin-left: 280px;
+  padding-top: 10px;
+}
+#f {
+  margin-left: 300px;
+  margin-top: 20px;
+
+}
+#y {
+  margin-left: 300px;
+}
+#nav {
+  display: flex;
+  gap: 0px;
+}
+button {
+  background-color: lightgray;
+}
+#id-h1 {
+  padding-bottom: 20px;
+}
+.nm-nv {
+  width: 400px;
+}
+.panel-body-EDT {
+  padding: 0px;
+  margin: 0;
+  /* background-color: lightgreen; */
+  background-image: url(https://st2.depositphotos.com/1177973/8205/i/450/depositphotos_82058172-stock-photo-abstract-background-with-lines.jpg);
+}
+.form-group-edt {
+  /* background-color: lightgreen; */
+}
+#a{
+  margin-left:198px ;
+  padding-bottom: 100px;
+}
+#b{
+  margin-left: 198px;
+  margin-top: 35px;
+}
+#c{
+  margin-left: 200px;
+  margin-top: 25px;
+}
+.split{
+  width: 70px;
+}

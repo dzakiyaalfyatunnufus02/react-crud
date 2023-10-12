@@ -61,14 +61,14 @@ const Home = () => {
         </NavDropdown.Item>
       </NavDropdown>
     </Nav>
-    <Nav>
+    <Nav className="btn">
       <button onClick={handleLogout} className="btn btn-danger">
         LOGOUT
       </button>
     </Nav>
     <Link to={"/profile"}>
     <Nav>
-      <button onClick={handleProfile} className="btn btn-danger">
+      <button onClick={handleProfile} className="btn btn-secondary" variant="secondary">
         PROFILE
       </button>
     </Nav>
@@ -106,13 +106,13 @@ const Home = () => {
         </NavDropdown.Item>
       </NavDropdown>
     </Nav>
-    <Nav>
+    <Nav className="btn">
       <button onClick={handleLogout} className="btn btn-danger">
         LOGOUT
       </button>
     </Nav>
     <Nav>
-      <button id="btn-profil" onClick={handleProfile} className="btn btn-danger">
+      <button onClick={handleProfile} className="btn btn-secondary" variant="secondary" >
       PROFILE
 
       </button>
