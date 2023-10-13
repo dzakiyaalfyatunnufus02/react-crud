@@ -21,12 +21,7 @@ function TableCostumers() {
   const [Search, setSEARCH] = useState("");
   const RECORDS = Costumers.slice(firstIndex, lastIndex);
 
-  const handleEdit = (id, name, phone, payMethod) => {
-    localStorage.setItem("name", name);
-    localStorage.setItem("phone", phone);
-    localStorage.setItem("payMethod", payMethod);
-    localStorage.setItem("id", id);
-  };
+  
 
   const filterCostumers = Costumers.filter((employee) =>
     employee.name.toLowerCase().includes(Search.toLowerCase())
@@ -207,14 +202,6 @@ const handleProfile = () => {
                         <Link to={`/editCostumer/${item.id}`}>
                           <button
                             className="btn-edt"
-                            onClick={() =>
-                              handleEdit(
-                                item.id,
-                                item.name,
-                                item.phone,
-                                item.payMethod
-                              )
-                            }
                           >
                             EDIT
                           </button>

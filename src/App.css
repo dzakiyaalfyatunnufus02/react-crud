@@ -1,6 +1,17 @@
 .App {
   text-align: center;
-  background-color: lavender;
+  /* background-color: lavender; */
+  background-image: url(https://img.freepik.com/premium-vector/abstract-texture-background-trendy-spring-hue-pale-green-happy-easter-summer-season-springtime_498312-575.jpg);
+background-repeat: no-repeat;
+background-size:cover ;
+height: 760px;
+}
+.home{
+  /* background-color: lavender; */
+  background-image: url(https://marketplace.canva.com/EAE6AqbjNik/1/0/1600w/canva-green-desktop-wallpaper-illustration-floral-flower-oKOZB8ly8Vg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  
 }
 
 .App-logo {

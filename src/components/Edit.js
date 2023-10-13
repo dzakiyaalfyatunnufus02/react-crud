@@ -19,6 +19,16 @@ function Edit() {
   let history = useNavigate();
 
   const param = useParams();
+   const getById = async () => {
+    try {
+      const resdata = await axios.get(`http://localhost:2222/rooms/${param.id}`)
+      const respon = resdata.data;
+      setLantai(respon.lantai)
+      setRuang(respon.ruang)
+    } catch (error) {
+      console.log(error);
+    }
+   }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -81,9 +91,7 @@ function Edit() {
     navigate(-1);
   };
   useEffect(() => {
-    setLantai(localStorage.getItem("lantai"));
-    setRuang(localStorage.getItem("ruang"));
-    setId(localStorage.getItem("id"));
+   getById();
   }, []);
 
   // functoin for operator end
@@ -91,9 +99,27 @@ function Edit() {
   return (
     <>
       {userRole === "supervisor" ? (
-        <div className="div-form">
-          <div>
-            <h1>EDIT ROOMS</h1>
+        <div className="div-form" style={{
+          paddingBottom: "100px",
+          display: "block",
+          gap: "100px",
+          marginBottom: "100px",
+          width: "500px",
+        marginLeft:"400px"
+          
+        }}>
+          <div id="id-edt" style={{
+            paddingBotom: "100px",
+            marginBlockEnd: "0px",
+            backgroundColor: "lightgreen",
+            borderRadius: "10px",
+            width: "300px",
+            marginBottom: "30px",
+
+
+
+          }}>
+            <h3>EDIT ROOMS</h3>
           </div>
                     <Form className="d-grid gap-2" style={{ margin: "0.5rem" }}>
             <Form.Group className="mb-3" controlId="formName">
@@ -127,6 +153,7 @@ function Edit() {
                 onChange={(e) => satPassword(e.target.value)}
               ></Form.Control>
             </Form.Group>
+           
             <div id="edt-prfl">
               {" "}
               <Button onClick={(e) => Submit(e)} type="submit">
@@ -141,7 +168,15 @@ function Edit() {
       ) : (
         <div className="div-form">
             <div>
-            <h1>EDIT ROOMS</h1>
+            <h1 style={{
+            paddingBotom: "100px",
+            marginBlockEnd: "0px",
+            backgroundColor: "lightgreen",
+            borderRadius: "10px",
+            width: "400px",
+            marginBottom: "30px"
+
+          }}>EDIT ROOMS</h1>
           </div>
           <Form className="d-grid gap-2" style={{ margin: "0.5rem" }}>
             <Form.Group className="mb-3" controlId="formName">

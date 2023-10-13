@@ -58,7 +58,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-image: url(https://c4.wallpaperflare.com/wallpaper/534/925/154/abstraction-green-vector-wallpaper-preview.jpg);
+  background-image: url(https://marketplace.canva.com/EAFObeTclvs/1/0/1600w/canva-green-abstract-watercolor-and-leaf-desktop-wallpaper-JGJuIYI27iM.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -123,7 +123,7 @@ button {
   padding: 0px;
   margin: 0;
   /* background-color: lightgreen; */
-  background-image: url(https://st2.depositphotos.com/1177973/8205/i/450/depositphotos_82058172-stock-photo-abstract-background-with-lines.jpg);
+  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0DEJBPekdxsgCxsFBA0J4cLIIpFV_ZVdTrdl-OCm-ZJPwUxUOQRBoyhqe87F4JFUZCLg&usqp=CAU);
 }
 .form-group-edt {
   /* background-color: lightgreen; */
@@ -142,4 +142,7 @@ button {
 }
 .split{
   width: 70px;
+}
+.class-h1{
+  background-color: rgb(184, 233, 184);
 }

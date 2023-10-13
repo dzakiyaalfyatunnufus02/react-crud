@@ -1,6 +1,8 @@
 .div-form{
     padding-top: 14rem;
     margin: 30px;
+background-repeat: no-repeat;
+background-size: cover;
 }
 #edt-prfl{
     display: flex;

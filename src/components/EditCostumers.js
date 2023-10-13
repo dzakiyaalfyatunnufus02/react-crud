@@ -12,13 +12,24 @@ function EditCostumer() {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [payMethod, setPayMethod] = useState("");
-  const [id, setid] = useState("");
+  // const [id, setid] = useState("");
   const param = useParams(); 
   const options = [
     { value: "Cash", label: "Cash" },
     { value: "Kredit", label: "Kredit" },
     { value: "Debit", label: "Debit" },
   ];
+   const getById = async () => {
+    try {
+      const respon = await axios.get(`  http://localhost:2222/costumers/${param.id}`)
+      const resdata = respon.data;
+      setName(resdata.name)
+      setPhone(resdata.phone)
+      setPayMethod(resdata.payMethod)
+    } catch (error) {
+      console.log(error);
+    }
+   }
  
   const handleProfile = () => {
     navigate(-1);
@@ -46,17 +57,26 @@ function EditCostumer() {
     history("/tableCostumer");
   };
   useEffect(() => {
-    setName(localStorage.getItem("name"));
-    setPhone(localStorage.getItem("phone"));
-    setPayMethod(localStorage.getItem("payMethod"));
-    setid(localStorage.getItem("id"));
+    getById();
   }, []);
+  
 
   return (
     <>
-    <div className="div-form">
-    <div>
-            <h1>EDIT COSTUMERS</h1>
+  
+    <div className="div-form" style={{
+   width: "500px",
+   marginLeft:"400px"
+    }}>
+      <div>
+            <h3 style={{
+            backgroundColor: "lightgreen",
+            borderRadius: "10px",
+            width: "300px",
+            // paddingTop: "100px"
+            // marginLeft:"300px",
+            marginBottom:"50px"
+          }}>EDIT COSTUMERS</h3>
           </div>
       <Form className="d-grid gap-2" style={{ margin: "0.5rem" }}>
         <Form.Group className="mb-3" controlId="formName">
@@ -85,7 +105,9 @@ function EditCostumer() {
       
       <Form>
      
-      <label htmlFor="payMethod">  <div>payMethod :</div></label>
+      <label htmlFor="payMethod">  <div style={{
+        fontSize:"20px"
+      }}>Pay Method :</div></label>
         <select
           name="payMethod"
           id="payMethod"
@@ -99,10 +121,13 @@ function EditCostumer() {
         ))}
       </select>
       <br/>
+      <br></br>
+      <br></br>
       <Link to="/tableCostumer">
         {/* <Button onClick={(e) => Submit(e)} type="submit">
           Edit
         </Button> */}
+      
           <div id="edt-prfl">
               {" "}
               <Button onClick={(e) => Submit(e)} type="submit">

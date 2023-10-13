@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Button, Form } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { v4 as uuid } from "uuid";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
 function EditREportSewa() {
-  let history = useNavigate();
   let navigate = useNavigate();
   const [datetime, setDatetime] = useState("");
   const [ruang, setRuang] = useState("");
@@ -66,9 +64,20 @@ function EditREportSewa() {
 
   return (
     <>
-      <div className="div-form">
+      <div className="div-form" style={{
+        width: "500px",
+        marginLeft:"400px"
+      }}>
       <div>
-            <h1>EDIT REPORT SEWA</h1>
+            <h3 style={{
+            paddingBotom: "100px",
+            marginBlockEnd: "0px",
+            backgroundColor: "lightgreen",
+            borderRadius: "10px",
+            width: "400px",
+            marginBottom:"50px"
+
+          }}>EDIT REPORT SEWA</h3>
           </div>
         <Form className="d-grid gap-2" style={{ margin: "0.5rem" }}>
           <Form.Group className="mb-3" controlId="formName">
@@ -138,6 +147,8 @@ function EditREportSewa() {
 
           </select>
           <br />
+          <br></br>
+          <br></br>
           <Link to="/reportSewa">
           <div id="edt-prfl">
               {" "}

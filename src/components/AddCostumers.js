@@ -65,7 +65,14 @@ function Add() {
     <>
       <div className="div-form">
       <div>
-            <h1>CREAT COSTUMER</h1>
+            <h1 style={{
+            paddingBotom: "100px",
+            marginBlockEnd: "0px",
+            backgroundColor: "lightgreen",
+            borderRadius: "10px",
+            width: "400px"
+
+          }}>CREATE COSTUMER</h1>
           </div>
         <Form className="d-grid gap-2" style={{ margin: "0.5rem" }}>
           <Form.Group className="mb-3" controlId="formName">

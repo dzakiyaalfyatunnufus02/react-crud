@@ -27,12 +27,7 @@ function Tabel() {
   const [rooms, setRooms] = useState([]);
 
   const records = accounts.slice(firstIndex, lastIndex);
-  const handleEdit = (id, username, email, password) => {
-    localStorage.setItem("username", username);
-    localStorage.setItem("email", email);
-    localStorage.setItem("password", password);
-    localStorage.setItem("Id", id);
-  };
+  
   const getAccounts = async () => {
     try {
       const respon = await axios.get("http://localhost:2222/accounts");
@@ -122,11 +117,7 @@ function Tabel() {
     }
   };
 
-  const Edit = (Id, lantai, ruang) => {
-    localStorage.setItem("id", Id);
-    localStorage.setItem("lantai", lantai);
-    localStorage.setItem("ruang", ruang);
-  };
+ 
 
   const delet = async (Id) => {
     try {
@@ -284,15 +275,7 @@ function Tabel() {
                         <Link to={`/edit/${item.id}`}>
                           <button
                             className="btn-edt"
-                            onClick={() =>
-                              handleEdit(
-                                item.id,
-                                item.username,
-                                item.email,
-                                item.password,
-                                item.role
-                              )
-                            }
+                           
                           >
                             EDIT
                           </button>
@@ -434,9 +417,7 @@ function Tabel() {
                         <Link to={`/edit/${item.id}`}>
                           <button
                             className="btn-edt"
-                            onClick={() =>
-                              Edit(item.id, item.lantai, item.ruang)
-                            }
+                           
                           >
                             EDIT
                           </button>

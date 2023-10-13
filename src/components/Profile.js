@@ -45,18 +45,18 @@ const Profile = () => {
       avatarUrl: AvatarURL,
       password: password,
     };
-    const handeLogout = () => {
-      localStorage.clear();
-      history("/");
+    // const handeLogout = () => {
+    //   localStorage.clear();
+    //   history("/");
 
-      Swal.fire({
-        position: "top-middle",
-        icon: "success",
-        title: "LOGOUT Berhasil!!",
-        showConfirmButton: false,
-        timer: 2500,
-      });
-    };
+    //   Swal.fire({
+    //     position: "top-middle",
+    //     icon: "success",
+    //     title: "LOGOUT Berhasil!!",
+    //     showConfirmButton: false,
+    //     timer: 2500,
+    //   });
+    // };
     try {
       const respon = await axios.put(
         `http://localhost:2222/accounts/${localStorage.getItem("id")}`,
@@ -111,8 +111,20 @@ const Profile = () => {
         </Button> */}
       </div>
       <div id="id-h1">
-        <h1>TABLE PROFILE</h1>
+        <h1
+        className="class-h1"
+        style={{
+          // backgroundColor: "lightgreen",
+          width:"380px",
+          borderRadius: "15px"
+        }}>TABLE PROFILE</h1>
       </div>
+      {/* <div style={{
+        backgroundColor: "lightgreen",
+        width:"50px",
+        height:"100px",
+        marginRight: "100px"
+      }}></div> */}
       <div className="profile-info">
         <img
           src={avatarUrl} // Gantilah dengan path atau URL foto pengguna
@@ -205,6 +217,7 @@ const Profile = () => {
             </div>
           </div>
         </div>
+        
         <div id="nav">
           <Button
             className="nm-nv"
@@ -317,6 +330,7 @@ const Profile = () => {
               </Button>
             </Modal.Footer>
           </Modal>
+          
         </div>
       </div>
     </div>

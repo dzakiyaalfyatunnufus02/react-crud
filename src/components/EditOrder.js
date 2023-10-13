@@ -72,9 +72,22 @@ function EditOrder() {
 
   return (
     <>
-      <div className="div-form">
+      <div className="div-form"
+      style={{
+        width: "500px",
+        marginLeft:"400px"
+
+      }}>
       <div>
-            <h1>EDIT ORDERS</h1>
+            <h3 style={{
+            paddingBotom: "100px",
+            marginBlockEnd: "0px",
+            backgroundColor: "lightgreen",
+            borderRadius: "10px",
+            width: "250px",
+            marginBottom:"50px"
+
+          }}>EDIT ORDERS</h3>
           </div>
         <Form className="d-grid gap-2" style={{ margin: "0.5rem" }}>
           <Form.Group className="mb-3" controlId="formName">
@@ -126,7 +139,7 @@ function EditOrder() {
             <option value={false}>Tidak Ada</option>
             <option value={true}>Ada</option>
           </select>
-          <br></br>
+          <br/>
           <label htmlFor="lunch">
             <div>Lunch :</div>
           </label>
@@ -140,7 +153,7 @@ function EditOrder() {
             <option value={true}>Ada</option>
 
           </select>
-          <br></br>
+          <br/>
           <label htmlFor="extratime">
             <div>Extra Time :</div>
           </label>
@@ -154,7 +167,8 @@ function EditOrder() {
             <option value={true}>Ada</option>
 
           </select>
-          <br />
+          <br></br>
+          <br></br>
           <Link to="/tableOrder">
           <div id="edt-prfl">
               {" "}

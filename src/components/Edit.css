@@ -1,8 +1,24 @@
 .div-form{
     padding-top: 14rem;
     margin: 30px;
-    
+    background-image: url(https://img.freepik.com/premium-vector/abstract-texture-background-trendy-spring-hue-pale-green-happy-easter-summer-season-springtime_498312-575.jpg);
+    display: flex;
+    width: 1000px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    display: grid;
+    place-items: center;
 }
 #edt-prfl{
     gap: 70px;
+}
+.edit-rooms-title {
+    margin-bottom: 20px; /* Atur jarak bawah sesuai kebutuhan */
+  }
+#id-edt{
+    padding-bottom: 100px;
+    margin-bottom: 1000px;
+    
 }
