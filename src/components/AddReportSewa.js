@@ -54,18 +54,28 @@ function AddReportSewa() {
 
   return (
     <>
-      <div className="div-form">
-      <div>
-            <h1 style={{
-            paddingBotom: "100px",
-            marginBlockEnd: "0px",
-            backgroundColor: "lightgreen",
-            borderRadius: "10px",
-            width: "420px"
-
-          }}>CREATE REPORT SEWA</h1>
+      <div className="div-form"
+          style={{
+            paddingBottom: "100px",
+            display: "block",
+            gap: "100px",
+            marginBottom: "100px",
+          }}>
+      <div style={{
+              width: "500px",
+              marginLeft: "130px",
+            }} >
+            <h4 style={{
+                marginLeft: "300px",
+                paddingBotom: "100px",
+                marginBlockEnd: "0px",
+                backgroundColor: "white",
+                borderRadius: "10px",
+                width: "320px",
+                marginBottom: "50px",
+          }}>CREATE REPORT SEWA</h4>
           </div>
-        <Form className="d-grid gap-2" style={{ margin: "0.5rem" }}>
+        <Form className="KMKMK" style={{ margin: "0.5rem",marginLeft:"350px" }}>
           <Form.Group className="mb-3" controlId="formName">
             <Form.Control
               type="text"
@@ -76,7 +86,7 @@ function AddReportSewa() {
             ></Form.Control>
           </Form.Group>
         </Form>
-        <Form className="d-grid gap-2" style={{ margin: "0.5rem" }}>
+        <Form className="KMKMK" style={{ margin: "0.5rem",marginLeft:"350px" }}>
           <Form.Group className="mb-3" controlId="formName">
             <Form.Control
               type="text"
@@ -87,7 +97,7 @@ function AddReportSewa() {
             ></Form.Control>
           </Form.Group>
         </Form>
-        <Form className="d-grid gap-2" style={{ margin: "0.5rem" }}>
+        <Form className="KMKMK" style={{ margin: "0.5rem",marginLeft:"350px" }}>
           <Form.Group className="mb-3" controlId="formName">
             <Form.Control
               type="text"
@@ -135,6 +145,8 @@ function AddReportSewa() {
             <option value={true}> Tidak Ada</option>
           </select>
           <br />
+          <br></br>
+          <br></br>
           <div id="edt-prfl">
               {" "}
               <Link to="/reportSewa">

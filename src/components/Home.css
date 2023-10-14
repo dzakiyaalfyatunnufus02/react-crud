@@ -15,12 +15,14 @@
 } */
  .home{
    background-color: lavender; 
-  background-image: url(https://marketplace.canva.com/EAE6AqbjNik/1/0/1600w/canva-green-desktop-wallpaper-illustration-floral-flower-oKOZB8ly8Vg.jpg);
+  background-image: url(https://i.pinimg.com/originals/58/a6/e7/58a6e7b3ecabd9ed07cd833dc9de40af.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   height: 760px ;
 }
 h1{
  font-family: monospace;
+}
+#navbar{
 }
 

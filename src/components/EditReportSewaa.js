@@ -72,7 +72,7 @@ function EditREportSewa() {
             <h3 style={{
             paddingBotom: "100px",
             marginBlockEnd: "0px",
-            backgroundColor: "lightgreen",
+            backgroundColor: "white",
             borderRadius: "10px",
             width: "400px",
             marginBottom:"50px"

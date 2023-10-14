@@ -168,9 +168,9 @@ function Tabel() {
   return (
     <div className="home">
       {userRole === "supervisor" ? (
-        <Fragment>
+        <Fragment >
           <Navbar bg="light" expand="lg" className="bg-body-tertiary">
-            <Container>
+            <Container className="cntr-class">
               <Navbar.Brand href="/home">Sewa ruang</Navbar.Brand>
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav">
@@ -312,7 +312,7 @@ function Tabel() {
             </Pagination>
 
             <Link className="d-grid gap-2" to={"/create"}>
-              <Button size="lg">Create</Button>
+              <Button className="btn-lnk" size="lg">Create</Button>
             </Link>
           </div>
         </Fragment>

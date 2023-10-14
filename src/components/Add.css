@@ -1,10 +1,13 @@
 .div-form{
     padding-top: 14rem;
-    margin: 30px;
 background-repeat: no-repeat;
 background-size: cover;
 }
 #edt-prfl{
     display: flex;
     gap: 10px;
+}
+.KMKMK{
+    width: 500px;
+    margin-left: 500px;
 }

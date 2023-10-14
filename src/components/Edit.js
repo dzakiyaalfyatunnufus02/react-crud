@@ -97,8 +97,11 @@ function Edit() {
   // functoin for operator end
 
   return (
-    <>
+  
+     <div className="slowmotion">
       {userRole === "supervisor" ? (
+       
+       
         <div className="div-form" style={{
           paddingBottom: "100px",
           display: "block",
@@ -111,17 +114,18 @@ function Edit() {
           <div id="id-edt" style={{
             paddingBotom: "100px",
             marginBlockEnd: "0px",
-            backgroundColor: "lightgreen",
+            backgroundColor: "white",
             borderRadius: "10px",
-            width: "300px",
+            width: "200px",
             marginBottom: "30px",
+            marginLeft:"10px"
 
 
 
           }}>
-            <h3>EDIT ROOMS</h3>
+            <h4>EDIT ROOMS</h4>
           </div>
-                    <Form className="d-grid gap-2" style={{ margin: "0.5rem" }}>
+                    <Form className="d-grid gap-2" style={{ margin: "0.5rem", }}>
             <Form.Group className="mb-3" controlId="formName">
               <Form.Control
                 type="text"
@@ -132,7 +136,7 @@ function Edit() {
               ></Form.Control>
             </Form.Group>
           </Form>
-          <Form className="d-grid gap-2" style={{ margin: "0.5rem" }}>
+          <Form className="d-grid gap-2" style={{ margin: "0.5rem", }}>
             <Form.Group className="mb-3" controlId="formName">
               <Form.Control
                 type="text"
@@ -143,7 +147,7 @@ function Edit() {
               ></Form.Control>
             </Form.Group>
           </Form>
-          <Form className="d-grid gap-2" style={{ margin: "0.5rem" }}>
+          <Form className="d-grid gap-2" style={{ margin: "0.5rem",  }}>
             <Form.Group className="mb-3" controlId="formAge">
               <Form.Control
                 type="text"
@@ -168,17 +172,18 @@ function Edit() {
       ) : (
         <div className="div-form">
             <div>
-            <h1 style={{
+            <h2 style={{
             paddingBotom: "100px",
             marginBlockEnd: "0px",
-            backgroundColor: "lightgreen",
+            backgroundColor: "white",
             borderRadius: "10px",
-            width: "400px",
-            marginBottom: "30px"
+            width: "250px",
+            marginBottom: "30px",
+            marginLeft:"520px"
 
-          }}>EDIT ROOMS</h1>
+          }}>EDIT ROOMS</h2>
           </div>
-          <Form className="d-grid gap-2" style={{ margin: "0.5rem" }}>
+          <Form className="d-grid gap-2" style={{ margin: "0.5rem", width:"500px", marginLeft:"400px" }}>
             <Form.Group className="mb-3" controlId="formName">
               <Form.Control
                 type="number"
@@ -189,7 +194,7 @@ function Edit() {
               ></Form.Control>
             </Form.Group>
           </Form>
-          <Form className="d-grid gap-2" style={{ margin: "0.5rem" }}>
+          <Form className="d-grid gap-2" style={{ margin: "0.5rem", width: "500px", marginLeft:"400px" }}>
             <Form.Group className="mb-3" controlId="formAge">
               <Form.Control
                 type="number"
@@ -199,6 +204,7 @@ function Edit() {
                 onChange={(e) => setRuang(e.target.value)}
               ></Form.Control>
             </Form.Group>
+            <br></br>
             <div id="edt-prfl">
               {" "}
               <Button onClick={(e) => Submit(e)} type="submit">
@@ -210,8 +216,9 @@ function Edit() {
             </div>
           </Form>
         </div>
+      
       )}
-    </>
+        </div>
   );
 }
 export default Edit;

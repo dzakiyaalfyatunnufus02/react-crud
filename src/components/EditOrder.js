@@ -82,7 +82,7 @@ function EditOrder() {
             <h3 style={{
             paddingBotom: "100px",
             marginBlockEnd: "0px",
-            backgroundColor: "lightgreen",
+            backgroundColor: "white",
             borderRadius: "10px",
             width: "250px",
             marginBottom:"50px"

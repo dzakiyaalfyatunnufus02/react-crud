@@ -70,7 +70,7 @@ function EditCostumer() {
     }}>
       <div>
             <h3 style={{
-            backgroundColor: "lightgreen",
+            backgroundColor: "white",
             borderRadius: "10px",
             width: "300px",
             // paddingTop: "100px"

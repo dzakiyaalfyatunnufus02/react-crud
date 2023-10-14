@@ -76,16 +76,20 @@ function Add() {
 
   return (
     <>
-      <div className="div-form">
+      <div className="div-form" style={{
+        width: "500px",
+        marginLeft:"400px"
+      }}>
       <div>
-            <h1 style={{
-            paddingBotom: "100px",
-            marginBlockEnd: "0px",
-            backgroundColor: "lightgreen",
-            borderRadius: "10px",
-            width: "300px"
-
-          }}>CREAT ORDERS</h1>
+            <h4 style={{
+                marginLeft: "150px",
+                paddingBotom: "100px",
+                marginBlockEnd: "0px",
+                backgroundColor: "white",
+                borderRadius: "10px",
+                width: "230px",
+                marginBottom: "50px",
+          }}>CREAT ORDERS</h4>
           </div>
         <Form className="d-grid gap-2" style={{ margin: "0.5rem" }}>
           <Form.Group className="mb-3" controlId="formName">
@@ -175,6 +179,7 @@ function Add() {
         </select>
 
         <br />
+        <br></br>
         <div id="edt-prfl">
               {" "}
               <Link to="/tableCostumer">

@@ -122,8 +122,9 @@ button {
 .panel-body-EDT {
   padding: 0px;
   margin: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
   /* background-color: lightgreen; */
-  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0DEJBPekdxsgCxsFBA0J4cLIIpFV_ZVdTrdl-OCm-ZJPwUxUOQRBoyhqe87F4JFUZCLg&usqp=CAU);
 }
 .form-group-edt {
   /* background-color: lightgreen; */
@@ -146,3 +147,5 @@ button {
 .class-h1{
   background-color: rgb(184, 233, 184);
 }
+.custom-modal{
+background-image: url(https://img.freepik.com/premium-photo/ethereal-beauty-abstract-blurred-mint-color-background-banner-design_954894-1506.jpg);}

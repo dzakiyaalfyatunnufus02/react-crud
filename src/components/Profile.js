@@ -115,9 +115,9 @@ const Profile = () => {
         className="class-h1"
         style={{
           // backgroundColor: "lightgreen",
-          width:"380px",
+          width:"320px",
           borderRadius: "15px"
-        }}>TABLE PROFILE</h1>
+        }}>PAGE PROFILE</h1>
       </div>
       {/* <div style={{
         backgroundColor: "lightgreen",
@@ -135,7 +135,10 @@ const Profile = () => {
         <br></br>
         <br></br>
         <br></br>
-        <div class="panel-body">
+        <div class="panel-body"
+        style={{
+     }}
+        >
           <div class="form-group">
             <label
               id="t"
@@ -143,6 +146,7 @@ const Profile = () => {
               class="col-sm-2 control-label"
               style={{
                 transform: "translate(-200%, -50%)",
+
               }}
             >
               USERNAME:
@@ -228,12 +232,17 @@ const Profile = () => {
             EDIT
           </Button>
 
-          <Modal show={show} onHide={handleClose}>
+          <Modal show={show} onHide={handleClose} >
             <Modal.Header closeButton>
               <Modal.Title>Edit Profil</Modal.Title>
             </Modal.Header>
-            <Modal.Body>
-              <div class="panel-body-EDT">
+            <Modal.Body className="custom-modal">
+              <div style={{ backgroundColor: ""}}>
+              <div class="panel-body-EDT"
+              style={{
+                
+              }}
+              >
                 <div class="form-group-edt">
                   <label
                     id="a"
@@ -243,9 +252,11 @@ const Profile = () => {
                       transform: "translate(-200%, -50%)",
                       marginBottom: "0px",
                       paddingBottom: "0",
+                      fontFamily: "dashed"
+
                     }}
                   >
-                    IMAGE:
+                    IMAGE   :
                   </label>
                   <br></br>
                   <div class="col-sm-10">
@@ -269,6 +280,7 @@ const Profile = () => {
                     class="col-sm-2 control-label"
                     style={{
                       transform: "translate(-200%, -50%)",
+                      fontFamily: "dashed"
                     }}
                   >
                     USERNAME:
@@ -294,6 +306,8 @@ const Profile = () => {
                     class="col-sm-2 control-label"
                     style={{
                       transform: "translate(-200%, -10%)",
+                      marginLeft:"210px",
+                      fontFamily: "dashed"
                     }}
                   >
                     EMAIL:
@@ -315,6 +329,8 @@ const Profile = () => {
                   </div>
                 </div>
               </div>
+              </div>
+              
             </Modal.Body>
             <Modal.Footer>
               <Button variant="secondary" onClick={handleClose}>

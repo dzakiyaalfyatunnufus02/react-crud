@@ -15,10 +15,9 @@ function Add() {
   const [password, satPassword] = useState("");
   const userRole = localStorage.getItem("UserRole");
 
-
-  const handleSubmit =  async(e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     const ids = uuid();
     let uniqued = ids.slice(0, 8);
 
@@ -27,11 +26,14 @@ function Add() {
       username: username,
       email: email,
       password: password,
-      role:"operator"
-    }
+      role: "operator",
+    };
 
     try {
-      const respon = await axios.post("http://localhost:2222/accounts", request)
+      const respon = await axios.post(
+        "http://localhost:2222/accounts",
+        request
+      );
       console.log(respon);
       console.log("added");
     } catch (error) {
@@ -44,8 +46,8 @@ function Add() {
   //  function for Operator Start
   const [lantai, setLantai] = useState("");
   const [ruang, setRuang] = useState("");
-  
-  const Submit = async(e) => {
+
+  const Submit = async (e) => {
     e.preventDefault();
 
     const ids = uuid();
@@ -54,18 +56,16 @@ function Add() {
     const Request = {
       id: Uniqed,
       lantai: lantai,
-      ruang: ruang
-
-    }
+      ruang: ruang,
+    };
     try {
-      const Respon = await axios.post("http://localhost:2222/rooms", Request)
+      const Respon = await axios.post("http://localhost:2222/rooms", Request);
       console.log(Respon);
       console.log("added");
     } catch (error) {
       console.log(error);
-      
     }
-        history("/table");
+    history("/table");
 
     //  function for operator And
   };
@@ -75,11 +75,39 @@ function Add() {
   return (
     <>
       {userRole === "supervisor" ? (
-        <div className="div-form">
-          <div>
-            <h1>CREAT ROOMS</h1>
+        <div
+          className="div-form"
+          style={{
+            paddingBottom: "100px",
+            display: "block",
+            gap: "100px",
+            marginBottom: "100px",
+          }}
+        >
+          <div
+            style={{
+              width: "500px",
+              marginLeft: "130px",
+            }}
+          >
+            <h3
+              style={{
+                marginLeft: "400px",
+                paddingBotom: "100px",
+                marginBlockEnd: "0px",
+                backgroundColor: "white",
+                borderRadius: "10px",
+                width: "250px",
+                marginBottom: "50px",
+              }}
+            >
+              CREAT ROOMS
+            </h3>
           </div>
-          <Form className="d-grid gap-2" style={{ margin: "0.5rem" }}>
+          <Form
+            className="d-grid gap-2"
+            style={{ margin: "0.5rem", width: "490px", marginLeft: "400px" }}
+          >
             <Form.Group className="mb-3" controlId="formName">
               <Form.Control
                 type="text"
@@ -89,7 +117,10 @@ function Add() {
               ></Form.Control>
             </Form.Group>
           </Form>
-          <Form className="d-grid gap-2" style={{ margin: "0.5rem" }}>
+          <Form
+            className="d-grid gap-2"
+            style={{ margin: "0.5rem", width: "500px", marginLeft: "400px" }}
+          >
             <Form.Group className="mb-3" controlId="formName">
               <Form.Control
                 type="text"
@@ -99,7 +130,10 @@ function Add() {
               ></Form.Control>
             </Form.Group>
           </Form>
-          <Form className="d-grid gap-2" style={{ margin: "0.5rem" }}>
+          <Form
+            className="d-grid gap-2"
+            style={{ margin: "0.5rem", width: "500px", marginLeft: "400px" }}
+          >
             <Form.Group className="mb-3" controlId="formAge">
               <Form.Control
                 type="text"
@@ -114,12 +148,31 @@ function Add() {
           </Form>
         </div>
       ) : (
-        
-        <div className="div-form">
-          <div>
-            <h1>ROOMS </h1>
+        <div
+          className="div-form"
+          style={{
+            paddingBottom: "100px",
+            display: "block",
+            gap: "100px",
+            marginBottom: "100px",
+          }}
+        >
+          <div  style={{
+              width: "500px",
+              marginLeft: "130px",
+            }}>
+          
+            <h3 style={{
+                marginLeft: "400px",
+                paddingBotom: "100px",
+                marginBlockEnd: "0px",
+                backgroundColor: "white",
+                borderRadius: "10px",
+                width: "250px",
+                marginBottom: "50px",
+              }}>EDIT ROOMS </h3>
           </div>
-          <Form className="d-grid gap-2" style={{ margin: "0.5rem" }}>
+          <Form className="KMKMK" style={{ margin: "0.5rem", widht:"0px",marginLeft:"400px" }}>
             <Form.Group className="mb-3" controlId="formName">
               <Form.Control
                 type="text"
@@ -129,7 +182,7 @@ function Add() {
               ></Form.Control>
             </Form.Group>
           </Form>
-          <Form className="d-grid gap-2" style={{ margin: "0.5rem" }}>
+          <Form className="KMKMK" style={{ margin: "0.5rem", widht:"500px",marginLeft:"400px" }}>
             <Form.Group className="mb-3" controlId="formAge">
               <Form.Control
                 type="text"
@@ -138,13 +191,12 @@ function Add() {
                 onChange={(e) => setRuang(e.target.value)}
               ></Form.Control>
             </Form.Group>
-          
-           
+
             <div id="edt-prfl">
               {" "}
               <Button onClick={(e) => Submit(e)} type="submit">
-              Submit
-            </Button>
+                Submit
+              </Button>
               <Button variant="secondary" onClick={handleProfile}>
                 KEMBALI
               </Button>

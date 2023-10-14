@@ -63,16 +63,23 @@ function Add() {
 
   return (
     <>
-      <div className="div-form">
-      <div>
-            <h1 style={{
+      <div className="div-form" style={{
+        width: "500px",
+        marginLeft:"400px"
+      }}>
+      <div style={{
+              width: "500px",
+              marginLeft: "130px",
+            }}>
+            <h4 style={{
             paddingBotom: "100px",
             marginBlockEnd: "0px",
-            backgroundColor: "lightgreen",
+            backgroundColor: "white",
             borderRadius: "10px",
-            width: "400px"
+            width: "300px",
+            marginBottom:"50px"
 
-          }}>CREATE COSTUMER</h1>
+          }}>CREATE COSTUMER</h4>
           </div>
         <Form className="d-grid gap-2" style={{ margin: "0.5rem" }}>
           <Form.Group className="mb-3" controlId="formName">
@@ -97,7 +104,7 @@ function Add() {
           </Form.Group>
           <label htmlFor="payMethod">
             {" "}
-            <div>payMethod :</div>
+            <div >PAYMETHOD :</div>
           </label>
           <select
             name="payMethod"
@@ -113,14 +120,14 @@ function Add() {
           <br />
           <div id="edt-prfl">
             {" "}
-            <Button variant="secondary" onClick={handleProfile}>
-              KEMBALI
-            </Button>
             <Link to="/tableCostumer">
               <Button onClick={(e) => Submit(e)} type="submit">
                 Update
               </Button>
             </Link>
+            <Button variant="secondary" onClick={handleProfile}>
+              KEMBALI
+            </Button>
           </div>
         </Form>
       </div>
