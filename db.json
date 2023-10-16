@@ -246,12 +246,13 @@
   ],
   "order": [
     {
-      "snack": "false",
-      "capacity": "single bed",
-      "lunch": "true",
       "room": "1",
-      "booking": "7 day",
+      "capacity": "single bed",
+      "snack": "false",
+      "lunch": "true",
       "extratime": "false",
+      "booking": "7 day",
+      "approve": true,
       "id": "79456a19"
     },
     {
@@ -307,6 +308,35 @@
       "room": "1",
       "booking": "tyu",
       "extratime": "false"
+    },
+    {
+      "id": "943b40a6",
+      "snack": "true",
+      "capacity": "single bed",
+      "lunch": "false",
+      "room": "3",
+      "booking": "3 day",
+      "extratime": "false"
+    },
+    {
+      "id": "88a6df61",
+      "snack": "true",
+      "capacity": "single bed",
+      "lunch": "false",
+      "room": "3",
+      "booking": "3 day",
+      "extratime": "false",
+      "approve": false
+    },
+    {
+      "id": "3a7ce9f9",
+      "snack": "true",
+      "capacity": "buat banyak orang",
+      "lunch": "false",
+      "room": "4",
+      "booking": "7 day",
+      "extratime": "false",
+      "approve": false
     }
   ],
   "rooms": [

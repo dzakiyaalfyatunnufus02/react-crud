@@ -23,6 +23,8 @@
 h1{
  font-family: monospace;
 }
-#navbar{
-}
+.marquee{
+  display: flex;
+  font-size: 25px;
+  font-family: 'Bebas Neue', sans-serif;}
 

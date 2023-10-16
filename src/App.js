@@ -11,7 +11,6 @@ import AddOrder from"./components/AddOrder";
 import TableCostumers from "./components/TableCostumer";
 import TableOrder from "./components/TableOrder"
 import AddCostumers from "./components/AddCostumers";
-import RuangTunggu from"./components/RuangTunggu";
 // import Home from './components/Table';
 import Home from "./components/Home";
 import PrivateRoute from "./routes/PrivatRoute";
@@ -116,14 +115,7 @@ function App() {
               </PrivateRoute>
             }
             />
-           <Route
-            path="/ruangTunggu"
-            element={
-              <PrivateRoute>
-                <RuangTunggu />
-              </PrivateRoute>
-            }
-            />
+          
            <Route
             path="/reportSewa"
             element={

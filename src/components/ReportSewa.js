@@ -127,7 +127,12 @@ function ReportSewa() {
           </Container>
         </Navbar>
         <div>
-          <h1> TABLE REPORT SEWA</h1>
+          <h1  style={{       
+                   backgroundColor: "white",
+                   width:"300px",
+                   marginLeft:"470px",
+                   borderRadius:"10px"
+}}> TABLE REPORT SEWA</h1>
         </div>
         <div className="div-frgmnt" style={{ margin: "10rem" }}>
           <div style={{ display: "flex", alignItems: "center" }}>
@@ -272,7 +277,12 @@ function ReportSewa() {
           </Container>
         </Navbar>
         <div>
-          <h1> TABLE REPORT SEWA</h1>
+          <h1  style={{       
+                   backgroundColor: "white",
+                   width:"300px",
+                   marginLeft:"470px",
+                   borderRadius:"10px"
+}}> TABLE REPORT SEWA</h1>
         </div>
         <div className="div-frgmnt" style={{ margin: "10rem" }}>
           <div style={{ display: "flex", alignItems: "center" }}>

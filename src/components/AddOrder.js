@@ -49,6 +49,7 @@ function Add() {
       room: room,
       booking: booking,
       extratime: extratime.toString(),
+      approve: false
     };
 
     try {
@@ -65,7 +66,7 @@ function Add() {
       console.log(error);
     }
 
-    history("/ruangTunggu");
+    history("/tableOrder");
   };
   const handleProfile = () => {
     navigate(-1);

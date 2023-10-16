@@ -142,7 +142,13 @@ const handleProfile = () => {
             </Container>
           </Navbar>
           <div>
-            <h1>TABLE COSTUMERS</h1>
+           <h1  style={{       
+                   backgroundColor: "white",
+                   width:"300px",
+                   marginLeft:"470px",
+                   borderRadius:"10px",
+                   textAlign:"center"
+}}>TABLE COSTUMERS</h1>
           </div>
           <div className="div-frgmnt" style={{ margin: "10rem" }}>
             <div style={{ display: "flex", alignItems: "center" }}>

@@ -213,7 +213,13 @@ function Tabel() {
             </Container>
           </Navbar>
           <div>
-            <h1>TABLE ROOMS</h1>
+           <marquee> <h1  style={{       
+                   backgroundColor: "white",
+                   width:"300px",
+                   marginLeft:"470px",
+                   borderRadius:"10px",
+                   
+}}>TABLE ROOMS</h1></marquee>
           </div>
           <div className="div-frgmnt" style={{ margin: "10rem" }}>
             <div style={{ display: "flex", alignItems: "center" }}>
@@ -359,7 +365,13 @@ function Tabel() {
             </Container>
           </Navbar>
           <div>
-            <h1>TABLE ROOMS</h1>
+           <h1 style={{       
+                   backgroundColor: "white",
+                   width:"300px",
+                   marginLeft:"470px",
+                   borderRadius:"10px",
+                  
+}} >TABLE ROOMS</h1>
           </div>
           <div className="div-frgmnt" style={{ margin: "10rem" }}>
             <div style={{ display: "flex", alignItems: "center" }}>

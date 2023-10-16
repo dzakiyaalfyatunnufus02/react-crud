@@ -159,6 +159,15 @@ function TableOrder() {
     getOperator();
     history("/tableOrder");
   };
+  const print = () => {
+    Swal.fire({
+      position: "top-middle",
+      icon: "success",
+      title: "LOGOUT Berhasil!!",
+      showConfirmButton: false,
+      timer: 2500,
+    });
+  }
 
   useEffect(() => {
     getOrder();
@@ -210,7 +219,12 @@ function TableOrder() {
               </Container>
             </Navbar>
             <div>
-              <h1> TABLE ORDERS</h1>
+              <h1  style={{       
+                   backgroundColor: "white",
+                   width:"300px",
+                   marginLeft:"470px",
+                   borderRadius:"10px"
+}}> TABLE ORDERS</h1>
             </div>
             <div className="div-frgmnt" style={{ margin: "10rem" }}>
               <div style={{ display: "flex", alignItems: "center" }}>
@@ -335,7 +349,7 @@ function TableOrder() {
                 <Navbar.Collapse id="basic-navbar-nav">
                   <Nav className="me-auto">
                     <Nav.Link href="/home">Home</Nav.Link>
-                    <Nav.Link href="/tableOrder">Approve List</Nav.Link>
+                    <Nav.Link href="/tableOrder">Orders</Nav.Link>
                     <Nav.Link href="/tableCostumer">Costumer</Nav.Link>
                     <Nav.Link href="/reportSewa">Report Sewa</Nav.Link>
                     <Nav.Link href="/table">Table</Nav.Link>
@@ -369,7 +383,13 @@ function TableOrder() {
               </Container>
             </Navbar>
             <div>
-              <h1>TABLE ORDERS</h1>
+              <h1  style={{       
+                   backgroundColor: "white",
+                   width:"300px",
+                   marginLeft:"470px",
+                   borderRadius:"10px",
+                   textAlign:"center"
+}}>TABLE ORDERS</h1>
             </div>
             <div className="div-frgmnt" style={{ margin: "10rem" }}>
               <div style={{ display: "flex", alignItems: "center" }}>
@@ -438,6 +458,7 @@ function TableOrder() {
                             <button className="btn-edt">EDIT</button>
                           </Link>
                           &nbsp;
+                          
                           <button
                             className="btn-dlt"
                             onClick={() => handleDelete(item.id)}
@@ -445,7 +466,16 @@ function TableOrder() {
                             DELETE
                           </button>
                           &nbsp;
+                          <button
+                           disabled={item.approve ? false : true}
+                            className="btn-ctk"
+                            onClick={() => print(item.id)}
+                          >
+                            CETAK
+                          </button>
+                          &nbsp;
                         </td>
+                        
                       </tr>
                     ))
                   ) : (
